@@ -1,0 +1,334 @@
+{
+  "api": {
+    "require_startup_execution": false,
+    "modules": []
+  },
+  "react_native": true,
+  "dependency_repository_url": [],
+  "dependency_name": "@applicaster/quick-brick-login-starter-kit",
+  "dependency_version": "0.0.1",
+  "platform": "tvos",
+  "author_name": "Olga Duk",
+  "author_email": "oduk@scand.com",
+  "manifest_version": "0.0.2",
+  "name": "QuickBrick Login Starter",
+  "description": "Login hook plugin starter kit",
+  "type": "general",
+  "screen": true,
+  "identifier": "zapp-login-plugin-starter",
+  "ui_builder_support": true,
+  "whitelisted_account_ids": [
+    "5a4516fa41442c000b0195d6",
+    "5c85455842b06d000836d041"
+  ],
+  "min_zapp_sdk": "1.0.0",
+  "deprecated_since_zapp_sdk": "",
+  "unsupported_since_zapp_sdk": "",
+  "preload": true,
+  "general": {
+    "fields": [
+      {
+        "type": "switch",
+        "key": "is_flow_blocker",
+        "tooltip_text": "Define if hook will block flow in case cancellation",
+        "initial_value": true
+      },
+      {
+        "type": "switch",
+        "key": "allow_screen_plugin_presentation",
+        "tooltip_text": "Define if",
+        "initial_value": true
+      },
+      {
+        "group": true,
+        "label": "General Settings",
+        "tooltip": "These fields determine how the plugin is triggered and basic behavior.",
+        "folded": true,
+        "fields": [
+          {
+            "key": "activation_code_endpoint",
+            "type": "text_input",
+            "label": "Activation Code Service",
+            "label_tooltip": "This field determines the URL for the web service in charge of generating activation codes.",
+            "initial_value": "",
+            "placeholder": "e.g. https://mydoamin.com/getActivationCode"
+          },
+          {
+            "key": "activation_code_parameter",
+            "type": "switch",
+            "label": "Prepopulate Activation Code Parameter",
+            "label_tooltip": "<p>If this field is on, the plugin will add a parameter to the activation service URL with the activation code as value. The final URL will serve as base for the QR Code generation.</p><p>\"e.g. https://mydoamin.com/getActivationCode?ActivationCode=SC4558U\"</p>",
+            "initial_value": "true"
+          },
+          {
+            "key": "activation_code_parameter_name",
+            "type": "text_input",
+            "label": "Activation Code Parameter Name",
+            "label_tooltip": "Parameter Name to add to the service URL.",
+            "initial_value": "",
+            "placeholder": "e.g ActivationCode",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/activation_code_parameter"
+              }
+            ]
+          },
+          {
+            "key": "heartbeat_activation_service",
+            "type": "text_input",
+            "label": "Heartbeat Activation Service",
+            "label_tooltip": "<p>This field determines the URL for the web service in charge of confirming the activation.</p><p>Commonly the service will return an HTTP 200 and an Authentication Token and useful user information(userID, username).</p>",
+            "initial_value": "",
+            "placeholder": "e.g. https://mydoamin.com/getToken"
+          }
+        ]
+      },
+      {
+        "group": true,
+        "label": "Screen Design and Text",
+        "tooltip": "These fields affect the design of the main screen plugin.",
+        "folded": true,
+        "fields": [
+          {
+            "key": "main_instructions_text",
+            "type": "text_input",
+            "label": "Main Instructions Text",
+            "label_tooltip": "Text at the top of the screen. Briefly introduces purpose and instructions about the plugin to the user.",
+            "initial_value": "WELCOME, SING IN BY ACTIVATING YOUR DEVICE",
+            "placeholder": "WELCOME, SING IN BY ACTIVATING YOUR DEVICE"
+          },
+          {
+            "key": "main_instructions_font",
+            "type": "ios_font_selector",
+            "label": "Main Instructions Font",
+            "label_tooltip": "Font for Main Instructions Text.",
+            "initial_value": ""
+          },
+          {
+            "key": "main_instructions_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Main Instructions Text.",
+            "initial_value": "41"
+          },
+          {
+            "key": "main_instructions_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Main Instructions Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "go_to_url_text",
+            "type": "text_input",
+            "label": "Go To Text",
+            "label_tooltip": "Text indicating clear instructions on what to do with the URL on screen.",
+            "initial_value": "Go to:",
+            "placeholder": "Go to:"
+          },
+          {
+            "key": "go_to_url_font",
+            "type": "ios_font_selector",
+            "label": "Go To Font",
+            "label_tooltip": "Font for Go To Text.",
+            "initial_value": ""
+          },
+          {
+            "key": "go_to_url_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Go To Text.",
+            "initial_value": "30"
+          },
+          {
+            "key": "go_to_url_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Go To Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "activation_url_text",
+            "type": "text_input",
+            "label": "Activation URL",
+            "label_tooltip": "URL referring the web portal where the user l completes the activation flow.",
+            "initial_value": "",
+            "placeholder": "www.mydomain.com/activate"
+          },
+          {
+            "key": "activation_url_font",
+            "type": "ios_font_selector",
+            "label": "Activation URL Font",
+            "label_tooltip": "Font for Activation URL.",
+            "initial_value": ""
+          },
+          {
+            "key": "activation_url_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Activation URL.",
+            "initial_value": "30"
+          },
+          {
+            "key": "activation_url_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Activation URL.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "code_instructions_text",
+            "type": "text_input",
+            "label": "Code Instructions Text",
+            "label_tooltip": "Text indicating clear instructions on what to do with the activation code on screen.",
+            "initial_value": "Enter the activation code bellow:",
+            "placeholder": "Enter the activation code bellow:"
+          },
+          {
+            "key": "code_instructions_font",
+            "type": "ios_font_selector",
+            "label": "Code Instructions Font",
+            "label_tooltip": "Font for Code Instructions Text.",
+            "initial_value": ""
+          },
+          {
+            "key": "code_instructions_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Code Instructions Text.",
+            "initial_value": "30"
+          },
+          {
+            "key": "code_instructions_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Code Instructions Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "activation_code_font",
+            "type": "ios_font_selector",
+            "label": "Activation Code Font",
+            "label_tooltip": "Font for the automatically generated Activation Code.",
+            "initial_value": ""
+          },
+          {
+            "key": "activation_code_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for the automatically generated Activation Code.",
+            "initial_value": "105"
+          },
+          {
+            "key": "activation_code_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for the automatically generated Activation Code.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "qr_code_hint_text",
+            "type": "text_input",
+            "label": "QR Code Hint Text",
+            "label_tooltip": "Brief instructions to advice the user about using the QR Code to access the Activation URL.",
+            "initial_value": "Or Scan the QR Code",
+            "placeholder": "Or Scan the QR Code"
+          },
+          {
+            "key": "qr_code_hint_font",
+            "type": "ios_font_selector",
+            "label": "QR Code Hint Font",
+            "label_tooltip": "Font for QR Code Hint Text.",
+            "initial_value": ""
+          },
+          {
+            "key": "qr_code_hint_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for QR Code Hint Text.",
+            "initial_value": "30"
+          },
+          {
+            "key": "qr_code_hint_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for QR Code Hint Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "additional_info",
+            "type": "switch",
+            "label": "Additional Instructions",
+            "label_tooltip": "If this field is on, the plugin makes visible a text at the bottom of the screen for additional instructions.",
+            "initial_value": "true"
+          },
+          {
+            "key": "additional_info_text",
+            "type": "text_input",
+            "label": "Optional Instructions Text",
+            "label_tooltip": "Additional instructions commonly use for support or terms of use links.",
+            "initial_value": "If you need support, please visit http://www.mydomain.com/support",
+            "placeholder": "If you need support, please visit http://www.mydomain.com/support",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/additional_info"
+              }
+            ]
+          },
+          {
+            "key": "additional_info_font",
+            "type": "ios_font_selector",
+            "label": "Optional Instructions Font",
+            "label_tooltip": "Font for Optional Instructions.",
+            "initial_value": "",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/additional_info"
+              }
+            ]
+          },
+          {
+            "key": "additional_info_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Optional Instructions.",
+            "initial_value": "30",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/additional_info"
+              }
+            ]
+          },
+          {
+            "key": "additional_info_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Optional Instructions.",
+            "initial_value": "#545A5C",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/additional_info"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "custom_configuration_fields": [
+    {
+      "key": "ios_assets_bundle",
+      "type": "uploader",
+      "label": "tvOS Design Assets",
+      "label_tooltip": "Please upload a zip file to provide the design assets for this plugin. For guidance and proper naming of the assets, please refer to this <a href='https://assets-production.applicaster.com.s3.amazonaws.com/applicaster-employees/marketplace/OPT/Login%20Plugin%20-%20Designer%20Documentation.sketch'>resource</a>."
+    }
+  ],
+  "targets": [
+    "tv"
+  ],
+  "react_bundle_url": "https://",
+  "extra_dependencies": [],
+  "npm_dependencies": [],
+  "project_dependencies": []
+}
