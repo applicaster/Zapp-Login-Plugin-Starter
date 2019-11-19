@@ -1,6 +1,7 @@
-package com.applicaster.cam.starterkit
+package com.applicaster.cam.starterkit.cam
 
 import android.content.Context
+import com.applicaster.cam.starterkit.R
 import com.google.gson.Gson
 import java.io.IOException
 import java.nio.charset.Charset

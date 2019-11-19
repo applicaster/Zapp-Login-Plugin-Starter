@@ -1,25 +1,11 @@
-package com.applicaster.cam.starterkit
+package com.applicaster.cam.starterkit.cam
 
-import android.content.Context
 import android.os.Handler
 import com.android.billingclient.api.Purchase
 import com.applicaster.cam.*
+import com.applicaster.cam.starterkit.ContentAccessService
 
-class MockCamContract(private val context: Context) : ICamContract {
-    override fun loadEntitlements(callback: EntitlementsLoadCallback) {
-        Handler().postDelayed({ callback.onSuccess(arrayListOf()) }, 1250)
-    }
-
-    override fun onItemPurchased(purchase: List<Purchase>, callback: PurchaseCallback) {
-        Handler().postDelayed({ callback.onActionSuccess() }, 1250)
-    }
-
-    override fun onPurchasesRestored(purchases: List<Purchase>, callback: RestoreCallback) {
-        Handler().postDelayed({ callback.onActionSuccess() }, 1250)
-    }
-
-    override fun isPurchaseRequired() = true
-
+class MockCamContract(private val contentAccessService: ContentAccessService) : ICamContract {
     override fun login(authFieldsInput: HashMap<String, String>, callback: LoginCallback) {
         Handler().postDelayed({ callback.onActionSuccess() }, 1250)
     }
@@ -40,9 +26,23 @@ class MockCamContract(private val context: Context) : ICamContract {
         Handler().postDelayed({ callback.onFacebookAuthSuccess() }, 1250)
     }
 
+    override fun loadEntitlements(callback: EntitlementsLoadCallback) {
+        Handler().postDelayed({ callback.onSuccess(arrayListOf()) }, 1250)
+    }
+
+    override fun onItemPurchased(purchase: List<Purchase>, callback: PurchaseCallback) {
+        Handler().postDelayed({ callback.onActionSuccess() }, 1250)
+    }
+
+    override fun onPurchasesRestored(purchases: List<Purchase>, callback: RestoreCallback) {
+        Handler().postDelayed({ callback.onActionSuccess() }, 1250)
+    }
+
     override fun isUserLogged() = false
 
-    override fun getPluginConfig() = MockPluginConfiguration.getPluginConfiguration(context)
+    override fun isPurchaseRequired() = true
+
+    override fun getPluginConfig() = contentAccessService.pluginConfig
 
     override fun isRedeemActivated(): Boolean = false
 

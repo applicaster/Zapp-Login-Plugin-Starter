@@ -1,4 +1,4 @@
-package com.applicaster.cam.starterkit
+package com.applicaster.cam.starterkit.cam
 
 import com.applicaster.cam.IAnalyticsDataProvider
 import com.applicaster.cam.PurchaseData

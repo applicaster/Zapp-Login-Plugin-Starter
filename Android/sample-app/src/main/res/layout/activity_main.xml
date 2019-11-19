@@ -10,7 +10,7 @@
         android:id="@+id/mock_start_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I'm cell with video, click on me!!"
+        android:text="I'm cell with video, click on me!"
         android:layout_centerInParent="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
