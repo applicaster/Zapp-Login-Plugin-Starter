@@ -1,0 +1,128 @@
+PODS:
+  - Alamofire (4.8.2)
+  - ApplicasterIAP (0.0.4)
+  - ApplicasterSDK (10.0.9):
+    - Alamofire (= 4.8.2)
+    - CocoaLumberjack/Swift (= 3.5.3)
+    - FBSDKCoreKit (= 5.2.3)
+    - FBSDKLoginKit (= 5.2.3)
+    - FBSDKShareKit (= 5.2.3)
+    - SSZipArchive (= 2.1.0)
+    - TTTAttributedLabel (= 2.1.0)
+    - TwitterKit (= 3.4.2)
+    - ZappAnalyticsPluginsSDK (~> 8.0.4)
+    - ZappGeneralPluginsSDK (~> 8.0.2)
+    - ZappLoginPluginsSDK (~> 8.0.1)
+    - ZappPlugins (~> 9.1.8)
+    - ZappPushPluginsSDK (~> 8.0.2)
+  - ApplicasterUIKit (7.0.4):
+    - ZappPlugins (~> 9.1.8)
+  - CAM (1.1.0):
+    - ApplicasterIAP
+    - ApplicasterSDK
+    - ZappPlugins
+  - CAMStarterKit (0.0.1):
+    - Alamofire
+    - CAM (= 1.1.0)
+    - ComponentsSDK (= 12.1.3)
+    - ZappLoginPluginsSDK (= 8.0.3)
+    - ZappPlugins
+  - CocoaLumberjack/Core (3.5.3)
+  - CocoaLumberjack/Swift (3.5.3):
+    - CocoaLumberjack/Core
+  - ComponentsSDK (12.1.3):
+    - ApplicasterSDK (~> 10.0.8)
+    - ApplicasterUIKit (~> 7.0.4)
+    - ZappAnalyticsPluginsSDK (~> 8.0.4)
+    - ZappGeneralPluginsSDK (~> 8.0.2)
+    - ZappNavigationBarPluginsSDK (~> 8.0.1)
+    - ZappPlugins (~> 9.1.8)
+  - FBSDKCoreKit (5.2.3):
+    - FBSDKCoreKit/Basics (= 5.2.3)
+    - FBSDKCoreKit/Core (= 5.2.3)
+  - FBSDKCoreKit/Basics (5.2.3)
+  - FBSDKCoreKit/Core (5.2.3):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.2.3):
+    - FBSDKCoreKit (~> 5.0)
+  - FBSDKShareKit (5.2.3):
+    - FBSDKCoreKit (~> 5.0)
+  - SSZipArchive (2.1.0)
+  - TTTAttributedLabel (2.1.0)
+  - TwitterCore (3.2.0)
+  - TwitterKit (3.4.2):
+    - TwitterCore (>= 3.2.0)
+  - ZappAnalyticsPluginsSDK (8.0.4):
+    - ZappPlugins
+  - ZappGeneralPluginsSDK (8.0.2):
+    - ZappPlugins
+  - ZappLoginPluginsSDK (8.0.3):
+    - Alamofire
+    - ZappPlugins
+  - ZappNavigationBarPluginsSDK (8.0.2):
+    - ZappPlugins (~> 9.1.8)
+  - ZappPlugins (9.1.9)
+  - ZappPushPluginsSDK (8.0.2):
+    - ZappPlugins
+
+DEPENDENCIES:
+  - CAMStarterKit (from `../Content Access Plugins Starter Kit/CAMStarterKit.podspec`)
+
+SPEC REPOS:
+  "git@github.com:applicaster/applicaster-cam-framework.git":
+    - CAM
+  "git@github.com:applicaster/applicaster-iap-framework.git":
+    - ApplicasterIAP
+  "git@github.com:applicaster/CocoaPods-Private.git":
+    - ZappAnalyticsPluginsSDK
+    - ZappGeneralPluginsSDK
+    - ZappLoginPluginsSDK
+    - ZappPushPluginsSDK
+  "git@github.com:applicaster/CocoaPods.git":
+    - ApplicasterSDK
+    - ApplicasterUIKit
+    - ComponentsSDK
+    - TTTAttributedLabel
+    - ZappPlugins
+  "git@github.com:applicaster/PluginsBuilderCocoaPods.git":
+    - ZappNavigationBarPluginsSDK
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CocoaLumberjack
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
+    - SSZipArchive
+    - TwitterCore
+    - TwitterKit
+
+EXTERNAL SOURCES:
+  CAMStarterKit:
+    :path: "../Content Access Plugins Starter Kit/CAMStarterKit.podspec"
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  ApplicasterIAP: 7feda96b051aa4e6ab36d2bc1a59e643a1e331a5
+  ApplicasterSDK: 8b7bd6161d5ceae9499563a98cd631302cd38f5c
+  ApplicasterUIKit: 0636c94e9cbd1af7f212f4e3d0b3bc658110fb42
+  CAM: 7a8a0558e20a0c2531726791d44cb2e77e6c459b
+  CAMStarterKit: c138575fb0692d0152e4794371aca445fbc5af96
+  CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
+  ComponentsSDK: ad295a25fe3782654ceae46002a584f3b7cdb898
+  FBSDKCoreKit: 5154c35d9058fd7dfa0445ba19e194c4b172fc32
+  FBSDKLoginKit: dc98b6bf12334f1a42f28d0457fffc9aa3d1eca5
+  FBSDKShareKit: 6f9c622f9a5d051f43f2dab6f753d5198422b89c
+  SSZipArchive: 1e8e53dcb11bca3ded4738958dc49fc467320a14
+  TTTAttributedLabel: f8c7f1dbc7b8f7168e23e8b4764dda2e3b74aae8
+  TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
+  TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
+  ZappAnalyticsPluginsSDK: 6f8edcddc12ae4001098a3fa6fe87e6fe1a013bd
+  ZappGeneralPluginsSDK: df966c141975d4b797f147b6c39e972d18aaa4f5
+  ZappLoginPluginsSDK: 0759a44470bde15635ec97696d0815154ab4a26a
+  ZappNavigationBarPluginsSDK: 19d9b826dfcdfedc328da7c0615d00ce64a032cc
+  ZappPlugins: 2bc8f25c9e28711ed5b8754cf1082e7cbc8748bb
+  ZappPushPluginsSDK: 2062e2487f3ac877c0ab1a807d1a7f8d357bd333
+
+PODFILE CHECKSUM: 802d12a7225207e4701cf2596bbab6d03e66971b
+
+COCOAPODS: 1.7.5
