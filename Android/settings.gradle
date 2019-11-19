@@ -1,0 +1,2 @@
+include ':sample-app', ':starter-kit'
+rootProject.name='Content Access Plugins Starter Kit'

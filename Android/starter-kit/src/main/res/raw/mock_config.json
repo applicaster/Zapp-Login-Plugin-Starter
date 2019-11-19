@@ -1,0 +1,141 @@
+{
+  "trigger_on_app_launch":"false",
+  "app_level_entitlements":"",
+  "default_authentication_screen":"Login",
+
+  "default_alert_text":"An error occurred trying to process your request. Please go back and try again.",
+  "design_assets":"",
+  "offer_alternative_authentication": "false",
+
+  "authentication_input_fields": "{\"Sign-up\":[{\"type\":\"EMAIL\",\"key\":\"email\",\"title\":\"Email\",\"hint\":\"Email\",\"mandatory\":true},{\"type\":\"PASSWORD\",\"key\":\"password\",\"title\":\"Password\",\"hint\":\"Password\",\"mandatory\":true},{\"type\":\"NUMBER\",\"key\":\"phone\",\"title\":\"Phone\",\"hint\":\"Phone\",\"mandatory\":true},{\"type\":\"TEXT\",\"key\":\"gender\",\"title\":\"Gender\",\"hint\":\"Gender\",\"mandatory\":false}],\"Login\":[{\"type\":\"EMAIL\",\"key\":\"email\",\"title\":\"Email\",\"hint\":\"Email\",\"mandatory\":true},{\"type\":\"PASSWORD\",\"key\":\"password\",\"title\":\"Password\",\"hint\":\"Password\",\"mandatory\":true}],\"Password-reset\":[{\"type\":\"EMAIL\",\"key\":\"email\",\"title\":\"Email\",\"hint\":\"Email\",\"mandatory\":true}]}",
+
+  "alternative_authentication_priority":"false",
+  "alternative_authentication_separator_text":"Or",
+  "alternative_authentication_prompt_text":"Login with:",
+
+  "restore_help_message_text":"If you’ve already made a purchase, you will be able to restore that purchase at no cost once you’ve logged in.",
+
+
+  "login_title_text":"Login to Your Account",
+  "login_button_text":"Login",
+  "password_reset_link_text":"Forgot Your Password?",
+  "sign_up_prompt_text":"Don’t have an account?",
+  "sign_up_link_text":"Sign Up",
+
+  "nonexistent_user_alert_text":"No user exists for this email",
+  "invalid_credentials_alert_text":"Invalid password was entered",
+  "sign_up_title_text":"Create an Account",
+  "sign_up_button_text":"Sign Up",
+  "login_prompt_text":"Already have an account?",
+  "login_link_text":"Log In",
+  "existing_user_alert_text":"This user already exists. Try logging in.",
+  "storefront_screen_title_text":"Choose a Subscription",
+  "storefront_screen_description_text":"",
+  "restore_prompt_text":"If you already purchased an account -",
+  "restore_link_text":"Restore Your Account",
+
+  "payment_option_button_text":"Subscribe for",
+  "legal_details_text":"Payment will be charged to iTunes Account at confirmation of purchase. Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period.Account will be charged for renewal within 24-hours prior to the end of the current period, and identify the cost of the renewal. Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user's Account Settings after purchase.Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.",
+  "password_reset_title_text":"Reset Your Password",
+  "password_reset_description_text":"Enter your email to reset your password:",
+  "password_reset_button_text":"Reset Password",
+
+  "confirmation_button_text":"OK",
+
+  "payment_confirmation_title_text":"Congratulations!",
+  "payment_confirmation_description_text":"You can now access locked content with this purchase",
+  "restore_purchase_confirmation_title_text":"Congratulations!",
+  "restore_purchase_confirmation_description_text":"Any pre-existing purchases you’ve made have been restored and assigned to your account.",
+  "password_reset_confirmation_title_text":"Password Reset Delivered",
+  "password_reset_confirmation_description_text":"Check your email in order reset your password for this account",
+
+  "invalid_email_alert_text":"Please enter a valid email address",
+  "required_field_alert_text":"Required Field",
+  "facebook_permissions_alert_text":"Please provide Facebook permission to share email information in order to login with Facebook.",
+
+  "input_field_label_font_ios":"",
+  "input_field_label_font_android":"",
+  "input_field_label_size_phone":"13",
+  "input_field_label_size_pad":"13",
+  "input_field_label_color":"#4a4a4a",
+
+  "action_button_font_ios":"",
+  "action_button_font_android":"",
+  "action_button_size_phone":"14",
+  "action_button_size_pad":"14",
+  "action_button_color":"#ffffff",
+
+  "prompt_font_ios":"",
+  "prompt_font_android":"",
+  "prompt_size_phone":"13",
+  "prompt_size_pad":"13",
+  "prompt_color":"#ffffff",
+
+  "link_font_ios":"",
+  "link_font_android":"",
+  "link_size_phone":"13",
+  "link_size_pad":"13",
+  "link_color":"#ffffff",
+
+  "screen_title_font_ios":"",
+  "screen_title_font_android":"",
+  "screen_title_size_phone":"19",
+  "screen_title_size_pad":"19",
+  "screen_title_color":"#ffffff",
+
+  "screen_description_font_ios":"",
+  "screen_description_font_android":"",
+  "screen_description_size_phone":"13",
+  "screen_description_size_pad":"13",
+  "screen_description_color":"#ffffff",
+
+  "alternative_authentication_separator_font_ios":"",
+  "alternative_authentication_separator_font_android":"",
+  "alternative_authentication_separator_size_phone":"12",
+  "alternative_authentication_separator_size_pad":"12",
+  "alternative_authentication_separator_color":"#ffffff",
+
+  "alternative_authentication_prompt_font_ios":"",
+  "alternative_authentication_prompt_font_android":"",
+  "alternative_auth_prompt_size_phone":"12",
+  "alternative_authentication_prompt_size_pad":"12",
+  "alternative_authentication_prompt_color":"#ffffff",
+
+  "reset_password_font_ios":"",
+  "reset_password_font_android":"",
+  "reset_password_size_phone":"11",
+  "reset_password_size_pad":"11",
+  "reset_password_color":"#ffffff",
+
+  "payment_option_title_font_ios":"",
+  "payment_option_title_font_android":"",
+  "payment_option_title_size_phone":"20",
+  "payment_option_title_size_pad":"20",
+  "payment_option_title_color":"#1f2021",
+
+  "payment_option_description_font_ios":"",
+  "payment_option_description_font_android":"",
+  "payment_option_description_size_phone":"14",
+  "payment_option_description_size_pad":"14",
+  "payment_option_description_color":"#1f2021",
+
+  "legal_details_background":"#122040",
+
+  "confirmation_title_font_ios":"",
+  "confirmation_title_font_android":"",
+  "confirmation_title_size_phone":"25",
+  "confirmation_title_size_pad":"25",
+  "confirmation_title_color":"#000000",
+
+  "confirmation_description_font_ios":"",
+  "confirmation_description_font_android":"",
+  "confirmation_description_size_phone":"20",
+  "confirmation_description_size_pad":"20",
+  "confirmation_description_color":"#000000",
+
+  "confirmation_button_font_ios":"",
+  "confirmation_button_font_android":"",
+  "confirmation_button_size_phone":"14",
+  "confirmation_button_size_pad":"14",
+  "confirmation_button_color":"#ffffff"
+}
