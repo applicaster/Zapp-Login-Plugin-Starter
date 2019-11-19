@@ -1,33 +1,50 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  Dimensions
 } from 'react-native';
 import Layout from "../../Common/Components/Layout";
 import LoginForm from '../Components/LoginForm';
 
+const { height } = Dimensions.get('window');
+
 function LoginScreen(props) {
 
-  const onLogin = () => {
-    // your login code here
-  };
+  const { onLogin } = props;
 
   return (
-    <Layout>
+    <Layout backgroundColor={'#D5D5D5'}>
       <View style={styles.loginContainer}>
-        <Text style={styles.title}>
+        <Text
+          style={styles.title}
+          numberOfLines={2}
+          ellipsizeMode={'tail'}
+        >
           Login Title
         </Text>
         <View style={styles.container}>
           <View style={styles.textContainer}>
-            <Text style={styles.mainDescription}>
+            <Text
+              style={styles.mainDescription}
+              numberOfLines={4}
+              ellipsizeMode={'tail'}
+            >
               Main Description
             </Text>
-            <Text style={styles.optionalRequirements}>
+            <Text
+              style={styles.optionalRequirements}
+              numberOfLines={4}
+              ellipsizeMode={'tail'}
+            >
               Optional requirements 1
             </Text>
-            <Text style={styles.optionalRequirements}>
+            <Text
+              style={styles.optionalRequirements}
+              numberOfLines={4}
+              ellipsizeMode={'tail'}
+            >
               Optional requirements 2
             </Text>
           </View>
@@ -43,7 +60,8 @@ function LoginScreen(props) {
 const styles = StyleSheet.create({
   loginContainer: {
     flex: 1,
-    width: '100%'
+    width: '100%',
+    height
   },
   title: {
     color: "#525A5C",

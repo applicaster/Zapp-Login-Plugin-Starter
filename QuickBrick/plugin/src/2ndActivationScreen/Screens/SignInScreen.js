@@ -3,12 +3,13 @@ import {View, Text, ActivityIndicator} from "react-native";
 import {localStorage} from "@applicaster/zapp-react-native-bridge/ZappStorage/LocalStorage";
 // import { trackEvent, identifyUser } from "../analytics/segment/index";
 import QRCode from "../Components/QRCode";
-import Layout from "../Components/Layout";
+import Layout from "../../Common/Components/Layout";
 
 function SignInScreen(props) {
   console.log(props, 'here we are');
 
   const [loading, setLoading] = useState(true);
+  const [pinCode, setPincode] = useState('');
 
   useEffect(() => signIn());
 
@@ -21,44 +22,68 @@ function SignInScreen(props) {
   };
 
   return (
-    <Layout>
+    <Layout backgroundColor={'#D5D5D5'}>
       <View style={styles.container}>
-        <Text style={styles.title}>
+        <Text
+          style={styles.title}
+          numberOfLines={2}
+          ellipsizeMode={'tail'}
+        >
           SIGN IN INTO YOUR OLYMPIC CHANNEL ACCOUNT
         </Text>
         <View style={styles.columnsContainer}>
           <View style={styles.leftColumn}>
-            <Text style={styles.text} adjustsFontSizeToFit>
+            <Text
+              style={styles.text}
+              adjustsFontSizeToFit
+              numberOfLines={1}
+              ellipsizeMode={'tail'}
+            >
               Go to:
             </Text>
-            <Text style={{...styles.text, ...styles.url}} adjustsFontSizeToFit>
+            <Text
+              style={{...styles.text, ...styles.url}}
+              adjustsFontSizeToFit
+            >
               account.olympicchannel.com
             </Text>
-            <Text style={{...styles.text, marginBottom: 30}} adjustsFontSizeToFit>
+            <Text
+              style={{...styles.text, marginBottom: 30}}
+              numberOfLines={2}
+              ellipsizeMode={'tail'}
+            >
               Enter the activation code below
             </Text>
             {
               loading
                 ? <View style={styles.pinCodeSpinner}>
-                  <ActivityIndicator size="small" color="#525A5C"/>
-                </View>
-                : <Text style={styles.pinCode} adjustsFontSizeToFit>{this.state.devicePinCode}</Text>
+                    <ActivityIndicator size="small" color="#525A5C"/>
+                  </View>
+                : <Text style={styles.pinCode} adjustsFontSizeToFit>
+                    {pinCode}
+                  </Text>
             }
           </View>
           <View style={styles.rightColumn}>
             {
               loading
                 ? <View style={styles.loadContainer}>
-                  <ActivityIndicator size="large" color="#525A5C"/>
-                </View>
-                : <QRCode url={`${gygiaQrUrl}${this.state.devicePinCode}`}/>
+                    <ActivityIndicator size="large" color="#525A5C"/>
+                  </View>
+                : <QRCode url={``}/>
             }
           </View>
         </View>
         <View style={styles.bottomText}>
-          <Text style={styles.text}>
-            If you need support, please visit <Text
-            style={{...styles.text, color: '#525A5C', marginLeft: 32}}> http://olympicchannel.com/signin/support</Text>
+          <Text
+            style={styles.text}
+            numberOfLines={2}
+            ellipsizeMode={'tail'}
+          >
+            If you need support, please visit
+            <Text style={{...styles.text, color: '#525A5C', marginLeft: 32}}>
+              http://olympicchannel.com/signin/support
+            </Text>
           </Text>
         </View>
       </View>
@@ -89,14 +114,14 @@ const styles = {
     color: '#525A5C'
   },
   columnsContainer: {
-    width: 1110,
+    maxWidth: 1110,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     paddingTop: 30
   },
   bottomText: {
-    width: 1110,
+    maxWidth: 1110,
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 150
