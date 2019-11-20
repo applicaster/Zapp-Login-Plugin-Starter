@@ -15,6 +15,12 @@ import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import java.io.Serializable
 
+/**
+ * Sample of Applicaster login plugin which is added as plugin screen and hook screen
+ * Instance of this class will be created and called by the Applicaster SDK
+ * Implemented behaviour is just sample of CAM usage, inheritance and interfaces can be modified or
+ * removed
+ */
 class SampleLoginPlugin: LoginContract, PluginScreen, HookScreen {
 
     private val contentAccessService = ContentAccessService()
@@ -30,22 +36,45 @@ class SampleLoginPlugin: LoginContract, PluginScreen, HookScreen {
         // Empty body
     }
 
+    /**
+     * Login with playable
+     */
     override fun login(context: Context?, playable: Playable?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("Handle login logic")
     }
 
+    /**
+     * Handling user token
+     */
     override fun isTokenValid(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO(" Add user token handling ")
     }
 
+    /**
+     * Handling user token
+     */
     override fun setToken(token: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO(" Add user token handling ")
     }
 
+    /**
+     * Handling user token
+     */
+    override fun getToken(): String {
+        TODO(" Add user token handling ")
+    }
+
+    /**
+     * Check whether item locked or not
+     */
     override fun isItemLocked(model: Any?): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("Handle purchasable/locked items")
     }
 
+    /**
+     * Called on the application startup
+     *
+     */
     override fun executeOnStartup(context: Context?, listener: HookListener?) {
         launch(UI) {
             screenLoader.loadScreensData()?.let { loadAuthConfigJson(it) }
@@ -73,24 +102,22 @@ class SampleLoginPlugin: LoginContract, PluginScreen, HookScreen {
         }
     }
 
-    override fun getToken(): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+
 
     override fun setPluginConfigurationParams(params: MutableMap<Any?, Any?>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("handle plugin configuration params if necessary")
     }
 
     override fun handlePluginScheme(context: Context?, data: MutableMap<String, String>?): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("handle plugin scheme params if necessary")
     }
 
     override fun executeOnApplicationReady(context: Context?, listener: HookListener?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("handle app ready execution if necessary")
     }
 
     override fun logout(context: Context?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("handle logout")
     }
 
     override fun generateFragment(screenMap: HashMap<String, Any>?, dataSource: Serializable?): Fragment? =
@@ -117,11 +144,11 @@ class SampleLoginPlugin: LoginContract, PluginScreen, HookScreen {
         }
 
     override fun executeHook(context: Context, hookListener: HookScreenListener, hookProps: Map<String, Any>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("handle plugin trigger from hook")
     }
 
     override fun getListener(): HookScreenListener {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("handle hook listener")
     }
 
     override fun isFlowBlocker(): Boolean = true
