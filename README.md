@@ -19,7 +19,7 @@ https://github.com/applicaster/applicaster-iap-framework
 
 ### QuickBrick
 
-[QuickBrick](https://github.com/applicaster/Zapp-Login-Plugin-Starter/wiki/QuickBrick
+[QuickBrick](https://github.com/applicaster/Zapp-Login-Plugin-Starter/wiki/QuickBrick)
 
 ## Code of Conduct
 
