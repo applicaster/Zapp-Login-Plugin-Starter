@@ -51,14 +51,24 @@ import ComponentsSDK
         assert(false, "Unexpected call of initialiizer")
     }
     
+    /**
+     This constructor is called before trigger on app launch event. Configuration is retrieved here.
+     You have to replace 'Cleeng' with ID of your plugin.
+     */
+    
     public required init(configurationJSON: NSDictionary?) {
         super.init()
         
         self.configurationJSON = configurationJSON
-        self.pluginConfiguration = ZLComponentsManager.screenComponentForPluginID("Cleeng")?.general ?? [:]
+        let pluginID = "Cleeng"
+        self.pluginConfiguration = ZLComponentsManager.screenComponentForPluginID(pluginID)?.general ?? [:]
     }
     
     // MARK: - ZPUIBuilderPluginsProtocol
+    
+    /**
+     This constructor is called before hook. Configuration is retrieved here.. Also we can get and save ZPPlayable item here.
+     */
     
     public required init?(pluginModel: ZPPluginModel, screenModel: ZLScreenModel, dataSourceModel: NSObject?) {
         super.init()
@@ -86,6 +96,10 @@ import ComponentsSDK
         completion(false)
     }
     
+    /**
+     The method triggers CAM workflow on hook.
+     */
+    
     public func executeHook(presentationIndex: NSInteger,
                             dataDict: [String: Any]?,
                             taskFinishedWithCompletion: @escaping (Bool, NSError?, [String: Any]?) -> Void) {
@@ -107,6 +121,10 @@ import ComponentsSDK
 
         executeTriggerOnAppLaunchFlow(displayViewController: displayViewController, completion: completion)
     }
+    
+    /**
+     The method triggers CAM workflow after app launch.
+     */
     
     private func executeTriggerOnAppLaunchFlow(displayViewController: UIViewController?,
                                                completion: (() -> Swift.Void)?) {
@@ -137,6 +155,10 @@ import ComponentsSDK
     }
     
     // MARK: - ZPLoginProviderProtocol
+    
+    /*
+    Create and display logic related to CAM.
+    */
     
     public func login(_ additionalParameters: [String: Any]?,
                       completion: @escaping ((ZPLoginOperationStatus) -> Void)) {
@@ -192,6 +214,10 @@ import ComponentsSDK
 
 extension CAMStarterKitLoginPlugin: CAMDelegate {
     
+    /**
+     Default implementation. In general there are no reasons to change it.
+     */
+    
     public func getPluginConfig() -> [String: String] {
         return camConfiguration
     }
@@ -214,30 +240,68 @@ extension CAMStarterKitLoginPlugin: CAMDelegate {
         
     }
     
+    /**
+     Auth data contains user input in Login screen.
+     Possible keys are described in configration json of plugin.
+     [For more information, see](https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration)
+     */
+    
     public func login(authData: [String: String], completion: @escaping (Result<Void, Error>) -> Void) {
 
     }
+    
+    /**
+     Auth data contains user input in Sign-Up screen.
+     Possible keys are described in configration json of plugin.
+     [For more information, see](https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration)
+     */
     
     public func signUp(authData: [String: String], completion: @escaping (Result<Void, Error>) -> Void) {
 
     }
     
+    /**
+     Auth data contains user input in Reset Password screen.
+     Possible keys are described in configration json of plugin.
+     [For more information, see](https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration)
+     */
+    
     public func resetPassword(data: [String: String], completion: @escaping (Result<Void, Error>) -> Void) {
         
     }
+    
+    /**
+     This method is used by CAM to show available products on storefront screen.
+     General flow looks like:
+     1. You get list of apple product ids (hard-coded, API call, whatever).
+     2. Call completion closure with these ids.
+     3. CAM will retrieve all necessary data from App Store and will show available items.
+     */
     
     public func availableProducts(completion: @escaping (Result<[String], Error>) -> Void) {
         
     }
     
+    /**
+     Called right after purchase was done. Here you should call API of your server to register purchase.
+     */
+    
     public func itemPurchased(purchasedItem: PurchasedProduct, completion: @escaping (Result<Void, Error>) -> Void) {
         
     }
+    
+    /**
+     Called after restored purchases were retrieved from the App Store. Here you should call API of your server to register purchases.
+     */
     
     public func itemsRestored(restoredItems: [PurchasedProduct],
                               completion: @escaping (Result<Void, Error>) -> Void) {
         
     }
+    
+    /**
+     Some analytics can be collected only from plugin itself. 
+     */
     
     public func analyticsStorage() -> AnalyticsStorageProtocol {
         return analytics
