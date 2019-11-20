@@ -1,4 +1,4 @@
-package com.applicaster.cam.starterkit.cam
+package com.applicaster.cam.starterkit.cam.mocks
 
 import android.content.Context
 import com.applicaster.cam.starterkit.R
@@ -6,8 +6,13 @@ import com.google.gson.Gson
 import java.io.IOException
 import java.nio.charset.Charset
 
-
-object MockPluginConfiguration {
+/**
+ *  This class contains request for the mocked plugin config which is created from json in assets.
+ *  IT IS MADE ONLY FOR THE DEVELOPMENT PURPOSES
+ *
+ *  For the published Applicaster plugin this config will be provided by the SDK (based on Zapp UI Builder config)
+ */
+object MockPluginConfigurator {
 
     fun getPluginConfiguration(context: Context): Map<String, String> =
             Gson().fromJson(getConfigFromAssets(context), Map::class.java) as Map<String, String>

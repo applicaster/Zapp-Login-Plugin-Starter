@@ -4,6 +4,7 @@ import android.os.Handler
 import com.android.billingclient.api.Purchase
 import com.applicaster.cam.*
 import com.applicaster.cam.starterkit.ContentAccessService
+import com.applicaster.cam.starterkit.cam.mocks.AnalyticsDataProviderMock
 
 class MockCamContract(private val contentAccessService: ContentAccessService) : ICamContract {
     override fun login(authFieldsInput: HashMap<String, String>, callback: LoginCallback) {
