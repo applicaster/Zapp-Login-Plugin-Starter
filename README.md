@@ -10,13 +10,16 @@ https://github.com/applicaster/applicaster-iap-framework
 ## Getting Started
 
 ### Android
-`TBD`
+
+[Android Wiki](https://github.com/applicaster/Zapp-Login-Plugin-Starter/wiki/Android)
 
 ### iOS
-`TBD`
 
-## QuickBrick
-`TBD`
+[iOS](https://github.com/applicaster/Zapp-Login-Plugin-Starter/wiki/iOS)
+
+### QuickBrick
+
+[QuickBrick](https://github.com/applicaster/Zapp-Login-Plugin-Starter/wiki/QuickBrick
 
 ## Code of Conduct
 
