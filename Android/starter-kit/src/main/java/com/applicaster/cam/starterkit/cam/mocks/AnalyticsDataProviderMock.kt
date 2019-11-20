@@ -1,4 +1,4 @@
-package com.applicaster.cam.starterkit.cam
+package com.applicaster.cam.starterkit.cam.mocks
 
 import com.applicaster.cam.IAnalyticsDataProvider
 import com.applicaster.cam.PurchaseData
