@@ -3,8 +3,11 @@
 Login/Payments Plugins Starter Kit
 
 Sample Login plugin implementation based on the Content Access Manager framework for Android and iOS:
+
 https://github.com/applicaster/applicaster-cam-framework
-and the In-App Purchase framework for Android and iOS.:
+
+and the In-App Purchase framework for Android and iOS:
+
 https://github.com/applicaster/applicaster-iap-framework
 
 ## Getting Started
@@ -15,11 +18,11 @@ https://github.com/applicaster/applicaster-iap-framework
 
 ### iOS
 
-[iOS](https://github.com/applicaster/Zapp-Login-Plugin-Starter/wiki/iOS)
+[iOS Wiki](https://github.com/applicaster/Zapp-Login-Plugin-Starter/wiki/iOS)
 
 ### QuickBrick
 
-[QuickBrick](https://github.com/applicaster/Zapp-Login-Plugin-Starter/wiki/QuickBrick)
+[QuickBrick Wiki](https://github.com/applicaster/Zapp-Login-Plugin-Starter/wiki/QuickBrick)
 
 ## Code of Conduct
 
