@@ -18,7 +18,7 @@ import com.applicaster.cam.starterkit.cam.mocks.AnalyticsDataProviderMock
 class MockCamContract(private val contentAccessService: ContentAccessService) : ICamContract {
 
     /**
-     * This call will be triggered by CAM when user will fill all auth fields on login screen and
+     * This call will be triggered by CAM when user will fill all mandatory auth fields on login screen and
      * click action button
      * @param authFieldsInput contains pair of auth field key and value
      * Sample of the map that will be passed with default auth fields config:
@@ -38,7 +38,7 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
     }
 
     /**
-     * This call will be triggered by CAM when user will fill all auth fields on sign up screen and
+     * This call will be triggered by CAM when user will fill all mandatory auth fields on sign up screen and
      * click action button
      * @param authFieldsInput contains pair of auth field key and value
      * Sample of the map that will be passed with default auth fields config:
@@ -56,7 +56,7 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
     }
 
     /**
-     * This call will be triggered by CAM when user will fill all auth fields on password reset screen
+     * This call will be triggered by CAM when user will fill all mandatory fields on password reset screen
      * and click action button
      * @param authFieldsInput contains pair of auth field key and value
      * Sample of the map that will be passed with default auth fields config:
