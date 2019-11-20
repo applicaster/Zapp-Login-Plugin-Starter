@@ -25,14 +25,6 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
 
     private val TAG = SampleLoginPlugin::class.java.simpleName
 
-    override fun login(
-            context: Context?,
-            additionalParams: MutableMap<Any?, Any?>?,
-            callback: LoginContract.Callback?
-    ) {
-        // Empty body
-    }
-
     override var hook: HashMap<String, String?> = hashMapOf()
         get() = field
         set(value) {
@@ -65,6 +57,17 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
      */
     override fun login(context: Context?, playable: Playable?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
         TODO("Handle login logic")
+    }
+
+    /**
+     * Login without playable
+     */
+    override fun login(
+            context: Context?,
+            additionalParams: MutableMap<Any?, Any?>?,
+            callback: LoginContract.Callback?
+    ) {
+        TODO("Handle login logic if it will be necessary")
     }
 
     /**
