@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -13,9 +13,10 @@ const { height } = Dimensions.get('window');
 function LoginScreen(props) {
 
   const { onLogin } = props;
+  const [error, setError] = useState(null);
 
   return (
-    <Layout backgroundColor={'#D5D5D5'}>
+    <Layout backgroundColor={'#D5D5D5'} error={error}>
       <View style={styles.loginContainer}>
         <Text
           style={styles.title}

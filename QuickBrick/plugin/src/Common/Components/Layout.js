@@ -1,10 +1,11 @@
 import React from 'react';
 import { Dimensions, View, Image } from "react-native";
+import ErrorComponent from '../../LoginScreen/Components/ErrorComponent';
 
 const { height } = Dimensions.get('window');
 
 function Layout(props) {
-  const { backgroundColor } = props;
+  const { backgroundColor, error } = props;
   return (
     <View style={{...styles.container, backgroundColor}}>
       <View style={styles.logoContainer}>
@@ -14,6 +15,9 @@ function Layout(props) {
           source={{uri: "https://assets-production.applicaster.com/static/olympic-channel/images/oc-logo.png"}}
         />
       </View>
+      {
+        error ? <ErrorComponent /> : null
+      }
       <View style={styles.subContainer}>
         {props.children}
       </View>
