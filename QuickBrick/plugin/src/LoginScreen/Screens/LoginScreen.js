@@ -5,13 +5,12 @@ import {
   StyleSheet,
   Dimensions
 } from 'react-native';
-import Layout from "../../Common/Components/Layout";
+import Layout from '../../Common/Components/Layout';
 import LoginForm from '../Components/LoginForm';
 
 const { height } = Dimensions.get('window');
 
 function LoginScreen(props) {
-
   const { onLogin } = props;
   const [error, setError] = useState(null);
 
@@ -50,7 +49,7 @@ function LoginScreen(props) {
             </Text>
           </View>
           <View style={styles.formContainer}>
-            <LoginForm onLogin={onLogin}/>
+            <LoginForm onLogin={onLogin} />
           </View>
         </View>
       </View>
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
     height
   },
   title: {
-    color: "#525A5C",
+    color: '#525A5C',
     fontSize: 42,
     fontWeight: 'bold',
     marginBottom: 100
@@ -86,13 +85,13 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end'
   },
   mainDescription: {
-    color: "#525A5C",
+    color: '#525A5C',
     fontSize: 36,
     fontWeight: 'bold',
     marginBottom: 20
   },
   optionalRequirements: {
-    color: "#525A5C",
+    color: '#525A5C',
     fontSize: 30,
     fontWeight: 'normal',
     marginBottom: 10

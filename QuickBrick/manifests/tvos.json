@@ -614,14 +614,6 @@
                 "initial_value": "#545A5C"
               },
               {
-                "key": "username_password_empty_text",
-                "type": "text_input",
-                "label": "Username Password Empty Notice Text",
-                "label_tooltip": "Text for Username Password Empty Notice.",
-                "initial_value": "Username or/and password empty",
-                "placeholder": "Username or/and password empty"
-              },
-              {
                 "key": "username_password_empty_font",
                 "type": "ios_font_selector",
                 "label": "Username Password Empty Notice Font",

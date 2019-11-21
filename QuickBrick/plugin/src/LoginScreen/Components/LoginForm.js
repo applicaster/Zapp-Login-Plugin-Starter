@@ -1,46 +1,84 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
-  View,
   TextInput,
   StyleSheet,
-  ActivityIndicator
+  ActivityIndicator,
+  View
 } from 'react-native';
-import ButtonComponent from '../../Common/Components/Button';
+import { Formik } from 'formik';
+import validationSchema from '../Utils/validation';
+import Button from '../../Common/Components/Button';
+import ErrorMessage from './ErrorMessage';
 
-export default function LoginForm({onLogin}) {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+export default function LoginForm({ onLogin }) {
   const [loading, setLoading] = useState(false);
 
-  return (
-    <View>
-      <TextInput
-        value={username}
-        onChangeText={(username) => setUsername(username)}
-        placeholder={'Username'}
-        style={styles.input}
-      />
-      <TextInput
-        value={password}
-        onChangeText={(password) => setPassword(password)}
-        placeholder={'Password'}
-        secureTextEntry={true}
-        style={styles.input}
-      />
-      {
-        loading
-        ? <ActivityIndicator />
-        : <ButtonComponent
-            label='Log In'
-            callback={onLogin}
-            buttonStyle={styles.button}
-            textStyle={styles.buttonText}
-          />
-      }
+  const handleOnLogin = async (values, actions) => {
+    const { email, password } = values;
+    try {
+      setLoading(true);
+      onLogin();
+    } catch (error) {
+      throw error;
+    }
+  };
 
-    </View>
-  )
+  return (
+    <Formik
+      initialValues={{ email: '', password: '' }}
+      onSubmit={(values, actions) => {
+        handleOnLogin(values, actions);
+      }}
+      validationSchema={validationSchema}>
+      {(
+        {
+          handleChange,
+          values,
+          handleSubmit,
+          errors,
+          isValid,
+          touched,
+          handleBlur
+        }
+      ) => (
+        <>
+          <TextInput
+            value={values.email}
+            onChangeText={handleChange('email')}
+            onBlur={handleBlur('email')}
+            placeholder={'email'}
+            style={styles.input}
+          />
+          <ErrorMessage errorValue={touched.email && errors.email} />
+          <TextInput
+            value={values.password}
+            onChangeText={handleChange('password')}
+            onBlur={handleBlur('password')}
+            placeholder={'password'}
+            secureTextEntry
+            style={styles.input}
+          />
+          <ErrorMessage errorValue={touched.password && errors.password} />
+          <View style={styles.buttonContainer}>
+            {
+              loading
+                ? <ActivityIndicator />
+                : (
+                  <Button
+                    label="Log In"
+                    callback={handleSubmit}
+                    disabled={!isValid}
+                    buttonStyle={styles.button}
+                    textStyle={styles.buttonText}
+                  />
+                )
+            }
+          </View>
+        </>
+      )}
+    </Formik>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -54,6 +92,18 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     fontSize: 30,
     fontWeight: 'normal'
+  },
+  error: {
+    position: 'absolute',
+    bottom: 0,
+    color: 'red',
+    fontSize: 12
+  },
+  buttonContainer: {
+    width: 550,
+    height: 90,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   button: {
     width: 550,
