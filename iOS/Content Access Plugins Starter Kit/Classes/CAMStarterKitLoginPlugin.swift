@@ -53,14 +53,14 @@ import ComponentsSDK
     
     /**
      This constructor is called before trigger on app launch event. Configuration is retrieved here.
-     You have to replace 'Cleeng' with ID of your plugin.
+     You have to replace 'YourPluginID' with ID of your plugin.
      */
     
     public required init(configurationJSON: NSDictionary?) {
         super.init()
         
         self.configurationJSON = configurationJSON
-        let pluginID = "Cleeng"
+        let pluginID = "YourPluginID"
         self.pluginConfiguration = ZLComponentsManager.screenComponentForPluginID(pluginID)?.general ?? [:]
     }
     
