@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     private fun triggerCAMStartManually() {
         val sampleLoginPlugin = SampleLoginPlugin()
         sampleLoginPlugin.executeHook(this, mockHookListener(), mapOf())
-
     }
 
     private fun mockHookListener() = object : HookScreenListener {
