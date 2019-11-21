@@ -2,7 +2,6 @@ package com.applicaster.cam.starterkit
 
 import android.content.Context
 import android.support.v4.app.Fragment
-import android.util.Log
 import com.applicaster.cam.starterkit.cam.mocks.MockPluginConfigurator
 import com.applicaster.hook_screen.HookScreen
 import com.applicaster.hook_screen.HookScreenListener
@@ -16,14 +15,15 @@ import java.io.Serializable
 /**
  * Sample of Applicaster login plugin which is added as plugin screen and hook screen
  * Instance of this class will be created and called by the Applicaster SDK
+ * Generally this class is entry-point to Login plugin and communication bridge between Applicaster
+ * SDK and login plugin
+ *
  * Implemented behaviour is just sample of CAM usage, inheritance and interfaces can be modified or
  * removed
  */
 class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
 
     private val contentAccessService = ContentAccessService()
-
-    private val TAG = SampleLoginPlugin::class.java.simpleName
 
     override var hook: HashMap<String, String?> = hashMapOf()
         get() = field
@@ -53,102 +53,6 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
     }
 
     /**
-     * Login with playable
-     */
-    override fun login(context: Context?, playable: Playable?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
-        TODO("Handle login logic")
-    }
-
-    /**
-     * Login without playable
-     */
-    override fun login(
-            context: Context?,
-            additionalParams: MutableMap<Any?, Any?>?,
-            callback: LoginContract.Callback?
-    ) {
-        TODO("Handle login logic if it will be necessary")
-    }
-
-    /**
-     * Handling user token
-     */
-    override fun isTokenValid(): Boolean {
-        TODO(" Add user token handling ")
-    }
-
-    /**
-     * Handling user token
-     */
-    override fun setToken(token: String?) {
-        TODO(" Add user token handling ")
-    }
-
-    /**
-     * Handling user token
-     */
-    override fun getToken(): String {
-        TODO(" Add user token handling ")
-    }
-
-    /**
-     * Check whether item locked or not
-     */
-    override fun isItemLocked(model: Any?): Boolean {
-        TODO("Handle purchasable/locked items")
-    }
-
-    /**
-     * Called on the application startup
-     *
-     */
-    override fun executeOnStartup(context: Context?, listener: HookListener?) {
-        TODO("Handle application startup if necessary")
-    }
-
-    override fun setPluginConfigurationParams(params: MutableMap<Any?, Any?>?) {
-        TODO("handle plugin configuration params if necessary")
-    }
-
-    override fun handlePluginScheme(context: Context?, data: MutableMap<String, String>?): Boolean {
-        TODO("handle plugin scheme params if necessary")
-    }
-
-    override fun executeOnApplicationReady(context: Context?, listener: HookListener?) {
-        TODO("handle app ready execution if necessary")
-    }
-
-    override fun logout(context: Context?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
-        TODO("handle logout")
-    }
-
-    override fun generateFragment(screenMap: HashMap<String, Any>?, dataSource: Serializable?): Fragment? =
-            null
-
-    override fun present(
-            context: Context?,
-            screenMap: HashMap<String, Any>?,
-            dataSource: Serializable?,
-            isActivity: Boolean
-    ) {
-        Log.i(TAG, "Present screen")
-    }
-
-    override fun getListener(): HookScreenListener {
-        TODO("handle hook listener")
-    }
-
-    override fun isFlowBlocker(): Boolean = true
-
-    override fun isRecurringHook(): Boolean = true
-
-    override fun shouldPresent(): Boolean = true
-
-    override fun hookDismissed() {
-        // empty
-    }
-
-    /**
      * Obtain Map with plugin configuration from hook
      */
     private fun getPluginConfiguration(): Map<String, String>? {
@@ -162,4 +66,99 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
             entry.key.toString() to entry.value.toString()
         }
     }
+
+    /**
+     * Methods below required and can be called by the Applicaster SDK
+     *
+     * Methods implementation do not strictly required for content access manager, but
+     * may be required for integration with third-party plugins
+     */
+
+    //region Applicaster SDK interface methods
+    /**
+     * Check whether item locked or not
+     */
+    override fun isItemLocked(model: Any?): Boolean {
+//        TODO("Handle purchasable/locked items")
+        return false
+    }
+
+    /**
+     * Called on the application startup
+     */
+    override fun executeOnStartup(context: Context?, listener: HookListener?) {
+        //Handle application startup if necessary
+    }
+
+    override fun isTokenValid(): Boolean {
+        //Add user token handling if necessary
+        return false
+    }
+
+    override fun setToken(token: String?) {
+        //Add user token handling if necessary
+    }
+
+    override fun getToken(): String {
+        //Add user token handling if necessary
+        return ""
+    }
+
+    override fun logout(context: Context?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
+        //handle logout if necessary
+    }
+
+    override fun isFlowBlocker(): Boolean = true
+
+    override fun isRecurringHook(): Boolean = true
+
+    override fun shouldPresent(): Boolean = true
+
+    override fun hookDismissed() {
+        // empty
+    }
+
+    override fun getListener(): HookScreenListener {
+        //handle hook listener if necessary
+        return object : HookScreenListener {
+            override fun hookCompleted(hookProps: MutableMap<String, Any>?) {
+            }
+
+            override fun hookFailed(hookProps: MutableMap<String, Any>?) {
+            }
+        }
+    }
+
+    override fun login(context: Context?, playable: Playable?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
+        // handle login if necessary
+    }
+
+    override fun login(context: Context?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
+        // handle login if necessary
+    }
+
+    override fun setPluginConfigurationParams(params: MutableMap<Any?, Any?>?) {
+        //handle plugin configuration params if necessary
+    }
+
+    override fun handlePluginScheme(context: Context?, data: MutableMap<String, String>?): Boolean {
+        //handle plugin scheme params if necessary
+        return false
+    }
+
+    override fun executeOnApplicationReady(context: Context?, listener: HookListener?) {
+        // handle app ready execution if necessary
+    }
+
+    override fun generateFragment(screenMap: HashMap<String, Any>?, dataSource: Serializable?): Fragment? =
+            null
+
+    override fun present(
+            context: Context?,
+            screenMap: HashMap<String, Any>?,
+            dataSource: Serializable?,
+            isActivity: Boolean
+    ) {
+    }
+    //endregion
 }
