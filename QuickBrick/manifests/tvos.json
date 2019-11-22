@@ -10,7 +10,7 @@
   "platform": "tvos",
   "author_name": "Olga Duk",
   "author_email": "oduk@scand.com",
-  "manifest_version": "0.0.2",
+  "manifest_version": "0.0.3",
   "name": "QuickBrick Login Starter",
   "description": "Login hook plugin starter kit",
   "type": "general",
@@ -42,6 +42,7 @@
       {
         "group": true,
         "label": "2nd Screen Activation",
+        "tooltip": "The login flow relies on presenting an activation code to the user and finish the authentication process using a mobile device or laptop. ",
         "folded": true,
         "fields": [
           {
@@ -419,6 +420,7 @@
       {
         "group": true,
         "label": "Login Screen",
+        "tooltip": "The login flow relies on a standard username and password fields to authenticate the user.",
         "folded": true,
         "fields": [
           {
