@@ -1,107 +1,73 @@
-import React, {useState, useEffect} from "react";
-import { withNavigator } from "@applicaster/zapp-react-native-ui-components/Decorators/Navigator";
-import SignInScreen from './2ndActivationScreen/Screens/SignInScreen';
-import LoadingScreen from './2ndActivationScreen/Screens/LoadingScreen';
-import {localStorage} from "@applicaster/zapp-react-native-bridge/ZappStorage/LocalStorage";
-import LoginScreen from './LoginScreen/Screens/LoginScreen';
-import ErrorScreen from './2ndActivationScreen/Screens/ErrorScreen';
-import getPluginData from './Common/Utils';
+import React, { useState, useEffect } from 'react';
+import { connectToStore } from '@applicaster/zapp-react-native-redux';
+import SignInScreen from './2ndActivationScreen/Screens/SignInScreen/SignInScreen';
+import LoginScreen from './LoginScreen/Screens/LoginScreen/LoginScreen';
 import SCREENS from './Common/Config/Screens';
-import LocalStorageKeys from './Common/Config/LocalStorageKeys';
+import { getFromLocalStorage } from './Common/Utils';
+
+const storeConnector = connectToStore((state) => ({ screenData: state.rivers['c6f08244-b112-4da0-bb43-5764724be57c'] }));
 
 
 function LoginPluginComponent(props) {
-
   const {
-    payload,
     callback,
-    configuration,
     screenData,
-    navigator
+    payload
   } = props;
 
-  const [screen, setScreen] = useState(SCREENS.LOADING);
-  const [userName, setUserName] = useState('');
-  const [error, setError] = useState(false);
+  const [screen, setScreen] = useState(SCREENS.SIGNIN);
 
-  useEffect(() => {
-    // getPluginData(configuration, screenData);
-    checkTokenStatus();
-  });
+  const goToScreen = (targetScreen) => {
+    setScreen(targetScreen);
+  };
 
-  const checkTokenStatus = async () => {
+  const silentLogin = async () => {
     try {
-      const accessToken = null;
-
-      // const accessToken = await localStorage.getItem(LocalStorageKeys.TOKEN, LocalStorageKeys.NAMESPACE);
-      // const userName = await localStorage.getItem(LocalStorageKeys.USERNAME, LocalStorageKeys.NAMESPACE);
-
-      return accessToken ? callback({ success: true }) : goToScreen(SCREENS.LOGIN);
-
-    } catch (err) {
-      console.log(err);
-      setError(err);
-      goToScreen(SCREENS.ERROR);
+      const value = await getFromLocalStorage('token');
+      if (value !== null && value !== undefined) {
+        callback({
+          success: true
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
-  const goToScreen = (screen) => {
-    setScreen(screen);
-  };
+  useEffect(() => {
+    silentLogin();
+  }, []);
 
-  const onClose = () => {
-    callback({
-      success: false
-    })
-  };
-
-  const onTryAgain = () => {
-    goToScreen(SCREENS.SIGNIN);
-  };
-
-  const renderLoadingScreen = () => {
-    return <LoadingScreen
-      goToScreen={goToScreen}
-    />;
-  };
-
-  const renderSignInScreen = () => {
-    return <SignInScreen
-      goToScreen={goToScreen}
+  const renderSignInScreen = () => (
+    <SignInScreen
       closeHook={callback}
-    />
-  };
-
-  const renderLoginScreen = () => {
-    return <LoginScreen
+      screenData={screenData}
+      payload={payload}
       goToScreen={goToScreen}
+    />
+  );
+
+  const renderLoginScreen = () => (
+    <LoginScreen
       closeHook={callback}
-    />
-  };
-
-  const renderErrorScreen = () => {
-    return <ErrorScreen
+      screenData={screenData}
+      payload={payload}
       goToScreen={goToScreen}
-      onClose={onClose}
-      onTryAgain={onTryAgain}
     />
-  };
+  );
 
-  const renderScreen = (screen) => {
+  const renderScreen = (targetScreen) => {
     const screens = {
-      [SCREENS.LOADING]: renderLoadingScreen,
       [SCREENS.SIGNIN]: renderSignInScreen,
-      [SCREENS.ERROR]: renderErrorScreen,
       [SCREENS.LOGIN]: renderLoginScreen
     };
 
-    return screens[screen]()
+    return screens[targetScreen]();
   };
-
 
   return (
     renderScreen(screen)
   );
 }
 
-export default LoginPluginComponent;
+export default storeConnector(LoginPluginComponent);
