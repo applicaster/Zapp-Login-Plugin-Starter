@@ -1,10 +1,29 @@
-const getPluginData = (key, configuration, screenData) => {
-  if (configuration && configuration[key]) {
-    return configuration[key];
-  }
-  if (screenData && screenData.general && screenData.general[key]) {
-    return screenData.general[key];
-  }
-};
+import { localStorage as storage } from '@applicaster/zapp-react-native-bridge/ZappStorage/LocalStorage/index';
 
-export default getPluginData;
+export function getPluginData(screenData) {
+  let pluginData = {};
+
+  if (screenData && screenData.general) {
+    pluginData = { ...pluginData, ...screenData.general };
+  }
+
+  return pluginData;
+}
+
+export function createActivationCodeUrl(screenData) {
+  const {
+    activation_code_parameter: codeParameter,
+    activation_code_parameter_name: codeParameterName,
+    activation_code_endpoint: codeEndpoint
+  } = getPluginData(screenData);
+
+  return codeParameter ? `${codeEndpoint}?${codeParameterName}` : codeEndpoint;
+}
+
+export async function setToLocalStorage(key, value) {
+  return storage.setItem(key, value);
+}
+
+export async function getFromLocalStorage(key) {
+  return storage.getItem(key);
+}

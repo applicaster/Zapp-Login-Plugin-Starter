@@ -1,4 +1,4 @@
-import LoginPluginComponent from "./src";
+import LoginPluginComponent from './src';
 
 const LoginPlugin = {
   Component: LoginPluginComponent,

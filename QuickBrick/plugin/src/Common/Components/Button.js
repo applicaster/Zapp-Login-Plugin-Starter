@@ -19,11 +19,12 @@ export default function Button(
     <Focusable id={`tv-button-${label}`} onPress={callback}>
       {
         (focused) => {
-          // const buttonStyles = styles[focused ? 'focused' : 'default'];
           return (
-            <View style={buttonStyle}>
+            <View
+              style={focused ? { ...buttonStyle, backgroundColor: 'rgba(255, 255, 255, 0.8)' } : buttonStyle}
+            >
               <Text
-                style={textStyle}
+                style={focused ? { ...textStyle, color: '#5F5F5F' } : textStyle}
                 adjustsFontSizeToFit
               >
                 {label}

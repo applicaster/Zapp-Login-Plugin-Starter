@@ -1,27 +1,45 @@
 import React from 'react';
-import { Dimensions, View, Image } from "react-native";
+import { Dimensions, View, Image } from 'react-native';
+import { TVEventHandlerComponent } from '@applicaster/zapp-react-native-tvos-ui-components/Components/TVEventHandlerComponent';
 import ErrorComponent from '../../LoginScreen/Components/ErrorComponent';
 
 const { height } = Dimensions.get('window');
 
 function Layout(props) {
-  const { backgroundColor, error } = props;
+  const {
+    backgroundColor,
+    error,
+    children,
+    closeHook
+  } = props;
+
+  const playerRemoteHandler = (component, event) => {
+    const { eventType } = event;
+    if (eventType === 'menu') {
+      closeHook({
+        success: false
+      });
+    }
+  };
+
   return (
-    <View style={{...styles.container, backgroundColor}}>
-      <View style={styles.logoContainer}>
-        <Image
-          style={styles.logo}
-          resizeMode="contain"
-          source={{uri: "https://assets-production.applicaster.com/static/olympic-channel/images/oc-logo.png"}}
-        />
+    <TVEventHandlerComponent tvEventHandler={playerRemoteHandler}>
+      <View style={{ ...styles.container, backgroundColor }}>
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.logo}
+            resizeMode="contain"
+            source={{ uri: 'https://assets-production.applicaster.com/static/olympic-channel/images/oc-logo.png' }}
+          />
+        </View>
+        {
+          error ? <ErrorComponent error={error} /> : null
+        }
+        <View style={styles.subContainer}>
+          {children}
+        </View>
       </View>
-      {
-        error ? <ErrorComponent /> : null
-      }
-      <View style={styles.subContainer}>
-        {props.children}
-      </View>
-    </View>
+    </TVEventHandlerComponent>
   );
 }
 
