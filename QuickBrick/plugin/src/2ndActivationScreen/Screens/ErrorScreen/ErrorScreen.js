@@ -5,38 +5,55 @@ import {
   StyleSheet,
   Dimensions
 } from 'react-native';
-import ButtonComponent from '../../Common/Components/Button';
-import Layout from '../../Common/Components/Layout';
+import ButtonComponent from '../../../Common/Components/Button';
+import Layout from '../../../Common/Components/Layout';
+import SCREENS from '../../../Common/Config/Screens';
+import createStyleSheet from './ErrorStyles';
 
 const { height, width } = Dimensions.get('window');
 
 export default function ErrorScreenComponent(props) {
   const {
-    onTryAgain,
-    onClose
+    error,
+    screenData,
+    goToScreen,
+    closeHook
   } = props;
 
+  const customStyles = createStyleSheet(screenData);
+  const { general: pluginData } = screenData;
+
+  const onClose = () => {
+    closeHook({
+      success: false
+    });
+  };
+
+  const onTryAgain = () => {
+    goToScreen(SCREENS.SIGNIN);
+  };
+
   return (
-    <Layout backgroundColor={'#4A4A4A'}>
+    <Layout backgroundColor={pluginData.activation_alert_background_color}>
       <View style={styles.container}>
-        <Text style={styles.errorText}>
-          Error description
+        <Text style={{ ...styles.errorText, ...customStyles.errorDescriptionStyle }}>
+          {error.message}
         </Text>
         <ButtonComponent
-          label='Try Again'
+          label={pluginData.retry_action_button_text}
           callback={onTryAgain}
           buttonStyle={styles.buttonTryAgain}
-          textStyle={styles.buttonTryAgainText}
+          textStyle={customStyles.retryButtonStyle}
         />
         <ButtonComponent
-          label='Close'
+          label="Close"
           callback={onClose}
           buttonStyle={styles.buttonClose}
-          textStyle={styles.buttonCloseText}
+          textStyle={customStyles.closeButtonStyle}
         />
       </View>
     </Layout>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -48,9 +65,7 @@ const styles = StyleSheet.create({
     width
   },
   errorText: {
-    fontSize: 30,
     marginBottom: 90,
-    color: '#fff'
   },
   buttonTryAgain: {
     backgroundColor: '#D8D8D8',
@@ -63,11 +78,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20
   },
-  buttonTryAgainText: {
-    fontSize: 41,
-    fontWeight: 'normal',
-    color: '#545A5C'
-  },
   buttonClose: {
     backgroundColor: '#D8D8D8',
     borderWidth: 1,
@@ -77,10 +87,5 @@ const styles = StyleSheet.create({
     height: 90,
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  buttonCloseText: {
-    fontSize: 41,
-    fontWeight: 'normal',
-    color: '#545A5C'
   }
 });

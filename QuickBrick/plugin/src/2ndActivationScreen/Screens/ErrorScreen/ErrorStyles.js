@@ -1,6 +1,6 @@
 import { getPluginData } from '../../../Common/Utils';
 
-export function createStyleSheet(screenData, configuration) {
+export default function createStyleSheet(screenData, configuration) {
   const customStyles = getPluginData(screenData, configuration);
 
   const retryButtonStyle = {
