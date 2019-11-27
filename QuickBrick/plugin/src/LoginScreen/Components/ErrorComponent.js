@@ -5,19 +5,18 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default function ErrorComponent(props) {
-
+export default function ErrorComponent({ error }) {
   return (
     <View style={styles.errorContainer}>
       <Text
         style={styles.errorText}
         numberOfLines={2}
-        ellipsizeMode={'tail'}
+        ellipsizeMode="tail"
       >
-        Error Messages
+        {error.message}
       </Text>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({

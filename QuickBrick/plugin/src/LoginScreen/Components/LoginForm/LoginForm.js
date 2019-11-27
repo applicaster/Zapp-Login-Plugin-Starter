@@ -6,21 +6,26 @@ import {
   View
 } from 'react-native';
 import { Formik } from 'formik';
-import validationSchema from '../Utils/validation';
-import Button from '../../Common/Components/Button';
-import ErrorMessage from './ErrorMessage';
+import validationSchema from '../../Utils/validation';
+import Button from '../../../Common/Components/Button';
+import ErrorMessage from '../ErrorMessage';
+import createStyleSheet from './LoginFormStyle';
 
 
-export default function LoginForm({ onLogin }) {
+export default function LoginForm({ onLogin, screenData, error }) {
   const [loading, setLoading] = useState(false);
+
+  const customStyles = createStyleSheet(screenData);
+  const { general: pluginData } = screenData;
 
   const handleOnLogin = async (values, actions) => {
     const { email, password } = values;
     try {
       setLoading(true);
-      onLogin();
-    } catch (error) {
-      throw error;
+      onLogin(email, password);
+    } catch (err) {
+      setLoading(false);
+      throw err;
     }
   };
 
@@ -30,7 +35,8 @@ export default function LoginForm({ onLogin }) {
       onSubmit={(values, actions) => {
         handleOnLogin(values, actions);
       }}
-      validationSchema={validationSchema}>
+      validationSchema={validationSchema}
+    >
       {(
         {
           handleChange,
@@ -47,30 +53,36 @@ export default function LoginForm({ onLogin }) {
             value={values.email}
             onChangeText={handleChange('email')}
             onBlur={handleBlur('email')}
-            placeholder={'email'}
-            style={styles.input}
+            placeholder={pluginData.username_input_placeholder}
+            style={{ ...styles.input, ...customStyles.usernameInputStyle }}
           />
-          <ErrorMessage errorValue={touched.email && errors.email} />
+          <ErrorMessage
+            errorValue={touched.email && errors.email}
+            customStyles={customStyles}
+          />
           <TextInput
             value={values.password}
             onChangeText={handleChange('password')}
             onBlur={handleBlur('password')}
-            placeholder={'password'}
+            placeholder={pluginData.password_input_placeholder}
             secureTextEntry
-            style={styles.input}
+            style={{ ...styles.input, ...customStyles.passwordInputStyle }}
           />
-          <ErrorMessage errorValue={touched.password && errors.password} />
+          <ErrorMessage
+            errorValue={touched.password && errors.password}
+            customStyles={customStyles}
+          />
           <View style={styles.buttonContainer}>
             {
-              loading
+              (loading && !error)
                 ? <ActivityIndicator />
                 : (
                   <Button
-                    label="Log In"
+                    label={pluginData.login_action_button_text}
                     callback={handleSubmit}
                     disabled={!isValid}
                     buttonStyle={styles.button}
-                    textStyle={styles.buttonText}
+                    textStyle={customStyles.loginButtonStyle}
                   />
                 )
             }
@@ -114,10 +126,5 @@ const styles = StyleSheet.create({
     borderColor: '#979797',
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  buttonText: {
-    fontSize: 30,
-    fontWeight: 'normal',
-    color: '#545A5C'
   }
 });
