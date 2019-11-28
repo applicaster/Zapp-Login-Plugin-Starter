@@ -1,10 +1,10 @@
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string()
-    .label('Email')
-    .email('Enter a valid email')
-    .required('Please enter a registered email'),
+  username: Yup.string()
+    .label('Username')
+    .required('Please enter your username')
+    .min(4, 'Username must have at least 4 characters '),
   password: Yup.string()
     .label('Password')
     .required()

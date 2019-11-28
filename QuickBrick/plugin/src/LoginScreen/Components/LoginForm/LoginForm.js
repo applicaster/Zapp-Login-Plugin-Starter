@@ -8,15 +8,36 @@ import {
 import { Formik } from 'formik';
 import validationSchema from '../../Utils/validation';
 import Button from '../../../Common/Components/Button';
+import Input from '../Input';
 import ErrorMessage from '../ErrorMessage';
 import createStyleSheet from './LoginFormStyle';
 
 
-export default function LoginForm({ onLogin, screenData, error }) {
+export default function LoginForm(props) {
+  const {
+    onLogin,
+    screenData,
+    error,
+    closeHook
+  } = props;
+
   const [loading, setLoading] = useState(false);
 
   const customStyles = createStyleSheet(screenData);
-  const { general: pluginData } = screenData;
+  const {
+    general: {
+      username_input_placeholder: usernamePlaceholder = '',
+      password_input_placeholder: passwordPlaceholder = '',
+      login_action_button_text: loginLabel = '',
+      skip_action_button_text: skipLabel = ''
+    }
+  } = screenData;
+
+  const handleSkip = () => {
+    closeHook({
+      success: true
+    });
+  };
 
   const handleOnLogin = async (values, actions) => {
     const { email, password } = values;
@@ -31,7 +52,7 @@ export default function LoginForm({ onLogin, screenData, error }) {
 
   return (
     <Formik
-      initialValues={{ email: '', password: '' }}
+      initialValues={{ username: '', password: '' }}
       onSubmit={(values, actions) => {
         handleOnLogin(values, actions);
       }}
@@ -43,30 +64,30 @@ export default function LoginForm({ onLogin, screenData, error }) {
           values,
           handleSubmit,
           errors,
-          isValid,
-          touched,
-          handleBlur
+          touched
         }
       ) => (
-        <>
-          <TextInput
-            value={values.email}
-            onChangeText={handleChange('email')}
-            onBlur={handleBlur('email')}
-            placeholder={pluginData.username_input_placeholder}
+        <View style={{ alignItems: 'center' }}>
+          <Input
+            value={values.username}
+            onChangeText={handleChange('username')}
+            placeholder={usernamePlaceholder}
             style={{ ...styles.input, ...customStyles.usernameInputStyle }}
+            inputAsset="login_username_input_field_asset.png"
+            inputAssetActive="login_username_input_field_asset_active.png"
           />
           <ErrorMessage
-            errorValue={touched.email && errors.email}
+            errorValue={touched.username && errors.username}
             customStyles={customStyles}
           />
-          <TextInput
+          <Input
             value={values.password}
             onChangeText={handleChange('password')}
-            onBlur={handleBlur('password')}
-            placeholder={pluginData.password_input_placeholder}
+            placeholder={passwordPlaceholder}
             secureTextEntry
             style={{ ...styles.input, ...customStyles.passwordInputStyle }}
+            inputAsset="login_password_input_field_asset.png"
+            inputAssetActive="login_password_input_field_asset_active.png"
           />
           <ErrorMessage
             errorValue={touched.password && errors.password}
@@ -77,17 +98,28 @@ export default function LoginForm({ onLogin, screenData, error }) {
               (loading && !error)
                 ? <ActivityIndicator />
                 : (
-                  <Button
-                    label={pluginData.login_action_button_text}
-                    callback={handleSubmit}
-                    disabled={!isValid}
-                    buttonStyle={styles.button}
-                    textStyle={customStyles.loginButtonStyle}
-                  />
+                  <>
+                    <Button
+                      label={loginLabel}
+                      buttonStyle={styles.button}
+                      callback={handleSubmit}
+                      textStyle={customStyles.loginButtonStyle}
+                      backgroundButtonUri="login_action_button_asset.png"
+                      backgroundButtonUriActive="login_action_button_asset_active.png"
+                    />
+                    <Button
+                      label={skipLabel}
+                      callback={handleSkip}
+                      buttonStyle={styles.button}
+                      textStyle={customStyles.loginButtonStyle}
+                      backgroundButtonUri="skip_action_button_asset.png"
+                      backgroundButtonUriActive="skip_action_button_asset_active.png"
+                    />
+                  </>
                 )
             }
           </View>
-        </>
+        </View>
       )}
     </Formik>
   );
@@ -97,11 +129,9 @@ const styles = StyleSheet.create({
   input: {
     width: 550,
     height: 80,
-    padding: 20,
     borderWidth: 1,
     borderRadius: 5,
     borderColor: '#979797',
-    marginBottom: 20,
     fontSize: 30,
     fontWeight: 'normal'
   },
@@ -112,8 +142,8 @@ const styles = StyleSheet.create({
     fontSize: 12
   },
   buttonContainer: {
-    width: 550,
-    height: 90,
+    minWidth: 550,
+    minHeight: 90,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -125,6 +155,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: '#979797',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 10
   }
 });

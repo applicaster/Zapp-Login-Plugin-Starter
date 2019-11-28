@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-  View,
-  Text
+  StyleSheet,
+  Text,
+  ImageBackground
 } from 'react-native';
 import { Focusable } from '@applicaster/zapp-react-native-ui-components/Components/Focusable';
 
@@ -12,7 +13,8 @@ export default function Button(
     callback,
     buttonStyle,
     textStyle,
-    ...rest
+    backgroundButtonUri,
+    backgroundButtonUriActive
   }
 ) {
   return (
@@ -20,8 +22,9 @@ export default function Button(
       {
         (focused) => {
           return (
-            <View
-              style={focused ? { ...buttonStyle, backgroundColor: 'rgba(255, 255, 255, 0.8)' } : buttonStyle}
+            <ImageBackground
+              source={{ uri: focused ? backgroundButtonUriActive : backgroundButtonUri }}
+              style={focused ? { ...buttonStyle, ...styles.focused } : buttonStyle}
             >
               <Text
                 style={focused ? { ...textStyle, color: '#5F5F5F' } : textStyle}
@@ -29,10 +32,16 @@ export default function Button(
               >
                 {label}
               </Text>
-            </View>
+            </ImageBackground>
           );
         }
       }
     </Focusable>
   );
 }
+
+const styles = StyleSheet.create({
+  focused: {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)'
+  }
+});

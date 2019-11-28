@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-  View,
+  ImageBackground,
   Text,
   StyleSheet
 } from 'react-native';
 
 export default function ErrorComponent({ error }) {
   return (
-    <View style={styles.errorContainer}>
+    <ImageBackground source={{ uri: 'login_alert_component_asset.png' }} style={styles.errorContainer}>
       <Text
         style={styles.errorText}
         numberOfLines={2}
@@ -15,7 +15,7 @@ export default function ErrorComponent({ error }) {
       >
         {error.message}
       </Text>
-    </View>
+    </ImageBackground>
   );
 }
 

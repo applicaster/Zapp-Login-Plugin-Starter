@@ -1,13 +1,13 @@
 import React from 'react';
-import { Dimensions, View, Image } from 'react-native';
+import { View, Image, ImageBackground } from 'react-native';
 import { TVEventHandlerComponent } from '@applicaster/zapp-react-native-tvos-ui-components/Components/TVEventHandlerComponent';
 import ErrorComponent from '../../LoginScreen/Components/ErrorComponent';
 
-const { height } = Dimensions.get('window');
 
 function Layout(props) {
   const {
-    backgroundColor,
+    backgroundColor = '',
+    backgroundUri = '',
     error,
     children,
     closeHook
@@ -24,12 +24,15 @@ function Layout(props) {
 
   return (
     <TVEventHandlerComponent tvEventHandler={playerRemoteHandler}>
-      <View style={{ ...styles.container, backgroundColor }}>
+      <ImageBackground
+        source={{ uri: backgroundUri }}
+        style={{ backgroundColor, ...styles.container }}
+      >
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
             resizeMode="contain"
-            source={{ uri: 'https://assets-production.applicaster.com/static/olympic-channel/images/oc-logo.png' }}
+            source={{ uri: 'activation_screen_logo_asset.png' }}
           />
         </View>
         {
@@ -38,7 +41,7 @@ function Layout(props) {
         <View style={styles.subContainer}>
           {children}
         </View>
-      </View>
+      </ImageBackground>
     </TVEventHandlerComponent>
   );
 }
@@ -46,8 +49,9 @@ function Layout(props) {
 const styles = {
   container: {
     flex: 1,
-    height,
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '100%',
+    height: '100%'
   },
   logoContainer: {
     width: 150,

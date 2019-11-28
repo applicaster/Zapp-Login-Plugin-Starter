@@ -103,6 +103,7 @@ function SignInScreen(props) {
   const renderSignInScreen = () => (
     <Layout
       backgroundColor={activationBackground}
+      backgroundUri="activation_screen_background_asset.png"
       closeHook={closeHook}
     >
       <View style={styles.container}>

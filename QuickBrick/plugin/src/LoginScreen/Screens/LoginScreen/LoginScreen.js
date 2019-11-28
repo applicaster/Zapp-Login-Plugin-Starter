@@ -23,11 +23,11 @@ function LoginScreen(props) {
   const customStyles = createStyleSheet(screenData);
   const {
     general: {
-      login_screen_background_color: loginBackground,
-      login_title_text: loginTitle,
-      main_description_text: mainDescription,
-      optional_instructions_1_text: instructions1,
-      optional_instructions_2_text: instructions2
+      login_screen_background_color: loginBackground = '',
+      login_title_text: loginTitle = '',
+      main_description_text: mainDescription = '',
+      optional_instructions_1_text: instructions1 = '',
+      optional_instructions_2_text: instructions2 = ''
     }
   } = screenData;
 
@@ -60,6 +60,7 @@ function LoginScreen(props) {
   return (
     <Layout
       backgroundColor={loginBackground}
+      backgroundUri="login_screen_background_asset.png"
       error={error}
       closeHook={closeHook}
     >
@@ -96,7 +97,12 @@ function LoginScreen(props) {
             </Text>
           </View>
           <View style={styles.formContainer}>
-            <LoginForm onLogin={onLogin} screenData={screenData} error={error} />
+            <LoginForm
+              onLogin={onLogin}
+              screenData={screenData}
+              error={error}
+              closeHook={closeHook}
+            />
           </View>
         </View>
       </View>

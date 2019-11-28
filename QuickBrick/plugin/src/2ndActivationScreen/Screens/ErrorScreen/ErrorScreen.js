@@ -21,7 +21,13 @@ export default function ErrorScreenComponent(props) {
   } = props;
 
   const customStyles = createStyleSheet(screenData);
-  const { general: pluginData } = screenData;
+  const {
+    general: {
+      activation_alert_background_color: errorBackground = '',
+      retry_action_button_text: retryLabel = '',
+      close_action_button_text: closeLabel = ''
+    }
+  } = screenData;
 
   const onClose = () => {
     closeHook({
@@ -34,22 +40,29 @@ export default function ErrorScreenComponent(props) {
   };
 
   return (
-    <Layout backgroundColor={pluginData.activation_alert_background_color}>
+    <Layout
+      backgroundColor={errorBackground}
+      backgroundUri="login_screen_background_asset.png"
+    >
       <View style={styles.container}>
         <Text style={{ ...styles.errorText, ...customStyles.errorDescriptionStyle }}>
           {error.message}
         </Text>
         <ButtonComponent
-          label={pluginData.retry_action_button_text}
+          label={retryLabel}
           callback={onTryAgain}
           buttonStyle={styles.buttonTryAgain}
           textStyle={customStyles.retryButtonStyle}
+          backgroundButtonUri="activation_alert_screen_retry_button_asset.png"
+          backgroundButtonUriActive="activation_alert_screen_retry_button_asset_active.png"
         />
         <ButtonComponent
-          label="Close"
+          label={closeLabel}
           callback={onClose}
           buttonStyle={styles.buttonClose}
           textStyle={customStyles.closeButtonStyle}
+          backgroundButtonUri="activation_alert_screen_close_button_asset.png"
+          backgroundButtonUriActive="activation_alert_screen_close_button_asset_active.png"
         />
       </View>
     </Layout>
