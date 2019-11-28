@@ -621,6 +621,72 @@
             "initial_value": "#545A5C"
           },
           {
+            "key": "enable_skip_functionality",
+            "type": "switch",
+            "label": "Enable Skip Functionality",
+            "label_tooltip": "Enables the ability to skip the login by using the back button or activating the skip button in the UI.",
+            "initial_value": "true"
+          },
+          {
+            "key": "skip_action_button_text",
+            "type": "text_input",
+            "label": "Skip Action Button Text",
+            "label_tooltip": "Text for the Skip Button.",
+            "initial_value": "Skip",
+            "placeholder": "Skip",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/enable_skip_functionality"
+              }
+            ]
+          },
+          {
+            "key": "skip_action_button_font",
+            "type": "ios_font_selector",
+            "label": "Login Action Button Font",
+            "label_tooltip": "Font for Skip Action Button Text.",
+            "initial_value": "SFProDisplay-Regular",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/enable_skip_functionality"
+              }
+            ]
+          },
+          {
+            "key": "skip_action_button_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Skip Action Button Text.",
+            "initial_value": "40",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/enable_skip_functionality"
+              }
+            ]
+          },
+          {
+            "key": "skip_action_button_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Skip Action Button Text.",
+            "initial_value": "#545A5C",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/enable_skip_functionality"
+              }
+            ]
+          },
+          {
             "key": "username_password_empty_font",
             "type": "ios_font_selector",
             "label": "Username Password Empty Notice Font",

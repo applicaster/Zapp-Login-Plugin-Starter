@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  TextInput,
   StyleSheet,
   ActivityIndicator,
   View
@@ -18,7 +17,7 @@ export default function LoginForm(props) {
     onLogin,
     screenData,
     error,
-    closeHook
+    handleSkip
   } = props;
 
   const [loading, setLoading] = useState(false);
@@ -29,15 +28,10 @@ export default function LoginForm(props) {
       username_input_placeholder: usernamePlaceholder = '',
       password_input_placeholder: passwordPlaceholder = '',
       login_action_button_text: loginLabel = '',
-      skip_action_button_text: skipLabel = ''
+      skip_action_button_text: skipLabel = '',
+      enable_skip_functionality: skip = true
     }
   } = screenData;
-
-  const handleSkip = () => {
-    closeHook({
-      success: true
-    });
-  };
 
   const handleOnLogin = async (values, actions) => {
     const { email, password } = values;
@@ -107,14 +101,20 @@ export default function LoginForm(props) {
                       backgroundButtonUri="login_action_button_asset.png"
                       backgroundButtonUriActive="login_action_button_asset_active.png"
                     />
-                    <Button
-                      label={skipLabel}
-                      callback={handleSkip}
-                      buttonStyle={styles.button}
-                      textStyle={customStyles.loginButtonStyle}
-                      backgroundButtonUri="skip_action_button_asset.png"
-                      backgroundButtonUriActive="skip_action_button_asset_active.png"
-                    />
+                    {
+                      skip
+                        ? (
+                          <Button
+                            label={skipLabel}
+                            callback={handleSkip}
+                            buttonStyle={styles.button}
+                            textStyle={customStyles.loginButtonStyle}
+                            backgroundButtonUri="skip_action_button_asset.png"
+                            backgroundButtonUriActive="skip_action_button_asset_active.png"
+                          />
+                        )
+                        : null
+                    }
                   </>
                 )
             }

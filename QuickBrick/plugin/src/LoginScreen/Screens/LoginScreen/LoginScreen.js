@@ -9,6 +9,7 @@ import Layout from '../../../Common/Components/Layout';
 import LoginForm from '../../Components/LoginForm/LoginForm';
 import createStyleSheet from './LoginStyles';
 import trackEvent from '../../../Analytics';
+import EVENTS from '../../../Analytics/config';
 
 const { height } = Dimensions.get('window');
 
@@ -33,7 +34,7 @@ function LoginScreen(props) {
 
   const onLogin = async () => {
     try {
-      trackEvent('Click Login Button', { screenData, payload });
+      trackEvent(EVENTS.clickLogin, { screenData, payload });
       // const response = await axios.get(`${loginUrl}`,
       //   {
       //     headers: {
@@ -46,15 +47,20 @@ function LoginScreen(props) {
       //
       //   await setToLocalStorage('token', access_token);
       //
-      //   trackEvent('Login Success', { screenData, payload });
+      //   trackEvent(EVENTS.loginSuccess, { screenData, payload });
       //   closeHook({ success: true });
       // } else {
-      //    trackEvent('Login Failure', { screenData, payload });
-      //  }
+      //   trackEvent(EVENTS.loginFailure, { screenData, payload });
+      // }
     } catch (err) {
       console.log(err);
       setError(err);
     }
+  };
+
+  const handleSkip = () => {
+    trackEvent(EVENTS.clickSkip, { screenData, payload });
+    closeHook({ success: true });
   };
 
   return (
@@ -76,21 +82,21 @@ function LoginScreen(props) {
           <View style={styles.textContainer}>
             <Text
               style={{ ...styles.mainDescription, ...customStyles.mainDescriptionStyle }}
-              numberOfLines={4}
+              numberOfLines={5}
               ellipsizeMode="tail"
             >
               {mainDescription}
             </Text>
             <Text
               style={{ ...styles.optionalRequirements, ...customStyles.optionalInstructions1Style }}
-              numberOfLines={4}
+              numberOfLines={2}
               ellipsizeMode="tail"
             >
               {instructions1}
             </Text>
             <Text
               style={{ ...styles.optionalRequirements, ...customStyles.optionalInstructions2Style }}
-              numberOfLines={4}
+              numberOfLines={2}
               ellipsizeMode="tail"
             >
               {instructions2}
@@ -101,7 +107,7 @@ function LoginScreen(props) {
               onLogin={onLogin}
               screenData={screenData}
               error={error}
-              closeHook={closeHook}
+              handleSkip={handleSkip}
             />
           </View>
         </View>

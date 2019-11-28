@@ -8,6 +8,7 @@ import QRBlock from '../../Components/QRBlock';
 import Layout from '../../../Common/Components/Layout';
 import ErrorScreen from '../ErrorScreen/ErrorScreen';
 import { createActivationCodeUrl, setToLocalStorage } from '../../../Common/Utils';
+import EVENTS from '../../../Analytics/config';
 import createStyleSheet from './SignInStyles';
 
 function SignInScreen(props) {
@@ -54,9 +55,9 @@ function SignInScreen(props) {
         });
 
       if (devicePinCode) {
-        trackEvent('Activation Code Acquisition Success', { screenData, payload });
+        trackEvent(EVENTS.activationCodeSuccess, { screenData, payload });
       } else {
-        trackEvent('Activation Code Acquisition Success', { screenData, payload });
+        trackEvent(EVENTS.activationCodeFailure, { screenData, payload });
       }
       setPincode(devicePinCode);
       setLoading(false);
@@ -69,23 +70,23 @@ function SignInScreen(props) {
 
   const getSignInStatus = async () => {
     try {
-      const response = await axios.get(`${heartbeatService}/${pinCode}`,
-        {
-          headers: {
-            Accept: 'application/json'
-          }
-        });
-
-      if (response.data.access_token) {
-        const { access_token } = response.data;
-
-        await setToLocalStorage('token', access_token);
-
-        trackEvent('Activation Process Success');
-        closeHook({ success: true });
-      }
+      // const response = await axios.get(`${heartbeatService}/${pinCode}`,
+      //   {
+      //     headers: {
+      //       Accept: 'application/json'
+      //     }
+      //   });
+      //
+      // if (response.data.access_token) {
+      //   const { access_token } = response.data;
+      //
+      //   await setToLocalStorage('token', access_token);
+      //
+      //   trackEvent(EVENTS.activationSuccess, { screenData, payload });
+      //   closeHook({ success: true });
+      // }
     } catch (err) {
-      trackEvent('Activation Process Failure', { screenData, payload });
+      trackEvent(EVENTS.activationFailure, { screenData, payload });
       console.log(err);
       setError(err);
     }
