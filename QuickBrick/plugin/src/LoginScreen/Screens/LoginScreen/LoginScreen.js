@@ -7,6 +7,8 @@ import {
 } from 'react-native';
 import Layout from '../../../Common/Components/Layout';
 import LoginForm from '../../Components/LoginForm/LoginForm';
+import { getAccessToken, HEARBEAT_INTERVAL } from '../../../LoginPluginInterface';
+import { setToLocalStorage } from '../../../Common/Utils';
 import createStyleSheet from './LoginStyles';
 import trackEvent from '../../../Analytics';
 import EVENTS from '../../../Analytics/config';
@@ -32,27 +34,30 @@ function LoginScreen(props) {
     }
   } = screenData;
 
-  const onLogin = async () => {
+  const onLogin = async (username, password) => {
     try {
       trackEvent(EVENTS.clickLogin, { screenData, payload });
-      // const response = await axios.get(`${loginUrl}`,
-      //   {
-      //     headers: {
-      //       Accept: 'application/json'
-      //     }
-      //   });
-      //
-      // if (response.data.access_token) {
-      //   const { access_token } = response.data;
-      //
-      //   await setToLocalStorage('token', access_token);
-      //
-      //   trackEvent(EVENTS.loginSuccess, { screenData, payload });
-      //   closeHook({ success: true });
-      // } else {
-      //   trackEvent(EVENTS.loginFailure, { screenData, payload });
-      // }
+
+      const heartbeat = setInterval(() => getSignInStatus(username, password), HEARBEAT_INTERVAL);
     } catch (err) {
+      trackEvent(EVENTS.loginFailure, { screenData, payload });
+      console.log(err);
+      setError(err);
+    }
+  };
+
+  const getSignInStatus = async (username, password) => {
+    try {
+      const accessToken = await getAccessToken(username, password);
+
+      if (accessToken) {
+        await setToLocalStorage('token', accessToken);
+
+        trackEvent(EVENTS.loginSuccess, { screenData, payload });
+        closeHook({ success: true });
+      }
+    } catch (err) {
+      trackEvent(EVENTS.loginFailure, { screenData, payload });
       console.log(err);
       setError(err);
     }

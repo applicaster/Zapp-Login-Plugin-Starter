@@ -34,10 +34,10 @@ export default function LoginForm(props) {
   } = screenData;
 
   const handleOnLogin = async (values, actions) => {
-    const { email, password } = values;
+    const { username, password } = values;
     try {
       setLoading(true);
-      onLogin(email, password);
+      onLogin(username, password);
     } catch (err) {
       setLoading(false);
       throw err;

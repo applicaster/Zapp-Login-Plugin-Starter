@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
-import axios from 'axios';
 import trackEvent from '../../../Analytics/index';
 import AdditionalInfo from '../../Components/AdditionalInfo';
 import TextBlock from '../../Components/TextBlock';
 import QRBlock from '../../Components/QRBlock';
 import Layout from '../../../Common/Components/Layout';
 import ErrorScreen from '../ErrorScreen/ErrorScreen';
+import { getPinCode, HEARBEAT_INTERVAL, getAccessToken } from '../../../LoginPluginInterface';
 import { createActivationCodeUrl, setToLocalStorage } from '../../../Common/Utils';
 import EVENTS from '../../../Analytics/config';
 import createStyleSheet from './SignInStyles';
@@ -25,7 +25,7 @@ function SignInScreen(props) {
 
   const customStyles = createStyleSheet(screenData);
   const activationCodeUrl = createActivationCodeUrl(screenData);
-  const HEARBEAT_INTERVAL = 5000;
+
   const {
     general: {
       additional_info_text: additionalInfo,
@@ -37,32 +37,25 @@ function SignInScreen(props) {
   } = screenData;
 
   useEffect(() => {
-    signIn();
+    signIn()
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+      });
   }, []);
 
   const signIn = async () => {
     try {
-      // const {
-      //   data: {
-      //     devicePinCode = ''
-      //   }
-      // } = await axios.post(activationCodeUrl,
-      //   {
-      //     headers: {
-      //       Accept: 'application/json',
-      //       'Content-Type': 'application/json'
-      //     }
-      //   });
-      //
-      // if (devicePinCode) {
-      //   trackEvent(EVENTS.activationCodeSuccess, { screenData, payload });
-      // } else {
-      //   trackEvent(EVENTS.activationCodeFailure, { screenData, payload });
-      // }
-      // setPincode(devicePinCode);
-      // setLoading(false);
-      // const heartbeat = setInterval(() => getSignInStatus(), HEARBEAT_INTERVAL);
+      const devicePinCode = await getPinCode();
+
+      if (devicePinCode) {
+        trackEvent(EVENTS.activationCodeSuccess, { screenData, payload });
+      }
+      setPincode(devicePinCode);
+      setLoading(false);
+      const heartbeat = setInterval(() => getSignInStatus(), HEARBEAT_INTERVAL);
     } catch (err) {
+      trackEvent(EVENTS.activationCodeFailure, { screenData, payload });
       console.log(err);
       setError(err);
     }
@@ -70,21 +63,13 @@ function SignInScreen(props) {
 
   const getSignInStatus = async () => {
     try {
-      // const response = await axios.get(`${heartbeatService}/${pinCode}`,
-      //   {
-      //     headers: {
-      //       Accept: 'application/json'
-      //     }
-      //   });
-      //
-      // if (response.data.access_token) {
-      //   const { access_token } = response.data;
-      //
-      //   await setToLocalStorage('token', access_token);
-      //
-      //   trackEvent(EVENTS.activationSuccess, { screenData, payload });
-      //   closeHook({ success: true });
-      // }
+      const accessToken = await getAccessToken(heartbeatService, pinCode);
+      if (accessToken) {
+        await setToLocalStorage('token', accessToken);
+
+        trackEvent(EVENTS.activationSuccess, { screenData, payload });
+        closeHook({ success: true });
+      }
     } catch (err) {
       trackEvent(EVENTS.activationFailure, { screenData, payload });
       console.log(err);
