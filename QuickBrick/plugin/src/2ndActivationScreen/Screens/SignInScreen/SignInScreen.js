@@ -42,26 +42,26 @@ function SignInScreen(props) {
 
   const signIn = async () => {
     try {
-      const {
-        data: {
-          devicePinCode = ''
-        }
-      } = await axios.post(activationCodeUrl,
-        {
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          }
-        });
-
-      if (devicePinCode) {
-        trackEvent(EVENTS.activationCodeSuccess, { screenData, payload });
-      } else {
-        trackEvent(EVENTS.activationCodeFailure, { screenData, payload });
-      }
-      setPincode(devicePinCode);
-      setLoading(false);
-      const heartbeat = setInterval(() => getSignInStatus(), HEARBEAT_INTERVAL);
+      // const {
+      //   data: {
+      //     devicePinCode = ''
+      //   }
+      // } = await axios.post(activationCodeUrl,
+      //   {
+      //     headers: {
+      //       Accept: 'application/json',
+      //       'Content-Type': 'application/json'
+      //     }
+      //   });
+      //
+      // if (devicePinCode) {
+      //   trackEvent(EVENTS.activationCodeSuccess, { screenData, payload });
+      // } else {
+      //   trackEvent(EVENTS.activationCodeFailure, { screenData, payload });
+      // }
+      // setPincode(devicePinCode);
+      // setLoading(false);
+      // const heartbeat = setInterval(() => getSignInStatus(), HEARBEAT_INTERVAL);
     } catch (err) {
       console.log(err);
       setError(err);
@@ -129,6 +129,7 @@ function SignInScreen(props) {
               loading={loading}
               qrCodeHint={qrCodeHint}
               QRCodehintStyle={customStyles.QRCodehintStyle}
+              activationCodeUrl={`${activationCodeUrl}${pinCode}`}
             />
           </View>
         </View>

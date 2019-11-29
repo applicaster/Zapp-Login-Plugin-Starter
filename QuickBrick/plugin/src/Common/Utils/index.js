@@ -17,7 +17,7 @@ export function createActivationCodeUrl(screenData) {
     activation_code_endpoint: codeEndpoint
   } = getPluginData(screenData);
 
-  return codeParameter ? `${codeEndpoint}?${codeParameterName}` : codeEndpoint;
+  return codeParameter ? `${codeEndpoint}?${codeParameterName}=` : codeEndpoint;
 }
 
 export async function setToLocalStorage(key, value) {
