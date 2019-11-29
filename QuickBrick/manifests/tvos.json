@@ -101,13 +101,6 @@
             "placeholder": "WELCOME, SIGN IN BY ACTIVATING YOUR DEVICE"
           },
           {
-            "key": "main_instructions_font",
-            "type": "ios_font_selector",
-            "label": "Main Instructions Font",
-            "label_tooltip": "Font for Main Instructions Text.",
-            "initial_value": "SFProDisplay-Bold"
-          },
-          {
             "key": "main_instructions_fontsize",
             "type": "number_input",
             "label_tooltip": "Font Size for Main Instructions Text.",
@@ -126,13 +119,6 @@
             "label_tooltip": "Text indicating clear instructions on what to do with the URL on screen.",
             "initial_value": "Go to:",
             "placeholder": "Go to:"
-          },
-          {
-            "key": "go_to_url_font",
-            "type": "ios_font_selector",
-            "label": "Go To Font",
-            "label_tooltip": "Font for Go To Text.",
-            "initial_value": "SFProDisplay-Regular"
           },
           {
             "key": "go_to_url_fontsize",
@@ -155,13 +141,6 @@
             "placeholder": "www.mydomain.com/activate"
           },
           {
-            "key": "activation_url_font",
-            "type": "ios_font_selector",
-            "label": "Activation URL Font",
-            "label_tooltip": "Font for Activation URL.",
-            "initial_value": "SFProDisplay-Bold"
-          },
-          {
             "key": "activation_url_fontsize",
             "type": "number_input",
             "label_tooltip": "Font Size for Activation URL.",
@@ -182,13 +161,6 @@
             "placeholder": "Enter the activation code bellow:"
           },
           {
-            "key": "code_instructions_font",
-            "type": "ios_font_selector",
-            "label": "Code Instructions Font",
-            "label_tooltip": "Font for Code Instructions Text.",
-            "initial_value": "SFProDisplay-Regular"
-          },
-          {
             "key": "code_instructions_fontsize",
             "type": "number_input",
             "label_tooltip": "Font Size for Code Instructions Text.",
@@ -199,13 +171,6 @@
             "type": "color_picker",
             "label_tooltip": "Font Color for Code Instructions Text.",
             "initial_value": "#545A5C"
-          },
-          {
-            "key": "activation_code_font",
-            "type": "ios_font_selector",
-            "label": "Activation Code Font",
-            "label_tooltip": "Font for the automatically generated Activation Code.",
-            "initial_value": "SFProDisplay-Bold"
           },
           {
             "key": "activation_code_fontsize",
@@ -226,13 +191,6 @@
             "label_tooltip": "Brief instructions to advice the user about using the QR Code to access the Activation URL.",
             "initial_value": "Or Scan the QR Code",
             "placeholder": "Or Scan the QR Code"
-          },
-          {
-            "key": "qr_code_hint_font",
-            "type": "ios_font_selector",
-            "label": "QR Code Hint Font",
-            "label_tooltip": "Font for QR Code Hint Text.",
-            "initial_value": "SFProDisplay-Regular"
           },
           {
             "key": "qr_code_hint_fontsize",
@@ -260,21 +218,6 @@
             "label_tooltip": "Additional instructions commonly use for support or terms of use links.",
             "initial_value": "If you need support, please visit http://www.mydomain.com/support",
             "placeholder": "If you need support, please visit http://www.mydomain.com/support",
-            "conditional_fields": [
-              {
-                "condition_value": [
-                  true
-                ],
-                "key": "general/additional_info"
-              }
-            ]
-          },
-          {
-            "key": "additional_info_font",
-            "type": "ios_font_selector",
-            "label": "Optional Instructions Font",
-            "label_tooltip": "Font for Optional Instructions.",
-            "initial_value": "SFProDisplay-Regular",
             "conditional_fields": [
               {
                 "condition_value": [
@@ -336,13 +279,6 @@
             "placeholder": "Try Again"
           },
           {
-            "key": "retry_action_button_font",
-            "type": "ios_font_selector",
-            "label": "Alert “Try Again” Action Button Font",
-            "label_tooltip": "Font for Alert “Try Again” Action Button Text.",
-            "initial_value": "SFProDisplay-Regular"
-          },
-          {
             "key": "retry_action_button_fontsize",
             "type": "number_input",
             "label_tooltip": "Font Size for Alert “Try Again” Action Button Text.",
@@ -363,13 +299,6 @@
             "placeholder": "Close"
           },
           {
-            "key": "close_action_button_font",
-            "type": "ios_font_selector",
-            "label": "Alert “Close” Action Button Font",
-            "label_tooltip": "Font for Alert “Close” Action Button Text.",
-            "initial_value": "SFProDisplay-Regular"
-          },
-          {
             "key": "close_action_button_fontsize",
             "type": "number_input",
             "label_tooltip": "Font Size for Alert “Close” Action Button Text.",
@@ -387,13 +316,6 @@
             "label": "Activation Alert Background Color",
             "label_tooltip": "Background Color for the Activation Alert Screen. The screen is shown when the service returns an error or notice.",
             "initial_value": "#4A4A4A"
-          },
-          {
-            "key": "error_description_font",
-            "type": "ios_font_selector",
-            "label": "Description Text Font",
-            "label_tooltip": "Font for Description Text.",
-            "initial_value": "SFProDisplay-Regular"
           },
           {
             "key": "error_description_fontsize",
@@ -440,13 +362,6 @@
             "placeholder": "Welcome To The App"
           },
           {
-            "key": "login_title_font",
-            "type": "ios_font_selector",
-            "label": "Login Title Font",
-            "label_tooltip": "Font for Login Title Text.",
-            "initial_value": "SFProDisplay-Bold"
-          },
-          {
             "key": "login_title_fontsize",
             "type": "number_input",
             "label_tooltip": "Font Size for Login Title Text.",
@@ -465,13 +380,6 @@
             "label_tooltip": "This text can be used to give a brief introduction to the product.",
             "initial_value": "Helping companies maximize any cloud infrastructure, reduce costs, increase engagement, and significantly improve time to market and speed of ongoing innovation.",
             "placeholder": "Helping companies maximize any cloud infrastructure, reduce costs, increase engagement, and significantly improve time to market and speed of ongoing innovation."
-          },
-          {
-            "key": "main_description_font",
-            "type": "ios_font_selector",
-            "label": "Main Description Font",
-            "label_tooltip": "Font for Main Description Text.",
-            "initial_value": "SFProDisplay-Regular"
           },
           {
             "key": "main_description_fontsize",
@@ -494,13 +402,6 @@
             "placeholder": "Optional Instructions"
           },
           {
-            "key": "optional_instructions_1_font",
-            "type": "ios_font_selector",
-            "label": "Optional Instructions 1 Font",
-            "label_tooltip": "Font for Optional Instructions 1 Text.",
-            "initial_value": "SFProDisplay-Regular"
-          },
-          {
             "key": "optional_instructions_1_fontsize",
             "type": "number_input",
             "label_tooltip": "Font Size for Optional Instructions 1 Text.",
@@ -519,13 +420,6 @@
             "label_tooltip": "This text can be used to add information relevant to the user(Support/Terms of use/links).",
             "initial_value": "Optional Instructions",
             "placeholder": "Optional Instructions"
-          },
-          {
-            "key": "optional_instructions_2_font",
-            "type": "ios_font_selector",
-            "label": "Optional Instructions 1 Font",
-            "label_tooltip": "Font for Optional Instructions 1 Text.",
-            "initial_value": "SFProDisplay-Regular"
           },
           {
             "key": "optional_instructions_2_fontsize",
@@ -548,13 +442,6 @@
             "placeholder": "Username"
           },
           {
-            "key": "username_input_font",
-            "type": "ios_font_selector",
-            "label": "Username Input Font",
-            "label_tooltip": "Font for Username Input Field.",
-            "initial_value": "SFProDisplay-Regular"
-          },
-          {
             "key": "username_input_fontsize",
             "type": "number_input",
             "label_tooltip": "Font Size for Username Input Field.",
@@ -575,13 +462,6 @@
             "placeholder": "Password"
           },
           {
-            "key": "password_input_font",
-            "type": "ios_font_selector",
-            "label": "Password Input Font",
-            "label_tooltip": "Font for Username Input Field.",
-            "initial_value": "SFProDisplay-Regular"
-          },
-          {
             "key": "password_input_fontsize",
             "type": "number_input",
             "label_tooltip": "Font Size for Username Input Field.",
@@ -600,13 +480,6 @@
             "label_tooltip": "Text for the Login Button.",
             "initial_value": "Log In",
             "placeholder": "Log In"
-          },
-          {
-            "key": "login_action_button_font",
-            "type": "ios_font_selector",
-            "label": "Login Action Button Font",
-            "label_tooltip": "Font for Login Action Button Text.",
-            "initial_value": "SFProDisplay-Regular"
           },
           {
             "key": "login_action_button_fontsize",
@@ -634,21 +507,6 @@
             "label_tooltip": "Text for the Skip Button.",
             "initial_value": "Skip",
             "placeholder": "Skip",
-            "conditional_fields": [
-              {
-                "condition_value": [
-                  true
-                ],
-                "key": "general/enable_skip_functionality"
-              }
-            ]
-          },
-          {
-            "key": "skip_action_button_font",
-            "type": "ios_font_selector",
-            "label": "Login Action Button Font",
-            "label_tooltip": "Font for Skip Action Button Text.",
-            "initial_value": "SFProDisplay-Regular",
             "conditional_fields": [
               {
                 "condition_value": [
@@ -687,13 +545,6 @@
             ]
           },
           {
-            "key": "username_password_empty_font",
-            "type": "ios_font_selector",
-            "label": "Username Password Empty Notice Font",
-            "label_tooltip": "Font for notice text when Log In action is called and username and/or password are empty.",
-            "initial_value": "SFProDisplay-Regular"
-          },
-          {
             "key": "username_password_empty_fontsize",
             "type": "number_input",
             "label_tooltip": "Font Size for notice text when Log In action is called and username and/or password are empty.",
@@ -713,13 +564,6 @@
         "tooltip": "These fields affect the design of plugin alert component.",
         "folded": true,
         "fields": [
-          {
-            "key": "error_notice_message_font",
-            "type": "ios_font_selector",
-            "label": "Alert Message Font",
-            "label_tooltip": "Font for notices and errors text received from the login service.",
-            "initial_value": "SFProDisplay-Regular"
-          },
           {
             "key": "error_notice_message_fontsize",
             "type": "number_input",
