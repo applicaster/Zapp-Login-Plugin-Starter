@@ -44,6 +44,7 @@ export default function ErrorScreenComponent(props) {
     <Layout
       backgroundColor={errorBackground}
       backgroundUri={ASSETS.screenBackground}
+      closeHook={closeHook}
     >
       <View style={styles.container}>
         <Text style={{ ...styles.errorText, ...customStyles.errorDescriptionStyle }}>

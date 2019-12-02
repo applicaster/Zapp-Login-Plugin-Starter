@@ -18,7 +18,7 @@ export const getPinCode = async () => {
       data: {
         devicePinCode = ''
       }
-    } = await axios.post(activationCodeUrl,
+    } = await axios.post('activationCodeUrl',
       {
         headers: {
           Accept: 'application/json',
