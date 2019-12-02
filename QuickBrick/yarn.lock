@@ -36,6 +36,16 @@
     redux "^3.7.2"
     url "^0.11.0"
 
+"@applicaster/quick-brick-smil-parser@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@applicaster/quick-brick-smil-parser/-/quick-brick-smil-parser-0.0.7.tgz#7179987309d914bc9f0a404e4d9fa9340392507e"
+  integrity sha512-+q7wetwuHwwSs1sujkZAOF3aNRh61tBGC9HNOUZxeiEQrRGLevs369pjaS/g9C4eLlfjSDitIHdDjlDJCeiqsg==
+  dependencies:
+    moment "^2.24.0"
+    ramda "^0.26.1"
+    url "^0.11.0"
+    xml-js "1.6.11"
+
 "@applicaster/zapp-pipes-dev-kit@^1.4.0":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@applicaster/zapp-pipes-dev-kit/-/zapp-pipes-dev-kit-1.4.1.tgz#92f16648d5484d442b89795f6bbaf88c632b3bcb"
@@ -6788,6 +6798,13 @@ xhr@2.4.0:
     is-function "^1.0.1"
     parse-headers "^2.0.0"
     xtend "^4.0.0"
+
+xml-js@1.6.11:
+  version "1.6.11"
+  resolved "https://registry.yarnpkg.com/xml-js/-/xml-js-1.6.11.tgz#927d2f6947f7f1c19a316dd8eea3614e8b18f8e9"
+  integrity sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g==
+  dependencies:
+    sax "^1.2.4"
 
 xml2js@^0.4.19:
   version "0.4.22"

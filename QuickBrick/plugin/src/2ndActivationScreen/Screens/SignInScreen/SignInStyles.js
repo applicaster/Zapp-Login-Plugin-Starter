@@ -1,41 +1,56 @@
 import { getPluginData } from '../../../Common/Utils';
 
-export default function createStyleSheet(screenData, configuration) {
-  const customStyles = getPluginData(screenData, configuration);
+export default function createStyleSheet(screenData) {
+  const {
+    main_instructions_fontcolor: mainFontColor,
+    main_instructions_fontsize: mainFontSize,
+    go_to_url_fontcolor: goToFontColor,
+    go_to_url_fontsize: goToFontSize,
+    activation_url_fontcolor: activationUrlFontColor,
+    activation_url_fontsize: activationUrlFontSize,
+    code_instructions_fontcolor: codeInstructionsFontColor,
+    code_instructions_fontsize: codeInstructionsFontSize,
+    activation_code_fontcolor: activationCodeFontColor,
+    activation_code_fontsize: activationCodeFontSize,
+    qr_code_hint_fontcolor: qrCodeHintFontColor,
+    qr_code_hint_fontsize: qrCodeHintFontSize,
+    additional_info_fontcolor: additionalInfoFontColor,
+    additional_info_fontsize: additionalInfoFontSize
+  } = getPluginData(screenData);
 
   const mainTextStyle = {
-    color: customStyles.main_instructions_fontcolor,
-    fontSize: Number(customStyles.main_instructions_fontsize)
+    color: mainFontColor,
+    fontSize: Number(mainFontSize)
   };
 
   const goToTextStyle = {
-    color: customStyles.go_to_url_fontcolor,
-    fontSize: Number(customStyles.go_to_url_fontsize)
+    color: goToFontColor,
+    fontSize: Number(goToFontSize)
   };
 
   const activationUrlStyle = {
-    color: customStyles.activation_url_fontcolor,
-    fontSize: Number(customStyles.activation_url_fontsize)
+    color: activationUrlFontColor,
+    fontSize: Number(activationUrlFontSize)
   };
 
   const codeInstructionsStyle = {
-    color: customStyles.code_instructions_fontcolor,
-    fontSize: Number(customStyles.code_instructions_fontsize)
+    color: codeInstructionsFontColor,
+    fontSize: Number(codeInstructionsFontSize)
   };
 
   const activationCodeStyle = {
-    color: customStyles.activation_code_fontcolor,
-    fontSize: Number(customStyles.activation_code_fontsize)
+    color: activationCodeFontColor,
+    fontSize: Number(activationCodeFontSize)
   };
 
   const QRCodehintStyle = {
-    color: customStyles.qr_code_hint_fontcolor,
-    fontSize: Number(customStyles.qr_code_hint_fontsize)
+    color: qrCodeHintFontColor,
+    fontSize: Number(qrCodeHintFontSize)
   };
 
   const additionalInfoStyle = {
-    color: customStyles.additional_info_fontcolor,
-    fontSize: Number(customStyles.additional_info_fontsize)
+    color: additionalInfoFontColor,
+    fontSize: Number(additionalInfoFontSize)
   };
 
   return {

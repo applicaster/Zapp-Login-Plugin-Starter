@@ -5,17 +5,17 @@
   },
   "react_native": true,
   "dependency_repository_url": [],
-  "dependency_name": "@applicaster/quick-brick-login-starter-kit",
-  "dependency_version": "0.0.1",
-  "platform": "tvos",
-  "author_name": "Olga Duk",
-  "author_email": "oduk@scand.com",
-  "manifest_version": "0.0.4",
-  "name": "QuickBrick Login Starter",
-  "description": "Login hook plugin starter kit",
+  "dependency_name": "@applicaster/quick-brick-login-starter-kit", // replace it with your dependency name
+  "dependency_version": "0.0.1", // replace it with your dependency version
+  "platform": "tvos", // replace it with platform you want to use
+  "author_name": "Olga Duk", // replace it with your author name
+  "author_email": "oduk@scand.com", // replace it with your author email
+  "manifest_version": "0.0.4", // replace it with your manifest version
+  "name": "QuickBrick Login Starter", // replace it with your plugin name
+  "description": "Login hook plugin starter kit", // replace it with your plugin description
   "type": "general",
   "screen": true,
-  "identifier": "zapp-login-plugin-starter",
+  "identifier": "zapp-login-plugin-starter", // replace it with your plugin id
   "ui_builder_support": true,
   "whitelisted_account_ids": [
     "5a4516fa41442c000b0195d6",
@@ -25,7 +25,7 @@
   "deprecated_since_zapp_sdk": "",
   "unsupported_since_zapp_sdk": "",
   "preload": true,
-  "general": {
+  "general": { // remove unnecessary fields
     "fields": [
       {
         "type": "switch",
@@ -589,7 +589,7 @@
   },
   "custom_configuration_fields": [
     {
-      "key": "ios_assets_bundle",
+      "key": "ios_assets_bundle", //rename it corresponginly to platform you want to use
       "type": "uploader",
       "label": "tvOS Design Assets",
       "label_tooltip": "Please upload a zip file to provide the design assets for this plugin. For guidance and proper naming of the assets, please refer to this <a href='https://assets-production.applicaster.com.s3.amazonaws.com/applicaster-employees/marketplace/OPT/Login%20Plugin%20-%20Designer%20Documentation.sketch'>resource</a>."

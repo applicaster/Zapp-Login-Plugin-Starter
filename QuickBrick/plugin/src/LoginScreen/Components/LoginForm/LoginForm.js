@@ -10,6 +10,7 @@ import Button from '../../../Common/Components/Button';
 import Input from '../Input';
 import ErrorMessage from '../ErrorMessage';
 import createStyleSheet from './LoginFormStyle';
+import ASSETS from './LoginFormAssets';
 
 
 export default function LoginForm(props) {
@@ -67,8 +68,8 @@ export default function LoginForm(props) {
             onChangeText={handleChange('username')}
             placeholder={usernamePlaceholder}
             style={{ ...styles.input, ...customStyles.usernameInputStyle }}
-            inputAsset="login_username_input_field_asset.png"
-            inputAssetActive="login_username_input_field_asset_active.png"
+            inputAsset={ASSETS.usernameInputBackground}
+            inputAssetActive={ASSETS.usernameInputBackgroundActive}
           />
           <ErrorMessage
             errorValue={touched.username && errors.username}
@@ -80,8 +81,8 @@ export default function LoginForm(props) {
             placeholder={passwordPlaceholder}
             secureTextEntry
             style={{ ...styles.input, ...customStyles.passwordInputStyle }}
-            inputAsset="login_password_input_field_asset.png"
-            inputAssetActive="login_password_input_field_asset_active.png"
+            inputAsset={ASSETS.passwordInputBackground}
+            inputAssetActive={ASSETS.passwordInputBackgroundActive}
           />
           <ErrorMessage
             errorValue={touched.password && errors.password}
@@ -98,22 +99,21 @@ export default function LoginForm(props) {
                       buttonStyle={styles.button}
                       callback={handleSubmit}
                       textStyle={customStyles.loginButtonStyle}
-                      backgroundButtonUri="login_action_button_asset.png"
-                      backgroundButtonUriActive="login_action_button_asset_active.png"
+                      backgroundButtonUri={ASSETS.loginButtonBackground}
+                      backgroundButtonUriActive={ASSETS.loginButtonBackgroundActive}
                     />
                     {
                       skip
-                        ? (
-                          <Button
-                            label={skipLabel}
-                            callback={handleSkip}
-                            buttonStyle={styles.button}
-                            textStyle={customStyles.loginButtonStyle}
-                            backgroundButtonUri="skip_action_button_asset.png"
-                            backgroundButtonUriActive="skip_action_button_asset_active.png"
-                          />
-                        )
-                        : null
+                      && (
+                        <Button
+                          label={skipLabel}
+                          callback={handleSkip}
+                          buttonStyle={styles.button}
+                          textStyle={customStyles.loginButtonStyle}
+                          backgroundButtonUri={ASSETS.skipButtonBackground}
+                          backgroundButtonUriActive={ASSETS.skipButtonBackgroundActive}
+                        />
+                      )
                     }
                   </>
                 )

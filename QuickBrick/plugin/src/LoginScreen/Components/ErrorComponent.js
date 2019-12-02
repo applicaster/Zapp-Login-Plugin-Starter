@@ -5,9 +5,9 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default function ErrorComponent({ error }) {
+export default function ErrorComponent({ error, errorBackground }) {
   return (
-    <ImageBackground source={{ uri: 'login_alert_component_asset.png' }} style={styles.errorContainer}>
+    <ImageBackground source={{ uri: errorBackground }} style={styles.errorContainer}>
       <Text
         style={styles.errorText}
         numberOfLines={2}

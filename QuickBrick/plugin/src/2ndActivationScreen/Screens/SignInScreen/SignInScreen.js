@@ -10,6 +10,7 @@ import { getPinCode, HEARBEAT_INTERVAL, getAccessToken } from '../../../LoginPlu
 import { createActivationCodeUrl, setToLocalStorage } from '../../../Common/Utils';
 import EVENTS from '../../../Analytics/config';
 import createStyleSheet from './SignInStyles';
+import ASSETS from './SignInAssets';
 
 function SignInScreen(props) {
   const {
@@ -22,6 +23,7 @@ function SignInScreen(props) {
   const [loading, setLoading] = useState(false);
   const [pinCode, setPincode] = useState('');
   const [error, setError] = useState(null);
+  const [heartBeat, setHeartBeat] = useState(null);
 
   const customStyles = createStyleSheet(screenData);
   const activationCodeUrl = createActivationCodeUrl(screenData);
@@ -33,15 +35,15 @@ function SignInScreen(props) {
       activation_screen_background_color: activationBackground,
       main_instructions_text: mainInstructions,
       heartbeat_activation_service: heartbeatService
-    }
+    } = {}
   } = screenData;
 
   useEffect(() => {
-    signIn()
-      .catch((err) => {
-        console.log(err);
-        setError(err);
-      });
+    signIn();
+
+    return () => {
+      clearInterval(heartBeat);
+    };
   }, []);
 
   const signIn = async () => {
@@ -51,9 +53,10 @@ function SignInScreen(props) {
       if (devicePinCode) {
         trackEvent(EVENTS.activationCodeSuccess, { screenData, payload });
       }
-      setPincode(devicePinCode);
-      setLoading(false);
       const heartbeat = setInterval(() => getSignInStatus(), HEARBEAT_INTERVAL);
+      setPincode(devicePinCode);
+      setHeartBeat(heartbeat);
+      setLoading(false);
     } catch (err) {
       trackEvent(EVENTS.activationCodeFailure, { screenData, payload });
       console.log(err);
@@ -89,7 +92,8 @@ function SignInScreen(props) {
   const renderSignInScreen = () => (
     <Layout
       backgroundColor={activationBackground}
-      backgroundUri="activation_screen_background_asset.png"
+      backgroundUri={ASSETS.screenBackground}
+      logo={ASSETS.logo}
       closeHook={closeHook}
     >
       <View style={styles.container}>
@@ -120,13 +124,12 @@ function SignInScreen(props) {
         </View>
         {
           additionalInfo
-            ? (
-              <AdditionalInfo
-                additionalInfo={additionalInfo}
-                additionalInfoStyle={customStyles.additionalInfoStyle}
-              />
-            )
-            : null
+          && (
+            <AdditionalInfo
+              additionalInfo={additionalInfo}
+              additionalInfoStyle={customStyles.additionalInfoStyle}
+            />
+          )
         }
       </View>
     </Layout>

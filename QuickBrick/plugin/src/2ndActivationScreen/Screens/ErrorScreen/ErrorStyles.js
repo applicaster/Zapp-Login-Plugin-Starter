@@ -1,24 +1,28 @@
 import { getPluginData } from '../../../Common/Utils';
 
-export default function createStyleSheet(screenData, configuration) {
-  const customStyles = getPluginData(screenData, configuration);
+export default function createStyleSheet(screenData) {
+  const {
+    retry_action_button_fontcolor: retryButtonFontColor,
+    retry_action_button_fontsize: retryButtonFontSize,
+    close_action_button_fontcolor: closeButtonFontColor,
+    close_action_button_fontsize: closeButtonFontSize,
+    error_description_fontcolor: errorDescriptionFontColor,
+    error_description_fontsize: errorDescriptionFontSize
+  } = getPluginData(screenData);
 
   const retryButtonStyle = {
-    color: customStyles.retry_action_button_fontcolor,
-    fontSize: Number(customStyles.retry_action_button_fontsize),
-    // fontFamily: customStyles.retry_action_button_font // import font families?
+    color: retryButtonFontColor,
+    fontSize: Number(retryButtonFontSize)
   };
 
   const closeButtonStyle = {
-    color: customStyles.close_action_button_fontcolor,
-    fontSize: Number(customStyles.close_action_button_fontsize),
-    // fontFamily: customStyles.close_action_button_font // import font families?
+    color: closeButtonFontColor,
+    fontSize: Number(closeButtonFontSize)
   };
 
   const errorDescriptionStyle = {
-    color: customStyles.error_description_fontcolor,
-    fontSize: Number(customStyles.error_description_fontsize),
-    // fontFamily: customStyles.error_description_font // import font families?
+    color: errorDescriptionFontColor,
+    fontSize: Number(errorDescriptionFontSize)
   };
 
   return {

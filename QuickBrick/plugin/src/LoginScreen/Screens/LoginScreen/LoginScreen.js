@@ -12,6 +12,7 @@ import { setToLocalStorage } from '../../../Common/Utils';
 import createStyleSheet from './LoginStyles';
 import trackEvent from '../../../Analytics';
 import EVENTS from '../../../Analytics/config';
+import ASSETS from './LoginScreenAssets';
 
 const { height } = Dimensions.get('window');
 
@@ -71,8 +72,10 @@ function LoginScreen(props) {
   return (
     <Layout
       backgroundColor={loginBackground}
-      backgroundUri="login_screen_background_asset.png"
+      backgroundUri={ASSETS.loginScreenBackground}
       error={error}
+      errorBackground={ASSETS.errorBackground}
+      logo={ASSETS.logo}
       closeHook={closeHook}
     >
       <View style={styles.loginContainer}>

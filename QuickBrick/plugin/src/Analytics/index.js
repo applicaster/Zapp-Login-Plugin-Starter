@@ -10,37 +10,28 @@ export default function trackEvent(event, props) {
       timestamp
     });
   } catch (err) {
-    console.log(err);
     throw err;
   }
 }
 
 function getAnalyticsData(props) {
   const {
-    payload,
-    screenData
+    payload = {},
+    screenData: {
+      type: pluginProvider
+    } = {}
   } = props;
 
-  let contentType = '';
-  let contentName = '';
-  let pluginProvider = '';
-
-  if (payload && payload.type && payload.type.value) {
-    contentType = payload.type.value;
-    contentName = payload.title;
-  }
-
-  if (payload.home && payload.home === true) {
-    contentName = 'App';
-  }
-
-  if (screenData && screenData.type) {
-    pluginProvider = screenData.type;
+  if (payload.type && payload.type.value) {
+    return {
+      contentType: payload.type.value,
+      contentName: payload.title,
+      pluginProvider
+    };
   }
 
   return {
-    contentType,
-    contentName,
+    contentName: 'App',
     pluginProvider
   };
 }

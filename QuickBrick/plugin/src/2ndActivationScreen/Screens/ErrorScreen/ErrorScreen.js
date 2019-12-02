@@ -9,6 +9,7 @@ import ButtonComponent from '../../../Common/Components/Button';
 import Layout from '../../../Common/Components/Layout';
 import SCREENS from '../../../Common/Config/Screens';
 import createStyleSheet from './ErrorStyles';
+import ASSETS from './ErrorAssets';
 
 const { height, width } = Dimensions.get('window');
 
@@ -26,7 +27,7 @@ export default function ErrorScreenComponent(props) {
       activation_alert_background_color: errorBackground = '',
       retry_action_button_text: retryLabel = '',
       close_action_button_text: closeLabel = ''
-    }
+    } = {}
   } = screenData;
 
   const onClose = () => {
@@ -42,7 +43,7 @@ export default function ErrorScreenComponent(props) {
   return (
     <Layout
       backgroundColor={errorBackground}
-      backgroundUri="login_screen_background_asset.png"
+      backgroundUri={ASSETS.screenBackground}
     >
       <View style={styles.container}>
         <Text style={{ ...styles.errorText, ...customStyles.errorDescriptionStyle }}>
@@ -53,16 +54,16 @@ export default function ErrorScreenComponent(props) {
           callback={onTryAgain}
           buttonStyle={styles.buttonTryAgain}
           textStyle={customStyles.retryButtonStyle}
-          backgroundButtonUri="activation_alert_screen_retry_button_asset.png"
-          backgroundButtonUriActive="activation_alert_screen_retry_button_asset_active.png"
+          backgroundButtonUri={ASSETS.retryButtonBackground}
+          backgroundButtonUriActive={ASSETS.retryButtonBackgroundActive}
         />
         <ButtonComponent
           label={closeLabel}
           callback={onClose}
           buttonStyle={styles.buttonClose}
           textStyle={customStyles.closeButtonStyle}
-          backgroundButtonUri="activation_alert_screen_close_button_asset.png"
-          backgroundButtonUriActive="activation_alert_screen_close_button_asset_active.png"
+          backgroundButtonUri={ASSETS.closeButtonBackground}
+          backgroundButtonUriActive={ASSETS.closeButtonBackgroundActive}
         />
       </View>
     </Layout>

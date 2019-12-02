@@ -8,6 +8,8 @@ function Layout(props) {
   const {
     backgroundColor = '',
     backgroundUri = '',
+    errorBackground = '',
+    logo,
     error,
     children,
     closeHook
@@ -32,11 +34,11 @@ function Layout(props) {
           <Image
             style={styles.logo}
             resizeMode="contain"
-            source={{ uri: 'activation_screen_logo_asset.png' }}
+            source={{ uri: logo }}
           />
         </View>
         {
-          error ? <ErrorComponent error={error} /> : null
+          error && <ErrorComponent error={error} errorBackground={errorBackground} />
         }
         <View style={styles.subContainer}>
           {children}
@@ -73,5 +75,4 @@ const styles = {
   }
 };
 
-Layout.displayName = 'Layout';
 export default Layout;
