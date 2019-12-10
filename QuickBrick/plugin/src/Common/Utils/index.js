@@ -12,9 +12,9 @@ export function getPluginData(screenData) {
 
 export function createActivationCodeUrl(screenData) {
   const {
-    activation_code_parameter: codeParameter,
-    activation_code_parameter_name: codeParameterName,
-    activation_code_endpoint: codeEndpoint
+    activation_code_parameter: codeParameter = true,
+    activation_code_parameter_name: codeParameterName = '',
+    activation_code_endpoint: codeEndpoint = ''
   } = getPluginData(screenData);
 
   return codeParameter ? `${codeEndpoint}?${codeParameterName}=` : codeEndpoint;

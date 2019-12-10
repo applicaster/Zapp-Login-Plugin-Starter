@@ -30,11 +30,14 @@ function SignInScreen(props) {
 
   const {
     general: {
-      additional_info_text: additionalInfo,
-      qr_code_hint_text: qrCodeHint,
-      activation_screen_background_color: activationBackground,
-      main_instructions_text: mainInstructions,
-      heartbeat_activation_service: heartbeatService
+      additional_info_text: additionalInfo = '',
+      qr_code_hint_text: qrCodeHint = '',
+      activation_screen_background_color: activationBackground = '',
+      main_instructions_text: mainInstructions = '',
+      heartbeat_activation_service: heartbeatService,
+      go_to_url_text: goTo = '',
+      activation_url_text: activationUrl = '',
+      code_instructions_text: codeInstructions = '',
     } = {}
   } = screenData;
 
@@ -107,7 +110,9 @@ function SignInScreen(props) {
         <View style={styles.columnsContainer}>
           <View style={styles.leftColumn}>
             <TextBlock
-              screenData={screenData}
+              goTo={goTo}
+              activationUrl={activationUrl}
+              codeInstructions={codeInstructions}
               loading={loading}
               pinCode={pinCode}
               customStyles={customStyles}

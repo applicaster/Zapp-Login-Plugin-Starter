@@ -1,11 +1,10 @@
 import React from 'react';
 import {
   ImageBackground,
-  Text,
-  StyleSheet
+  Text
 } from 'react-native';
 
-export default function ErrorComponent({ error, errorBackground }) {
+export default function ErrorComponent({ error = {}, errorBackground = '' }) {
   return (
     <ImageBackground source={{ uri: errorBackground }} style={styles.errorContainer}>
       <Text
@@ -13,13 +12,13 @@ export default function ErrorComponent({ error, errorBackground }) {
         numberOfLines={2}
         ellipsizeMode="tail"
       >
-        {error.message}
+        {error && error.message}
       </Text>
     </ImageBackground>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = {
   errorContainer: {
     position: 'absolute',
     top: 50,
@@ -40,4 +39,4 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     color: '#fff'
   }
-});
+};

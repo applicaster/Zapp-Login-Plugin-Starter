@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  StyleSheet,
   Text,
   ImageBackground
 } from 'react-native';
@@ -9,12 +8,12 @@ import { Focusable } from '@applicaster/zapp-react-native-ui-components/Componen
 
 export default function Button(
   {
-    label,
+    label = '',
     callback,
-    buttonStyle,
-    textStyle,
-    backgroundButtonUri,
-    backgroundButtonUriActive
+    buttonStyle = {},
+    textStyle = {},
+    backgroundButtonUri = '',
+    backgroundButtonUriActive = ''
   }
 ) {
   return (
@@ -40,8 +39,8 @@ export default function Button(
   );
 }
 
-const styles = StyleSheet.create({
+const styles = {
   focused: {
     backgroundColor: 'rgba(255, 255, 255, 0.8)'
   }
-});
+};

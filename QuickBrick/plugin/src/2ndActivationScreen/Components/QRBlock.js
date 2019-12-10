@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   ActivityIndicator
 } from 'react-native';
 import QRCode from './QRCode';
@@ -32,11 +31,11 @@ function QRBlock({ loading, QRCodehintStyle, qrCodeHint, activationCodeUrl }) {
 
 export default QRBlock;
 
-const styles = StyleSheet.create({
+const styles = {
   loadContainer: {
     width: 300,
     height: 300,
     justifyContent: 'center',
     alignItems: 'center'
   }
-});
+};

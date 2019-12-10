@@ -1,16 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 
-const ErrorMessage = ({ errorValue, customStyles }) => (
+const ErrorMessage = ({ errorValue = '', customStyles = {} }) => (
   <View style={styles.container}>
-    <Text style={{ ...customStyles.fieldsEmptyErrorStyle, fontWeight: 'bold' }}>{errorValue}</Text>
+    <Text style={{ ...customStyles.fieldsEmptyErrorStyle, fontWeight: 'bold' }}>
+      {errorValue}
+    </Text>
   </View>
 );
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     marginLeft: 25
   }
-});
+};
 
 export default ErrorMessage;

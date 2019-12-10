@@ -9,7 +9,7 @@
     "development-app"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "zapplicaster": "node_modules/.bin/zapplicaster-cli prepare --yarn --destination-path development-app",
     "zapplicaster:prepare": "node_modules/.bin/zapplicaster-cli prepare -y -d development-app",
     "zapplicaster:reload": "node_modules/.bin/zapplicaster-cli reload_config -d development-app",
@@ -24,14 +24,19 @@
   "devDependencies": {
     "@applicaster/zapplicaster-cli": "^2.1.1",
     "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-preset-react-native": "5.0.2",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
+    "jest": "^24.9.0",
+    "jest-react-native": "^18.0.0",
     "react": "16.8.3",
     "react-native": "0.59.10",
-    "react-native-web": "0.11.5"
+    "react-native-web": "0.11.5",
+    "react-test-renderer": "16.8.3"
   },
   "peerDependencies": {
     "@applicaster/zapplicaster-cli": "^2.1.1",
@@ -40,9 +45,20 @@
     "react-native-web": "0.11.5"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
     "axios": "^0.19.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "formik": "^2.0.4",
+    "jest-enzyme": "^7.1.2",
+    "jsdom": "^15.2.1",
     "ramda": "^0.26.1",
     "yup": "^0.27.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    }
   }
 }

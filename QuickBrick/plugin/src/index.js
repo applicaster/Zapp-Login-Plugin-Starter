@@ -32,9 +32,10 @@ function LoginPluginComponent(props) {
     try {
       const value = await getFromLocalStorage('token');
       if (value !== null && value !== undefined) {
-        callback({
-          success: true
-        });
+        // callback({
+        //   success: true
+        // });
+        goToScreen(SCREENS.SIGNIN);
       } else {
         goToScreen(SCREENS.SIGNIN);
       }
@@ -97,4 +98,5 @@ const styles = StyleSheet.create({
   }
 });
 
+export default LoginPluginComponent;
 export default storeConnector(LoginPluginComponent);

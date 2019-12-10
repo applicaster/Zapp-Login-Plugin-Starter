@@ -2,18 +2,18 @@ import React from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   ActivityIndicator
 } from 'react-native';
 
-function TextBlock({ screenData, loading, customStyles, pinCode }) {
+function TextBlock(props) {
   const {
-    general: {
-      go_to_url_text: goTo,
-      activation_url_text: activationUrl,
-      code_instructions_text: codeInstructions,
-    }
-  } = screenData;
+    goTo = '',
+    activationUrl = '',
+    codeInstructions = '',
+    loading = false,
+    customStyles = {},
+    pinCode = ''
+  } = props;
 
   return (
     <>
@@ -59,7 +59,7 @@ function TextBlock({ screenData, loading, customStyles, pinCode }) {
 
 export default TextBlock;
 
-const styles = StyleSheet.create({
+const styles = {
   text: {
     marginBottom: 20
   },
@@ -71,4 +71,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   }
-});
+};

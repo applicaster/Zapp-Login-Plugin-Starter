@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 
 function AdditionalInfo(props) {
   const {
@@ -20,7 +20,7 @@ function AdditionalInfo(props) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = {
   bottomText: {
     maxWidth: 1110,
     alignItems: 'center',
@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
     paddingTop: 150,
     marginBottom: 100
   }
-});
+};
 
 export default AdditionalInfo;

@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   Dimensions
 } from 'react-native';
 import ButtonComponent from '../../../Common/Components/Button';
@@ -15,8 +14,8 @@ const { height, width } = Dimensions.get('window');
 
 export default function ErrorScreenComponent(props) {
   const {
-    error,
-    screenData,
+    error = null,
+    screenData = {},
     goToScreen,
     closeHook
   } = props;
@@ -71,7 +70,7 @@ export default function ErrorScreenComponent(props) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -103,4 +102,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   }
-});
+};

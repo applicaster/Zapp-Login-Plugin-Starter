@@ -4,12 +4,12 @@ import { TextInput, ImageBackground } from 'react-native';
 
 function Input(props) {
   const {
-    inputAsset,
-    inputAssetActive,
-    value,
+    inputAsset = '',
+    inputAssetActive = '',
+    value = '',
     onChangeText,
-    placeholder,
-    style
+    placeholder = '',
+    style = {}
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
