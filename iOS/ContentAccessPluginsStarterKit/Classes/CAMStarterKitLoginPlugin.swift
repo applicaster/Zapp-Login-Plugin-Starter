@@ -6,9 +6,10 @@
 //
 
 import ZappPlugins
-import ZappLoginPluginsSDK
+//import ZappLoginPluginsSDK
 import CAM
-import ComponentsSDK
+//import ComponentsSDK
+//import ApplicasterSDK
 
 @objc public class CAMStarterKitLoginPlugin: NSObject, ZPLoginProviderUserDataProtocol, ZPAppLoadingHookProtocol, ZPScreenHookAdapterProtocol, ZPPluggableScreenProtocol {
     
@@ -61,7 +62,7 @@ import ComponentsSDK
         
         self.configurationJSON = configurationJSON
         let pluginID = "YourPluginID"
-        self.pluginConfiguration = ZLComponentsManager.screenComponentForPluginID(pluginID)?.general ?? [:]
+        self.pluginConfiguration = ZAAppConnector.sharedInstance().genericDelegate.screenModelForPluginID(pluginID: pluginID, dataSource: nil)?.general ?? [:]
     }
     
     // MARK: - ZPUIBuilderPluginsProtocol
@@ -169,22 +170,21 @@ import ComponentsSDK
             return
         }
         
-        var flow = self.flow
-        
         if let _ = additionalParameters?["UserAccountTrigger"] as? Bool {
             analytics.trigger = .userAccountComponent
         }
         
         let contentAccessManager = ContentAccessManager(rootViewController: controller,
                                                         camDelegate: self,
-                                                        camFlow: flow) { (isCompleted) in
+                                                        camFlow: self.flow) { (isCompleted) in
             (isCompleted == true) ? completion(.completedSuccessfully) : completion(.failed)
         }
         contentAccessManager.startFlow()
     }
     
     public func logout(_ completion: @escaping ((ZPLoginOperationStatus) -> Void)) {
-        APAuthorizationManager.sharedInstance()?.updateAuthorizationTokens(withAuthorizationProviders: [])
+        ZAAppConnector.sharedInstance().identityDelegate.updateAuthorizationTokens(withAuthorizationProviders: [])
+        
         completion(.completedSuccessfully)
     }
     
@@ -213,7 +213,7 @@ import ComponentsSDK
 // MARK: - CAMDelegate
 
 extension CAMStarterKitLoginPlugin: CAMDelegate {
-    
+   
     /**
      Default implementation. In general there are no reasons to change it.
      */
@@ -250,6 +250,12 @@ extension CAMStarterKitLoginPlugin: CAMDelegate {
 
     }
     
+    /**
+     Use this method to logout
+    */
+    public func logout(completion: @escaping (Result<Void, Error>) -> Void) {
+           
+    }
     /**
      Auth data contains user input in Sign-Up screen.
      Possible keys are described in configration json of plugin.
