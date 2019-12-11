@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   View,
   ActivityIndicator,
-  StyleSheet,
   Dimensions
 } from 'react-native';
 import { connectToStore } from '@applicaster/zapp-react-native-redux';
@@ -12,7 +11,9 @@ import SCREENS from './Common/Config/Screens';
 import { getFromLocalStorage } from './Common/Utils';
 
 const { height } = Dimensions.get('window');
-const storeConnector = connectToStore((state) => ({ screenData: state.rivers['c6f08244-b112-4da0-bb43-5764724be57c'] }));
+
+// While screenData is not passed to the plugin, please use this storeConnector with id of the plugin screen
+const storeConnector = connectToStore((state) => ({ screenData: state.rivers['a6b19cba-4180-472a-9545-3fce6e45d223'] }));
 
 
 function LoginPluginComponent(props) {
@@ -35,12 +36,13 @@ function LoginPluginComponent(props) {
         // callback({
         //   success: true
         // });
-        goToScreen(SCREENS.SIGNIN);
+        goToScreen(SCREENS.LOGIN);
       } else {
-        goToScreen(SCREENS.SIGNIN);
+        goToScreen(SCREENS.LOGIN);
       }
     } catch (error) {
       console.log(error);
+      goToScreen(SCREENS.LOGIN);
     }
   };
 
@@ -87,7 +89,7 @@ function LoginPluginComponent(props) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1,
     height,
@@ -96,7 +98,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row'
   }
-});
+};
 
-export default LoginPluginComponent;
+// export default LoginPluginComponent;
 export default storeConnector(LoginPluginComponent);

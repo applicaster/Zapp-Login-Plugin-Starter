@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet,
   ActivityIndicator,
   View
 } from 'react-native';
@@ -62,33 +61,35 @@ export default function LoginForm(props) {
           touched
         }
       ) => (
-        <View style={{ alignItems: 'center' }}>
-          <Input
-            value={values.username}
-            onChangeText={handleChange('username')}
-            placeholder={usernamePlaceholder}
-            style={{ ...styles.input, ...customStyles.usernameInputStyle }}
-            inputAsset={ASSETS.usernameInputBackground}
-            inputAssetActive={ASSETS.usernameInputBackgroundActive}
-          />
-          <ErrorMessage
-            errorValue={touched.username && errors.username}
-            customStyles={customStyles}
-          />
-          <Input
-            value={values.password}
-            onChangeText={handleChange('password')}
-            placeholder={passwordPlaceholder}
-            secureTextEntry
-            style={{ ...styles.input, ...customStyles.passwordInputStyle }}
-            inputAsset={ASSETS.passwordInputBackground}
-            inputAssetActive={ASSETS.passwordInputBackgroundActive}
-          />
-          <ErrorMessage
-            errorValue={touched.password && errors.password}
-            customStyles={customStyles}
-          />
-          <View style={styles.buttonContainer}>
+        <>
+          <View style={styles.container}>
+            <Input
+              value={values.username}
+              onChangeText={handleChange('username')}
+              placeholder={usernamePlaceholder}
+              style={{ ...styles.input, ...customStyles.usernameInputStyle }}
+              inputAsset={ASSETS.usernameInputBackground}
+              inputAssetActive={ASSETS.usernameInputBackgroundActive}
+            />
+            <ErrorMessage
+              errorValue={touched.username && errors.username}
+              customStyles={customStyles}
+            />
+            <Input
+              value={values.password}
+              onChangeText={handleChange('password')}
+              placeholder={passwordPlaceholder}
+              secureTextEntry
+              style={{ ...styles.input, ...customStyles.passwordInputStyle, marginBottom: 0 }}
+              inputAsset={ASSETS.usernameInputBackground}
+              inputAssetActive={ASSETS.usernameInputBackgroundActive}
+            />
+            <ErrorMessage
+              errorValue={touched.password && errors.password}
+              customStyles={customStyles}
+            />
+          </View>
+          <View style={styles.container}>
             {
               (loading && !error)
                 ? <ActivityIndicator />
@@ -96,7 +97,7 @@ export default function LoginForm(props) {
                   <>
                     <Button
                       label={loginLabel}
-                      buttonStyle={styles.button}
+                      buttonStyle={styles.input}
                       callback={handleSubmit}
                       textStyle={customStyles.loginButtonStyle}
                       backgroundButtonUri={ASSETS.loginButtonBackground}
@@ -108,7 +109,7 @@ export default function LoginForm(props) {
                         <Button
                           label={skipLabel}
                           callback={handleSkip}
-                          buttonStyle={styles.button}
+                          buttonStyle={styles.input}
                           textStyle={customStyles.loginButtonStyle}
                           backgroundButtonUri={ASSETS.skipButtonBackground}
                           backgroundButtonUriActive={ASSETS.skipButtonBackgroundActive}
@@ -119,43 +120,31 @@ export default function LoginForm(props) {
                 )
             }
           </View>
-        </View>
+        </>
       )}
     </Formik>
   );
 }
 
-const styles = StyleSheet.create({
-  input: {
-    width: 550,
-    height: 80,
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: '#979797',
-    fontSize: 30,
-    fontWeight: 'normal'
-  },
+const styles = {
   error: {
     position: 'absolute',
     bottom: 0,
     color: 'red',
     fontSize: 12
   },
-  buttonContainer: {
-    minWidth: 550,
-    minHeight: 90,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  button: {
-    width: 550,
-    height: 90,
-    padding: 20,
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: '#979797',
+  container: {
+    minWidth: 610,
+    minHeight: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10
+    marginBottom: 45
+  },
+  input: {
+    minWidth: 610,
+    minHeight: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10
   }
-});
+};

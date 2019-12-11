@@ -14,13 +14,17 @@ function Input(props) {
 
   const [isFocused, setIsFocused] = useState(false);
 
+  const handleFocus = (event) => {
+    setIsFocused(true);
+  };
+
   return (
     <ImageBackground
       source={{ uri: isFocused ? inputAssetActive : inputAsset }}
       style={{ ...style, marginBottom: 15 }}
     >
       <TextInput
-        onFocus={() => setIsFocused(true)}
+        onFocus={console.log('focus')}
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}

@@ -1,8 +1,6 @@
 const ASSETS = {
   usernameInputBackground: 'login_username_input_field_asset.png',
   usernameInputBackgroundActive: 'login_username_input_field_asset_active.png',
-  passwordInputBackground: 'login_password_input_field_asset.png',
-  passwordInputBackgroundActive: 'login_password_input_field_asset_active.png',
   loginButtonBackground: 'login_action_button_asset.png',
   loginButtonBackgroundActive: 'login_action_button_asset_active.png',
   skipButtonBackground: 'skip_action_button_asset.png',

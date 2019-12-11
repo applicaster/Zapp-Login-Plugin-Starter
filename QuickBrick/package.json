@@ -14,7 +14,8 @@
     "zapplicaster:prepare": "node_modules/.bin/zapplicaster-cli prepare -y -d development-app",
     "zapplicaster:reload": "node_modules/.bin/zapplicaster-cli reload_config -d development-app",
     "clean:node": "rm -rf node_modules **/node_modules yarn.lock && yarn",
-    "start": "./node_modules/.bin/react-native start --projectRoot ./development-app",
+    "start:tvos": "./node_modules/.bin/react-native start --projectRoot ./development-app",
+    "start:samsung": "yarn workspace quick-brick-app start",
     "npm:publish": "yarn workspace @applicaster/quick-brick-login-starter-kit publish",
     "lint": "eslint *.js **/*.js"
   },
@@ -23,6 +24,11 @@
   "license": "ISC",
   "devDependencies": {
     "@applicaster/zapplicaster-cli": "^2.1.1",
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-transform-flow-comments": "^7.7.4",
+    "@babel/plugin-transform-flow-strip-types": "^7.7.4",
+    "@babel/preset-flow": "^7.7.4",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-preset-react-native": "5.0.2",
@@ -45,12 +51,10 @@
     "react-native-web": "0.11.5"
   },
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@applicaster/babel-preset-quick-brick": "^2.1.1",
+    "@babel/polyfill": "^7.7.0",
     "axios": "^0.19.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
     "formik": "^2.0.4",
-    "jest-enzyme": "^7.1.2",
     "jsdom": "^15.2.1",
     "ramda": "^0.26.1",
     "yup": "^0.27.0"

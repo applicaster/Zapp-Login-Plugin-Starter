@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   Dimensions
 } from 'react-native';
 import Layout from '../../../Common/Components/Layout';
@@ -79,31 +78,31 @@ function LoginScreen(props) {
       closeHook={closeHook}
     >
       <View style={styles.loginContainer}>
-        <Text
-          style={{ ...styles.title, ...customStyles.loginTitleStyle }}
-          numberOfLines={2}
-          ellipsizeMode="tail"
-        >
-          {loginTitle}
-        </Text>
         <View style={styles.container}>
           <View style={styles.textContainer}>
             <Text
+              style={{ ...styles.title, ...customStyles.loginTitleStyle }}
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            >
+              {loginTitle}
+            </Text>
+            <Text
               style={{ ...styles.mainDescription, ...customStyles.mainDescriptionStyle }}
-              numberOfLines={5}
+              numberOfLines={4}
               ellipsizeMode="tail"
             >
               {mainDescription}
             </Text>
             <Text
-              style={{ ...styles.optionalRequirements, ...customStyles.optionalInstructions1Style }}
+              style={{ ...styles.instructions, ...customStyles.optionalInstructions1Style }}
               numberOfLines={2}
               ellipsizeMode="tail"
             >
               {instructions1}
             </Text>
             <Text
-              style={{ ...styles.optionalRequirements, ...customStyles.optionalInstructions2Style }}
+              style={{ ...styles.instructions, ...customStyles.optionalInstructions2Style }}
               numberOfLines={2}
               ellipsizeMode="tail"
             >
@@ -124,36 +123,38 @@ function LoginScreen(props) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = {
   loginContainer: {
     flex: 1,
     width: '100%',
     height
   },
   title: {
-    marginBottom: 100
+    fontWeight: 'bold',
+    paddingTop: 10
   },
   container: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   textContainer: {
     flex: 1,
-    paddingRight: 20,
+    paddingRight: '2%',
     alignItems: 'flex-start'
   },
   formContainer: {
     flex: 1,
-    paddingTop: 20,
-    paddingLeft: 20,
+    paddingLeft: '2%',
     alignItems: 'flex-end'
   },
   mainDescription: {
-    marginBottom: 20
+    marginTop: 56,
+    marginBottom: 56
   },
-  optionalRequirements: {
-    marginBottom: 10
+  instructions: {
+    marginBottom: 26
   }
-});
+};
 
 export default LoginScreen;

@@ -1,31 +1,33 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { ImageBackground } from 'react-native';
 import Input from '../src/LoginScreen/Components/Input';
 
 describe('Input', () => {
   it('renders correctly', () => {
-    const defaultProps = {
-      loading: false,
-      QRCodehintStyle: {},
-      qrCodeHint: '',
-      activationCodeUrl: ''
-    };
     const tree = renderer
-      .create(<Input props={defaultProps} />)
+      .create(<Input />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
-  it('check loading indicator displayed', () => {
-    const props = {
-      loading: true
-    };
+  it('check the onFocus callback', () => {
+    const inputAssetActive = 'assetActive';
+    const inputAsset = 'asset';
 
-    const testRenderer = renderer.create(<Input props={props} />);
+    const testRenderer = renderer.create(
+      <Input inputAssetActive={inputAssetActive} inputAsset={inputAsset} />
+    );
     const testInstance = testRenderer.root;
 
-    const spinner = testInstance.findAllByType('ActivityIndicator')[0];
-    expect(spinner);
+    const input = testInstance.findAllByType('TextInput')[0];
+    const background = testInstance.findAllByType(ImageBackground)[0];
+
+    expect(background.props.source.uri).toBe(`${inputAsset}`);
+
+    input.props.onFocus();
+
+    expect(background.props.source.uri).toBe(`${inputAssetActive}`);
   });
 });

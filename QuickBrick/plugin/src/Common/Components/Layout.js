@@ -56,22 +56,24 @@ const styles = {
     height: '100%'
   },
   logoContainer: {
-    width: 150,
-    height: 150,
-    paddingLeft: 100,
-    paddingTop: 50,
+    miWidth: 350,
+    minHeight: 100,
     alignSelf: 'flex-start',
+    marginLeft: 58,
+    marginTop: 100,
+    marginBottom: 100
   },
   subContainer: {
     flex: 1,
-    width: 1390,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 100,
+    paddingRight: 230,
+    paddingLeft: 230
   },
   logo: {
-    width: 150,
-    height: 150,
+    width: 350,
+    height: 100,
   }
 };
 
