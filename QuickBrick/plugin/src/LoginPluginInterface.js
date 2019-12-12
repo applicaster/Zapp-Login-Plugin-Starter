@@ -1,56 +1,47 @@
-import axios from 'axios';
-
-/*
-Use HEARBEAT_INTERVAL value to set interval
- for checking SignIn Status for 2nd Activation Screen
+/**
+ * Sets interval for checking SignIn Status.
  */
 
 export const HEARBEAT_INTERVAL = 5000;
 
-/*
-Use getPincode method to retrieve device pincode
-from server for 2nd Activation Screen
-*/
+/**
+ * Retrieves device pincode from server for 2nd Activation Screen
+ * @param activationCodeUrl
+ * @returns devicePinCode
+ */
+
 
 export const getPinCode = async () => {
   try {
-    const {
-      data: {
-        devicePinCode = ''
-      }
-    } = await axios.post('activationCodeUrl',
-      {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        }
-      });
 
-    return devicePinCode;
+    // Your code here
+
   } catch (err) {
     console.log(err);
     throw err;
   }
 };
 
-/*
-Use getAccessToken method to retrieve accessToken
-from server for 2nd Activation Screen using heartbeatService, pinCode
 
-Use getAccessToken method to retrieve accessToken
-from server for Login Screen using username, password
-*/
+/**
+ * Retrieves device accessToken from server
+ *
+ * For 2nd Activation Screen:
+ * @param heartbeatService
+ * @param pinCode
+ * @returns accessToken || null
+ *
+ * For Login Screen:
+ * @param username
+ * @param password
+ * @returns accessToken || null
+ */
 
-export const getAccessToken = async (heartbeatService, pinCode) => {
+export const getAccessToken = async () => {
   try {
-    const response = await axios.get(`${heartbeatService}/${pinCode}`,
-      {
-        headers: {
-          Accept: 'application/json'
-        }
-      });
 
-    return response.data.access_token ? response.data.access_token : null;
+    // Your code here
+
   } catch (err) {
     console.log(err);
     throw err;

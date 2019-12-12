@@ -53,7 +53,7 @@ function SignInScreen(props) {
 
   const signIn = async () => {
     try {
-      const devicePinCode = await getPinCode();
+      const devicePinCode = await getPinCode(activationCodeUrl);
 
       if (devicePinCode) {
         trackEvent(EVENTS.activationCodeSuccess, { screenData, payload });
