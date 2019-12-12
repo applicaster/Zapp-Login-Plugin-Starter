@@ -8,6 +8,7 @@ import {
 function TextBlock(props) {
   const {
     goTo = '',
+    mainInstructions = '',
     activationUrl = '',
     codeInstructions = '',
     loading = false,
@@ -17,6 +18,13 @@ function TextBlock(props) {
 
   return (
     <>
+      <Text
+        style={{ ...customStyles.mainTextStyle, ...styles.title }}
+        numberOfLines={2}
+        ellipsizeMode="tail"
+      >
+        {mainInstructions}
+      </Text>
       <Text
         style={{ ...customStyles.goToTextStyle, ...styles.text }}
         numberOfLines={1}
@@ -31,28 +39,26 @@ function TextBlock(props) {
         {activationUrl}
       </Text>
       <Text
-        style={{ ...customStyles.codeInstructionsStyle, ...styles.url }}
+        style={customStyles.codeInstructionsStyle}
         numberOfLines={1}
         ellipsizeMode="tail"
       >
         {codeInstructions}
       </Text>
-      {
-        loading
-          ? (
-            <View style={styles.pinCodeSpinner}>
-              <ActivityIndicator size="small" color="#525A5C" />
-            </View>
-          )
-          : (
-            <Text
-              style={customStyles.activationCodeStyle}
-              adjustsFontSizeToFit
-            >
-              {pinCode}
-            </Text>
-          )
-      }
+      <View style={styles.activationCode}>
+        {
+          loading
+            ? <ActivityIndicator size="small" color="#D8D8D8" />
+            : (
+              <Text
+                style={customStyles.activationCodeStyle}
+                adjustsFontSizeToFit
+              >
+                {pinCode}
+              </Text>
+            )
+        }
+      </View>
     </>
   );
 }
@@ -60,15 +66,21 @@ function TextBlock(props) {
 export default TextBlock;
 
 const styles = {
-  text: {
-    marginBottom: 20
-  },
-  url: {
+  title: {
+    fontWeight: 'bold',
+    marginTop: 10,
     marginBottom: 60
   },
-  pinCodeSpinner: {
-    width: 500,
-    alignItems: 'center',
-    justifyContent: 'center'
+  text: {
+    marginBottom: 10
+  },
+  url: {
+    marginBottom: 14,
+    fontWeight: 'bold'
+  },
+  activationCode: {
+    fontWeight: 'bold',
+    marginTop: 38,
+    width: '80%'
   }
 };

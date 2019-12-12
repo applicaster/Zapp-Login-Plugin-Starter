@@ -36,13 +36,13 @@ function LoginPluginComponent(props) {
         // callback({
         //   success: true
         // });
-        goToScreen(SCREENS.LOGIN);
+        goToScreen(SCREENS.SIGNIN);
       } else {
-        goToScreen(SCREENS.LOGIN);
+        goToScreen(SCREENS.SIGNIN);
       }
     } catch (error) {
       console.log(error);
-      goToScreen(SCREENS.LOGIN);
+      goToScreen(SCREENS.SIGNIN);
     }
   };
 

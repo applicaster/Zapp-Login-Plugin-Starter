@@ -22,11 +22,7 @@ function AdditionalInfo(props) {
 
 const styles = {
   bottomText: {
-    maxWidth: 1110,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 150,
-    marginBottom: 100
+    marginTop: 88
   }
 };
 

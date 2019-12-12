@@ -21,18 +21,14 @@ export default function ErrorComponent({ error = {}, errorBackground = '' }) {
 const styles = {
   errorContainer: {
     position: 'absolute',
-    top: 50,
-    right: 50,
+    top: 24,
+    right: 24,
     justifyContent: 'center',
     alignItems: 'center',
-    minWidth: 497,
-    minHeight: 172,
+    minWidth: 500,
+    minHeight: 180,
     maxWidth: 600,
-    maxHeight: 210,
-    borderWidth: 1,
-    borderColor: '#979797',
-    borderRadius: 10,
-    backgroundColor: '#979797'
+    maxHeight: 210
   },
   errorText: {
     fontSize: 41,

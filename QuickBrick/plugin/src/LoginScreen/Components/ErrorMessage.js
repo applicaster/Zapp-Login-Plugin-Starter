@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 const ErrorMessage = ({ errorValue = '', customStyles = {} }) => (
   <View style={styles.container}>
-    <Text style={{ ...customStyles.fieldsEmptyErrorStyle, fontWeight: 'bold' }}>
+    <Text style={customStyles.fieldsEmptyErrorStyle}>
       {errorValue}
     </Text>
   </View>
@@ -11,7 +11,7 @@ const ErrorMessage = ({ errorValue = '', customStyles = {} }) => (
 
 const styles = {
   container: {
-    marginLeft: 25
+    marginTop: 52
   }
 };
 

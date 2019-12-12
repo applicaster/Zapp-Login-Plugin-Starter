@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import {View, Text, Dimensions} from 'react-native';
 import trackEvent from '../../../Analytics/index';
 import AdditionalInfo from '../../Components/AdditionalInfo';
 import TextBlock from '../../Components/TextBlock';
 import QRBlock from '../../Components/QRBlock';
 import Layout from '../../../Common/Components/Layout';
-import ErrorScreen from '../ErrorScreen/ErrorScreen';
+import { ErrorScreen } from '../ErrorScreen/ErrorScreen';
 import { getPinCode, HEARBEAT_INTERVAL, getAccessToken } from '../../../LoginPluginInterface';
 import { createActivationCodeUrl, setToLocalStorage } from '../../../Common/Utils';
 import EVENTS from '../../../Analytics/config';
 import createStyleSheet from './SignInStyles';
 import ASSETS from './SignInAssets';
+
+const { height } = Dimensions.get('window');
 
 function SignInScreen(props) {
   const {
@@ -100,16 +102,10 @@ function SignInScreen(props) {
       closeHook={closeHook}
     >
       <View style={styles.container}>
-        <Text
-          style={{ ...customStyles.mainTextStyle, ...styles.title }}
-          numberOfLines={2}
-          ellipsizeMode="tail"
-        >
-          {mainInstructions}
-        </Text>
         <View style={styles.columnsContainer}>
           <View style={styles.leftColumn}>
             <TextBlock
+              mainInstructions={mainInstructions}
               goTo={goTo}
               activationUrl={activationUrl}
               codeInstructions={codeInstructions}
@@ -117,6 +113,15 @@ function SignInScreen(props) {
               pinCode={pinCode}
               customStyles={customStyles}
             />
+            {
+              additionalInfo
+              && (
+                <AdditionalInfo
+                  additionalInfo={additionalInfo}
+                  additionalInfoStyle={customStyles.additionalInfoStyle}
+                />
+              )
+            }
           </View>
           <View style={styles.rightColumn}>
             <QRBlock
@@ -127,15 +132,6 @@ function SignInScreen(props) {
             />
           </View>
         </View>
-        {
-          additionalInfo
-          && (
-            <AdditionalInfo
-              additionalInfo={additionalInfo}
-              additionalInfoStyle={customStyles.additionalInfoStyle}
-            />
-          )
-        }
       </View>
     </Layout>
   );
@@ -146,31 +142,21 @@ function SignInScreen(props) {
 const styles = {
   container: {
     flex: 1,
-    alignItems: 'center'
-  },
-  title: {
-    marginBottom: 110
+    width: '100%',
+    height
   },
   columnsContainer: {
-    maxWidth: 1110,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
     flexDirection: 'row',
-    paddingTop: 30
+    justifyContent: 'space-between'
   },
   leftColumn: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    borderRightColor: '#979797',
-    borderRightWidth: 4,
-    minHeight: 330
+    alignItems: 'flex-start'
   },
   rightColumn: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-    minHeight: 330
+    alignItems: 'flex-end'
   }
 };
 

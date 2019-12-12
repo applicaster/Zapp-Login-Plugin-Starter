@@ -4,20 +4,22 @@ import {
   Text,
   Dimensions
 } from 'react-native';
+import { withNavigator } from '@applicaster/zapp-react-native-ui-components/Decorators/Navigator/';
 import ButtonComponent from '../../../Common/Components/Button';
 import Layout from '../../../Common/Components/Layout';
 import SCREENS from '../../../Common/Config/Screens';
 import createStyleSheet from './ErrorStyles';
 import ASSETS from './ErrorAssets';
 
-const { height, width } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
-export default function ErrorScreenComponent(props) {
+function ErrorScreenComponent(props) {
   const {
     error = null,
     screenData = {},
     goToScreen,
-    closeHook
+    closeHook,
+    navigator
   } = props;
 
   const customStyles = createStyleSheet(screenData);
@@ -30,9 +32,13 @@ export default function ErrorScreenComponent(props) {
   } = screenData;
 
   const onClose = () => {
-    closeHook({
-      success: false
-    });
+    if (navigator.canGoBack()) {
+      navigator.goBack();
+    } else {
+      closeHook({
+        success: false
+      });
+    }
   };
 
   const onTryAgain = () => {
@@ -44,6 +50,7 @@ export default function ErrorScreenComponent(props) {
       backgroundColor={errorBackground}
       backgroundUri={ASSETS.screenBackground}
       closeHook={closeHook}
+      logo={ASSETS.logo}
     >
       <View style={styles.container}>
         <Text style={{ ...styles.errorText, ...customStyles.errorDescriptionStyle }}>
@@ -52,7 +59,7 @@ export default function ErrorScreenComponent(props) {
         <ButtonComponent
           label={retryLabel}
           callback={onTryAgain}
-          buttonStyle={styles.buttonTryAgain}
+          buttonStyle={styles.button}
           textStyle={customStyles.retryButtonStyle}
           backgroundButtonUri={ASSETS.retryButtonBackground}
           backgroundButtonUriActive={ASSETS.retryButtonBackgroundActive}
@@ -60,7 +67,7 @@ export default function ErrorScreenComponent(props) {
         <ButtonComponent
           label={closeLabel}
           callback={onClose}
-          buttonStyle={styles.buttonClose}
+          buttonStyle={styles.button}
           textStyle={customStyles.closeButtonStyle}
           backgroundButtonUri={ASSETS.closeButtonBackground}
           backgroundButtonUriActive={ASSETS.closeButtonBackgroundActive}
@@ -72,34 +79,21 @@ export default function ErrorScreenComponent(props) {
 
 const styles = {
   container: {
+    marginTop: 80,
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: -250,
-    height,
+    height: '100%',
     width
   },
   errorText: {
-    marginBottom: 90,
+    marginBottom: 95,
   },
-  buttonTryAgain: {
-    backgroundColor: '#D8D8D8',
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: '#979797',
-    width: 676,
-    height: 90,
+  button: {
+    minWidth: 600,
+    minHeight: 90,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20
-  },
-  buttonClose: {
-    backgroundColor: '#D8D8D8',
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: '#979797',
-    width: 450,
-    height: 90,
-    justifyContent: 'center',
-    alignItems: 'center'
+    marginBottom: 10
   }
 };
+
+export const ErrorScreen = withNavigator(ErrorScreenComponent);

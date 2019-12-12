@@ -29,7 +29,7 @@ export default function LoginForm(props) {
       password_input_placeholder: passwordPlaceholder = '',
       login_action_button_text: loginLabel = '',
       skip_action_button_text: skipLabel = '',
-      enable_skip_functionality: skip = true
+      enable_skip_functionality: skip = false
     }
   } = screenData;
 
@@ -66,33 +66,26 @@ export default function LoginForm(props) {
             <Input
               value={values.username}
               onChangeText={handleChange('username')}
+              secureTextEntry={false}
               placeholder={usernamePlaceholder}
               style={{ ...styles.input, ...customStyles.usernameInputStyle }}
               inputAsset={ASSETS.usernameInputBackground}
               inputAssetActive={ASSETS.usernameInputBackgroundActive}
             />
-            <ErrorMessage
-              errorValue={touched.username && errors.username}
-              customStyles={customStyles}
-            />
             <Input
               value={values.password}
               onChangeText={handleChange('password')}
-              placeholder={passwordPlaceholder}
               secureTextEntry
+              placeholder={passwordPlaceholder}
               style={{ ...styles.input, ...customStyles.passwordInputStyle, marginBottom: 0 }}
               inputAsset={ASSETS.usernameInputBackground}
               inputAssetActive={ASSETS.usernameInputBackgroundActive}
-            />
-            <ErrorMessage
-              errorValue={touched.password && errors.password}
-              customStyles={customStyles}
             />
           </View>
           <View style={styles.container}>
             {
               (loading && !error)
-                ? <ActivityIndicator />
+                ? <ActivityIndicator size="large" />
                 : (
                   <>
                     <Button
@@ -119,6 +112,10 @@ export default function LoginForm(props) {
                   </>
                 )
             }
+            <ErrorMessage
+              errorValue={(touched.password && errors.password) || (touched.username && errors.username)}
+              customStyles={customStyles}
+            />
           </View>
         </>
       )}

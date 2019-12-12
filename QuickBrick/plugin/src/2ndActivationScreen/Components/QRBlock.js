@@ -6,36 +6,38 @@ import {
 } from 'react-native';
 import QRCode from './QRCode';
 
-function QRBlock({ loading, QRCodehintStyle, qrCodeHint, activationCodeUrl }) {
+function QRBlock({ loading, QRCodehintStyle = {}, qrCodeHint = '', activationCodeUrl = '' }) {
   return (
-    loading
-      ? (
-        <View style={styles.loadContainer}>
-          <ActivityIndicator size="large" color="#525A5C" />
-        </View>
-      )
-      : (
-        <View style={{ alignItems: 'center' }}>
-          <QRCode url={activationCodeUrl} />
-          <Text
-            style={{ ...QRCodehintStyle, marginTop: 20 }}
-            numberOfLines={2}
-            ellipsizeMode="tail"
-          >
-            {qrCodeHint}
-          </Text>
-        </View>
-      )
+    <View style={styles.container}>
+      {
+        loading
+          ? <ActivityIndicator size="large" color="#D8D8D8" />
+          : (
+            <View style={{ alignItems: 'center' }}>
+              <QRCode url={activationCodeUrl} />
+              <Text
+                style={{ ...QRCodehintStyle, marginTop: 22 }}
+                numberOfLines={1}
+                ellipsizeMode="tail"
+              >
+                {qrCodeHint}
+              </Text>
+            </View>
+          )
+      }
+    </View>
   );
 }
 
 export default QRBlock;
 
 const styles = {
-  loadContainer: {
-    width: 300,
-    height: 300,
+  container: {
+    minWidth: 340,
+    minHeight: 340,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 46,
+    marginRight: 40
   }
 };

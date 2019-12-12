@@ -23,7 +23,7 @@ export default function Button(
           return (
             <ImageBackground
               source={{ uri: focused ? backgroundButtonUriActive : backgroundButtonUri }}
-              style={focused ? { ...buttonStyle, ...styles.focused } : buttonStyle}
+              style={buttonStyle}
             >
               <Text
                 style={focused ? { ...textStyle, color: '#5F5F5F' } : textStyle}
@@ -38,9 +38,3 @@ export default function Button(
     </Focusable>
   );
 }
-
-const styles = {
-  focused: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)'
-  }
-};
