@@ -6,7 +6,7 @@ import TextBlock from '../../Components/TextBlock';
 import QRBlock from '../../Components/QRBlock';
 import Layout from '../../../Common/Components/Layout';
 import { ErrorScreen } from '../ErrorScreen/ErrorScreen';
-import { getPinCode, HEARBEAT_INTERVAL, getAccessToken } from '../../../LoginPluginInterface';
+import { getPinCode, getAccessToken } from '../../../LoginPluginInterface';
 import { createActivationCodeUrl, setToLocalStorage } from '../../../Common/Utils';
 import EVENTS from '../../../Analytics/config';
 import createStyleSheet from './SignInStyles';
@@ -25,7 +25,6 @@ function SignInScreen(props) {
   const [loading, setLoading] = useState(true);
   const [pinCode, setPincode] = useState('');
   const [error, setError] = useState(null);
-  const [heartBeat, setHeartBeat] = useState(null);
 
   const customStyles = createStyleSheet(screenData);
   const activationCodeUrl = createActivationCodeUrl(screenData);
@@ -45,10 +44,6 @@ function SignInScreen(props) {
 
   useEffect(() => {
     signIn();
-
-    return () => {
-      clearInterval(heartBeat);
-    };
   }, []);
 
   const signIn = async () => {
@@ -57,9 +52,8 @@ function SignInScreen(props) {
 
       if (devicePinCode) {
         trackEvent(EVENTS.activationCodeSuccess, { screenData, payload });
-        const heartbeat = setInterval(() => getSignInStatus(), HEARBEAT_INTERVAL);
+        getSignInStatus();
         setPincode(devicePinCode);
-        setHeartBeat(heartbeat);
         setLoading(false);
       }
     } catch (err) {
@@ -127,7 +121,7 @@ function SignInScreen(props) {
             <QRBlock
               loading={loading}
               qrCodeHint={qrCodeHint}
-              QRCodehintStyle={customStyles.QRCodehintStyle}
+              QRCodehintStyle={customStyles.qrCodeHintStyle}
               activationCodeUrl={`${activationCodeUrl}${pinCode}`}
             />
           </View>

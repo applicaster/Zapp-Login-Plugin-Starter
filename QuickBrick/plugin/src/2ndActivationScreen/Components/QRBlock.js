@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import QRCode from './QRCode';
 
-function QRBlock({ loading, QRCodehintStyle = {}, qrCodeHint = '', activationCodeUrl = '' }) {
+function QRBlock({ loading, qrCodeHintStyle = {}, qrCodeHint = '', activationCodeUrl = '' }) {
   return (
     <View style={styles.container}>
       {
@@ -16,7 +16,7 @@ function QRBlock({ loading, QRCodehintStyle = {}, qrCodeHint = '', activationCod
             <View style={{ alignItems: 'center' }}>
               <QRCode url={activationCodeUrl} />
               <Text
-                style={{ ...QRCodehintStyle, marginTop: '3.5%' }}
+                style={{ ...qrCodeHintStyle, marginTop: '3.5%' }}
                 numberOfLines={1}
                 ellipsizeMode="tail"
               >

@@ -58,7 +58,7 @@ function ErrorScreenComponent(props) {
         </Text>
         <ButtonComponent
           label={retryLabel}
-          callback={onTryAgain}
+          onPress={onTryAgain}
           buttonStyle={styles.button}
           textStyle={customStyles.retryButtonStyle}
           backgroundButtonUri={ASSETS.retryButtonBackground}
@@ -66,7 +66,7 @@ function ErrorScreenComponent(props) {
         />
         <ButtonComponent
           label={closeLabel}
-          callback={onClose}
+          onPress={onClose}
           buttonStyle={styles.button}
           textStyle={customStyles.closeButtonStyle}
           backgroundButtonUri={ASSETS.closeButtonBackground}

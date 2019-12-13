@@ -43,7 +43,7 @@ export default function createStyleSheet(screenData) {
     fontSize: Number(activationCodeFontSize)
   };
 
-  const QRCodehintStyle = {
+  const qrCodeHintStyle = {
     color: qrCodeHintFontColor,
     fontSize: Number(qrCodeHintFontSize)
   };
@@ -59,7 +59,7 @@ export default function createStyleSheet(screenData) {
     activationUrlStyle,
     codeInstructionsStyle,
     activationCodeStyle,
-    QRCodehintStyle,
+    qrCodeHintStyle,
     additionalInfoStyle
   };
 }

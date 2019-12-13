@@ -9,7 +9,7 @@ import { Focusable } from '@applicaster/zapp-react-native-ui-components/Componen
 export default function Button(
   {
     label = '',
-    callback,
+    onPress,
     buttonStyle = {},
     textStyle = {},
     backgroundButtonUri = '',
@@ -17,7 +17,7 @@ export default function Button(
   }
 ) {
   return (
-    <Focusable id={`tv-button-${label}`} onPress={callback}>
+    <Focusable id={`tv-button-${label}`} onPress={onPress}>
       {
         (focused) => {
           return (

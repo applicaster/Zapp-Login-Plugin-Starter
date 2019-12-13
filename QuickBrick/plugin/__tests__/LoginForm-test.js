@@ -41,7 +41,7 @@ describe('LoginForm', () => {
     );
     const testInstance = testRenderer.root;
     const loginButton = testInstance.findAllByType(Button)[0];
-    loginButton.props.callback();
+    loginButton.props.onPress();
 
     const error = testInstance.findAllByType(ErrorMessage);
 
@@ -53,13 +53,12 @@ describe('LoginForm', () => {
       <LoginForm screenData={screenData} />
     );
 
-    const usernameInput = rendered.root.findAllByType('TextInput')[0];
-    const passwordInput = rendered.root.findAllByType('TextInput')[1];
-    const loginButton = rendered.root.findAllByType(Button)[0];
+    const [usernameInput, passwordInput] = rendered.root.findAllByType('TextInput');
+    const [loginButton] = rendered.root.findAllByType(Button);
 
     usernameInput.value = 'username';
     passwordInput.value = 'password';
-    loginButton.props.callback();
+    loginButton.props.onPress();
     rendered.update(<LoginForm screenData={screenData} />);
 
     const spinner = rendered.root.findAllByType('ActivityIndicator');

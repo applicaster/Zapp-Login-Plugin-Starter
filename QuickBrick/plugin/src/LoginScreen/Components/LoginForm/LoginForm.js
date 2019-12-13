@@ -92,7 +92,7 @@ export default function LoginForm(props) {
                     <Button
                       label={loginLabel}
                       buttonStyle={styles.input}
-                      callback={handleSubmit}
+                      onPress={handleSubmit}
                       textStyle={customStyles.loginButtonStyle}
                       backgroundButtonUri={ASSETS.loginButtonBackground}
                       backgroundButtonUriActive={ASSETS.loginButtonBackgroundActive}
@@ -102,7 +102,7 @@ export default function LoginForm(props) {
                       && (
                         <Button
                           label={skipLabel}
-                          callback={handleSkip}
+                          onPress={handleSkip}
                           buttonStyle={styles.input}
                           textStyle={customStyles.loginButtonStyle}
                           backgroundButtonUri={ASSETS.skipButtonBackground}

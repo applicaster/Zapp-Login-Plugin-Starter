@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import Layout from '../../../Common/Components/Layout';
 import LoginForm from '../../Components/LoginForm/LoginForm';
-import { getAccessToken, HEARBEAT_INTERVAL } from '../../../LoginPluginInterface';
+import { getAccessToken } from '../../../LoginPluginInterface';
 import { setToLocalStorage } from '../../../Common/Utils';
 import createStyleSheet from './LoginStyles';
 import trackEvent from '../../../Analytics';
@@ -23,7 +23,6 @@ function LoginScreen(props) {
   } = props;
 
   const [error, setError] = useState(null);
-  const [heartBeat, setHeartBeat] = useState(null);
 
   const customStyles = createStyleSheet(screenData);
   const {
@@ -40,20 +39,13 @@ function LoginScreen(props) {
     try {
       trackEvent(EVENTS.clickLogin, { screenData, payload });
 
-      const heartbeat = setInterval(() => getSignInStatus(username, password), HEARBEAT_INTERVAL);
-      setHeartBeat(heartbeat);
+      await getSignInStatus(username, password);
     } catch (err) {
       trackEvent(EVENTS.loginFailure, { screenData, payload });
       console.log(err);
       setError(err);
     }
   };
-
-  useEffect(() => {
-    return () => {
-      clearInterval(heartBeat);
-    };
-  }, []);
 
   const getSignInStatus = async (username, password) => {
     try {

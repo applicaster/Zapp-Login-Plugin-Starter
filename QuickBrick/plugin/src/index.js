@@ -35,10 +35,9 @@ function LoginPluginComponent(props) {
     try {
       const value = await getFromLocalStorage('token');
       if (value !== null && value !== undefined) {
-        // callback({
-        //   success: true
-        // });
-        goToScreen(SCREENS.SIGNIN);
+        callback({
+          success: true
+        });
       } else {
         goToScreen(SCREENS.SIGNIN);
       }

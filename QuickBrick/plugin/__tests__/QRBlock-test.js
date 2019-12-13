@@ -6,7 +6,7 @@ describe('QRBlock', () => {
   it('renders correctly', () => {
     const defaultProps = {
       loading: false,
-      QRCodehintStyle: {},
+      qrCodeHintStyle: {},
       qrCodeHint: '',
       activationCodeUrl: ''
     };

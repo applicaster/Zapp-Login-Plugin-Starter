@@ -6,7 +6,7 @@ export default function QRButton({ url = '' }) {
     <Image
       style={{ width: 340, height: 340 }}
       resizeMode="contain"
-      source={{ uri: '' }}
+      source={{ uri: url }}
     />
   );
 }
