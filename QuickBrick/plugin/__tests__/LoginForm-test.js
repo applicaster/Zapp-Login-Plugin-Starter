@@ -1,30 +1,68 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { create, act } from 'react-test-renderer';
 import LoginForm from '../src/LoginScreen/Components/LoginForm/LoginForm';
+import Button from '../src/Common/Components/Button';
+import ErrorMessage from '../src/LoginScreen/Components/ErrorMessage';
+
 
 describe('LoginForm', () => {
+  const screenData = {
+    general: {
+      enable_skip_functionality: false
+    }
+  };
+
   it('renders correctly', () => {
-    const defaultProps = {
-      error: null,
-      skip: false
-    };
-    const tree = renderer
-      .create(<LoginForm props={defaultProps} />)
+    const error = null;
+
+    const tree = create(<LoginForm screenData={screenData} error={error} />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it('check skip button displayed', () => {
-    const skip = true;
-    const skipLabel = 'Skip';
+    screenData.general.enable_skip_functionality = true;
+    screenData.general.skip_action_button_text = 'Skip';
 
-    const testRenderer = renderer.create(
-      <LoginForm skip={skip} skipLabel={skipLabel} />
+    const testRenderer = create(
+      <LoginForm screenData={screenData} />
     );
     const testInstance = testRenderer.root;
-    const skipButton = testInstance.findByProps(`${skipLabel}`);
+    const buttons = testInstance.findAllByType(Button);
 
-    expect(skipButton).toHaveLength(1);
+    expect(buttons).toHaveLength(2);
+    expect(buttons[1].props.label).toBe(`${screenData.general.skip_action_button_text}`);
+  });
+
+  it('check error displayed on Login button click', async () => {
+    const testRenderer = create(
+      <LoginForm screenData={screenData} />
+    );
+    const testInstance = testRenderer.root;
+    const loginButton = testInstance.findAllByType(Button)[0];
+    loginButton.props.callback();
+
+    const error = testInstance.findAllByType(ErrorMessage);
+
+    expect(error).toHaveLength(1);
+  });
+
+  it('check spinner displayed on submitting form', async () => {
+    const rendered = create(
+      <LoginForm screenData={screenData} />
+    );
+
+    const usernameInput = rendered.root.findAllByType('TextInput')[0];
+    const passwordInput = rendered.root.findAllByType('TextInput')[1];
+    const loginButton = rendered.root.findAllByType(Button)[0];
+
+    usernameInput.value = 'username';
+    passwordInput.value = 'password';
+    loginButton.props.callback();
+    rendered.update(<LoginForm screenData={screenData} />);
+
+    const spinner = rendered.root.findAllByType('ActivityIndicator');
+    expect(spinner).toHaveLength(0);
   });
 });
