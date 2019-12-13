@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {View, Text, Dimensions} from 'react-native';
+import { View, Dimensions } from 'react-native';
 import trackEvent from '../../../Analytics/index';
 import AdditionalInfo from '../../Components/AdditionalInfo';
 import TextBlock from '../../Components/TextBlock';
@@ -22,7 +22,7 @@ function SignInScreen(props) {
     goToScreen
   } = props;
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [pinCode, setPincode] = useState('');
   const [error, setError] = useState(null);
   const [heartBeat, setHeartBeat] = useState(null);
@@ -57,11 +57,11 @@ function SignInScreen(props) {
 
       if (devicePinCode) {
         trackEvent(EVENTS.activationCodeSuccess, { screenData, payload });
+        const heartbeat = setInterval(() => getSignInStatus(), HEARBEAT_INTERVAL);
+        setPincode(devicePinCode);
+        setHeartBeat(heartbeat);
+        setLoading(false);
       }
-      const heartbeat = setInterval(() => getSignInStatus(), HEARBEAT_INTERVAL);
-      setPincode(devicePinCode);
-      setHeartBeat(heartbeat);
-      setLoading(false);
     } catch (err) {
       trackEvent(EVENTS.activationCodeFailure, { screenData, payload });
       console.log(err);

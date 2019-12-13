@@ -56,20 +56,18 @@ const styles = {
     height: '100%'
   },
   logoContainer: {
-    miWidth: 350,
-    minHeight: 100,
     alignSelf: 'flex-start',
-    marginLeft: 58,
-    marginTop: 100,
-    marginBottom: 100
+    marginLeft: '2.6%',
+    marginTop: '5.2%',
+    marginBottom: '5.2%'
   },
   subContainer: {
     flex: 1,
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingRight: 230,
-    paddingLeft: 230
+    paddingRight: '12%',
+    paddingLeft: '12%'
   },
   logo: {
     width: 350,

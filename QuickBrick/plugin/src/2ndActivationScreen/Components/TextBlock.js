@@ -68,19 +68,19 @@ export default TextBlock;
 const styles = {
   title: {
     fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom: 60
+    marginTop: '1.4%',
+    marginBottom: '8%'
   },
   text: {
-    marginBottom: 10
+    marginBottom: '1.4%'
   },
   url: {
-    marginBottom: 14,
+    marginBottom: '2%',
     fontWeight: 'bold'
   },
   activationCode: {
     fontWeight: 'bold',
-    marginTop: 38,
+    marginTop: '5.2%',
     width: '80%'
   }
 };

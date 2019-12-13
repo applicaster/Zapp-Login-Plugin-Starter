@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -23,6 +23,8 @@ function LoginScreen(props) {
   } = props;
 
   const [error, setError] = useState(null);
+  const [heartBeat, setHeartBeat] = useState(null);
+
   const customStyles = createStyleSheet(screenData);
   const {
     general: {
@@ -39,12 +41,19 @@ function LoginScreen(props) {
       trackEvent(EVENTS.clickLogin, { screenData, payload });
 
       const heartbeat = setInterval(() => getSignInStatus(username, password), HEARBEAT_INTERVAL);
+      setHeartBeat(heartbeat);
     } catch (err) {
       trackEvent(EVENTS.loginFailure, { screenData, payload });
       console.log(err);
       setError(err);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      clearInterval(heartBeat);
+    };
+  }, []);
 
   const getSignInStatus = async (username, password) => {
     try {
@@ -149,11 +158,11 @@ const styles = {
     alignItems: 'flex-end'
   },
   mainDescription: {
-    marginTop: 56,
-    marginBottom: 56
+    marginTop: '7%',
+    marginBottom: '7%'
   },
   instructions: {
-    marginBottom: 26
+    marginBottom: '3.3%'
   }
 };
 

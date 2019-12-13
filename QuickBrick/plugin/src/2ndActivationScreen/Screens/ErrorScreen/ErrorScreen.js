@@ -79,13 +79,13 @@ function ErrorScreenComponent(props) {
 
 const styles = {
   container: {
-    marginTop: 80,
+    marginTop: '4%',
     alignItems: 'center',
     height: '100%',
     width
   },
   errorText: {
-    marginBottom: 95,
+    marginBottom: '5%',
   },
   button: {
     minWidth: 600,

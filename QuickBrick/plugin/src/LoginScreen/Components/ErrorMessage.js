@@ -11,7 +11,7 @@ const ErrorMessage = ({ errorValue = '', customStyles = {} }) => (
 
 const styles = {
   container: {
-    marginTop: 52
+    marginTop: '8%'
   }
 };
 

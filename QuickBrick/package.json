@@ -24,21 +24,14 @@
   "license": "ISC",
   "devDependencies": {
     "@applicaster/zapplicaster-cli": "^2.1.1",
-    "@babel/cli": "^7.7.4",
-    "@babel/core": "^7.7.4",
-    "@babel/plugin-transform-flow-comments": "^7.7.4",
-    "@babel/plugin-transform-flow-strip-types": "^7.7.4",
-    "@babel/preset-flow": "^7.7.4",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
-    "babel-preset-react-native": "5.0.2",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "jest": "^24.9.0",
-    "jest-react-native": "^18.0.0",
     "react": "16.8.3",
     "react-native": "0.59.10",
     "react-native-web": "0.11.5",
@@ -51,8 +44,6 @@
     "react-native-web": "0.11.5"
   },
   "dependencies": {
-    "@applicaster/babel-preset-quick-brick": "^2.1.1",
-    "@babel/polyfill": "^7.7.0",
     "axios": "^0.19.0",
     "formik": "^2.0.4",
     "jsdoc": "^3.6.3",
@@ -62,6 +53,7 @@
   },
   "jest": {
     "preset": "react-native",
+    "transformIgnorePatterns": [],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     }

@@ -12,7 +12,9 @@ import { getFromLocalStorage } from './Common/Utils';
 
 const { height } = Dimensions.get('window');
 
-// While screenData is not passed to the plugin, please use this storeConnector with id of the plugin screen
+// While screenData is not passed to the plugin,
+// please use this storeConnector with id of the plugin screen
+// to obtain screenData
 const storeConnector = connectToStore((state) => ({ screenData: state.rivers['a6b19cba-4180-472a-9545-3fce6e45d223'] }));
 
 

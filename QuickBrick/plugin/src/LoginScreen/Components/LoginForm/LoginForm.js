@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {
   ActivityIndicator,
-  View
+  View,
+  SafeAreaView
 } from 'react-native';
 import { Formik } from 'formik';
 import validationSchema from '../../Utils/validation';
@@ -61,7 +62,7 @@ export default function LoginForm(props) {
           touched
         }
       ) => (
-        <>
+        <SafeAreaView>
           <View style={styles.container}>
             <Input
               value={values.username}
@@ -117,31 +118,25 @@ export default function LoginForm(props) {
               customStyles={customStyles}
             />
           </View>
-        </>
+        </SafeAreaView>
       )}
     </Formik>
   );
 }
 
 const styles = {
-  error: {
-    position: 'absolute',
-    bottom: 0,
-    color: 'red',
-    fontSize: 12
-  },
   container: {
-    minWidth: 610,
-    minHeight: 100,
+    minWidth: '31.8%',
+    minHeight: '6%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 45
+    marginBottom: '7%'
   },
   input: {
     minWidth: 610,
     minHeight: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10
+    marginBottom: '1.5%'
   }
 };

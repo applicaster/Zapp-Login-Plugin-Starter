@@ -16,7 +16,7 @@ function QRBlock({ loading, QRCodehintStyle = {}, qrCodeHint = '', activationCod
             <View style={{ alignItems: 'center' }}>
               <QRCode url={activationCodeUrl} />
               <Text
-                style={{ ...QRCodehintStyle, marginTop: 22 }}
+                style={{ ...QRCodehintStyle, marginTop: '3.5%' }}
                 numberOfLines={1}
                 ellipsizeMode="tail"
               >
@@ -37,7 +37,7 @@ const styles = {
     minHeight: 340,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 46,
-    marginRight: 40
+    marginTop: '6.3%',
+    marginRight: '5.5%'
   }
 };
