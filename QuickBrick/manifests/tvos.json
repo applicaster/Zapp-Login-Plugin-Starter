@@ -1,0 +1,605 @@
+{
+  "api": {
+    "require_startup_execution": false,
+    "modules": []
+  },
+  "react_native": true,
+  "dependency_repository_url": [],
+  "dependency_name": "@applicaster/quick-brick-login-starter-kit", // replace it with your dependency name
+  "dependency_version": "0.0.1", // replace it with your dependency version
+  "platform": "tvos", // replace it with platform you want to use
+  "author_name": "Olga Duk", // replace it with your author name
+  "author_email": "oduk@scand.com", // replace it with your author email
+  "manifest_version": "0.0.4", // replace it with your manifest version
+  "name": "QuickBrick Login Starter", // replace it with your plugin name
+  "description": "Login hook plugin starter kit", // replace it with your plugin description
+  "type": "general",
+  "screen": true,
+  "identifier": "zapp-login-plugin-starter", // replace it with your plugin id
+  "ui_builder_support": true,
+  "whitelisted_account_ids": [
+    "5a4516fa41442c000b0195d6",
+    "5c85455842b06d000836d041"
+  ],
+  "min_zapp_sdk": "1.0.0",
+  "deprecated_since_zapp_sdk": "",
+  "unsupported_since_zapp_sdk": "",
+  "preload": true,
+  "general": { // remove unnecessary fields
+    "fields": [
+      {
+        "type": "switch",
+        "key": "is_flow_blocker",
+        "tooltip_text": "Define if hook will block flow in case cancellation",
+        "initial_value": true
+      },
+      {
+        "type": "switch",
+        "key": "allow_screen_plugin_presentation",
+        "tooltip_text": "Define if",
+        "initial_value": true
+      },
+      {
+        "group": true,
+        "label": "2nd Screen Activation. General Settings",
+        "tooltip": "These fields determine how the plugin is triggered and basic behavior.",
+        "folded": true,
+        "fields": [
+          {
+            "key": "activation_code_endpoint",
+            "type": "text_input",
+            "label": "Activation Code Service",
+            "label_tooltip": "This field determines the URL for the web service in charge of generating activation codes.",
+            "initial_value": "",
+            "placeholder": "e.g. https://mydoamin.com/getActivationCode"
+          },
+          {
+            "key": "activation_code_parameter",
+            "type": "switch",
+            "label": "Prepopulate Activation Code Parameter",
+            "label_tooltip": "<p>If this field is on, the plugin will add a parameter to the activation service URL with the activation code as value. The final URL will serve as base for the QR Code generation.</p><p>\"e.g. https://mydoamin.com/getActivationCode?ActivationCode=SC4558U\"</p>",
+            "initial_value": "true"
+          },
+          {
+            "key": "activation_code_parameter_name",
+            "type": "text_input",
+            "label": "Activation Code Parameter Name",
+            "label_tooltip": "Parameter Name to add to the service URL.",
+            "initial_value": "",
+            "placeholder": "e.g ActivationCode",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/activation_code_parameter"
+              }
+            ]
+          },
+          {
+            "key": "heartbeat_activation_service",
+            "type": "text_input",
+            "label": "Heartbeat Activation Service",
+            "label_tooltip": "<p>This field determines the URL for the web service in charge of confirming the activation.</p><p>Commonly the service will return an HTTP 200 and an Authentication Token and useful user information(userID, username).</p>",
+            "initial_value": "",
+            "placeholder": "e.g. https://mydoamin.com/getToken"
+          }
+        ]
+      },
+      {
+        "group": true,
+        "label": "2nd Screen Activation. Screen Design and Text",
+        "tooltip": "These fields affect the design of the main screen plugin.",
+        "folded": true,
+        "fields": [
+          {
+            "key": "main_instructions_text",
+            "type": "text_input",
+            "label": "Main Instructions Text",
+            "label_tooltip": "Text at the top of the screen. Briefly introduces purpose and instructions about the plugin to the user.",
+            "initial_value": "WELCOME, SIGN IN BY ACTIVATING YOUR DEVICE",
+            "placeholder": "WELCOME, SIGN IN BY ACTIVATING YOUR DEVICE"
+          },
+          {
+            "key": "main_instructions_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Main Instructions Text.",
+            "initial_value": "41"
+          },
+          {
+            "key": "main_instructions_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Main Instructions Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "go_to_url_text",
+            "type": "text_input",
+            "label": "Go To Text",
+            "label_tooltip": "Text indicating clear instructions on what to do with the URL on screen.",
+            "initial_value": "Go to:",
+            "placeholder": "Go to:"
+          },
+          {
+            "key": "go_to_url_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Go To Text.",
+            "initial_value": "30"
+          },
+          {
+            "key": "go_to_url_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Go To Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "activation_url_text",
+            "type": "text_input",
+            "label": "Activation URL",
+            "label_tooltip": "URL referring the web portal where the user l completes the activation flow.",
+            "initial_value": "",
+            "placeholder": "www.mydomain.com/activate"
+          },
+          {
+            "key": "activation_url_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Activation URL.",
+            "initial_value": "30"
+          },
+          {
+            "key": "activation_url_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Activation URL.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "code_instructions_text",
+            "type": "text_input",
+            "label": "Code Instructions Text",
+            "label_tooltip": "Text indicating clear instructions on what to do with the activation code on screen.",
+            "initial_value": "Enter the activation code bellow:",
+            "placeholder": "Enter the activation code bellow:"
+          },
+          {
+            "key": "code_instructions_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Code Instructions Text.",
+            "initial_value": "30"
+          },
+          {
+            "key": "code_instructions_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Code Instructions Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "activation_code_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for the automatically generated Activation Code.",
+            "initial_value": "105"
+          },
+          {
+            "key": "activation_code_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for the automatically generated Activation Code.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "qr_code_hint_text",
+            "type": "text_input",
+            "label": "QR Code Hint Text",
+            "label_tooltip": "Brief instructions to advice the user about using the QR Code to access the Activation URL.",
+            "initial_value": "Or Scan the QR Code",
+            "placeholder": "Or Scan the QR Code"
+          },
+          {
+            "key": "qr_code_hint_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for QR Code Hint Text.",
+            "initial_value": "30"
+          },
+          {
+            "key": "qr_code_hint_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for QR Code Hint Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "additional_info",
+            "type": "switch",
+            "label": "Additional Instructions",
+            "label_tooltip": "If this field is on, the plugin makes visible a text at the bottom of the screen for additional instructions.",
+            "initial_value": "true"
+          },
+          {
+            "key": "additional_info_text",
+            "type": "text_input",
+            "label": "Optional Instructions Text",
+            "label_tooltip": "Additional instructions commonly use for support or terms of use links.",
+            "initial_value": "If you need support, please visit http://www.mydomain.com/support",
+            "placeholder": "If you need support, please visit http://www.mydomain.com/support",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/additional_info"
+              }
+            ]
+          },
+          {
+            "key": "additional_info_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Optional Instructions.",
+            "initial_value": "30",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/additional_info"
+              }
+            ]
+          },
+          {
+            "key": "additional_info_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Optional Instructions.",
+            "initial_value": "#545A5C",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/additional_info"
+              }
+            ]
+          },
+          {
+            "key": "activation_screen_background_color",
+            "type": "color_picker",
+            "label": "Activation Screen Background Color",
+            "label_tooltip": "Background Color for the Activation Screen. Serves as fallback or primary if an image is not found in the plugin assets.",
+            "initial_value": "#D5D5D5"
+          }
+        ]
+      },
+      {
+        "group": true,
+        "label": "2nd Screen Activation. Alert Design and Text",
+        "tooltip": "These fields affect the design of plugin alert screen.",
+        "folded": true,
+        "fields": [
+          {
+            "key": "retry_action_button_text",
+            "type": "text_input",
+            "label": "Alert “Try Again” Action Button Text",
+            "label_tooltip": "Text for “Try Again” Action button on the error overlay screen.",
+            "initial_value": "Try Again",
+            "placeholder": "Try Again"
+          },
+          {
+            "key": "retry_action_button_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Alert “Try Again” Action Button Text.",
+            "initial_value": "41"
+          },
+          {
+            "key": "retry_action_button_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Alert “Try Again” Action Button Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "close_action_button_text",
+            "type": "text_input",
+            "label": "Alert “Close” Action Button Text",
+            "label_tooltip": "Text for “Close” Action button on the error overlay screen.",
+            "initial_value": "Close",
+            "placeholder": "Close"
+          },
+          {
+            "key": "close_action_button_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Alert “Close” Action Button Text.",
+            "initial_value": "41"
+          },
+          {
+            "key": "close_action_button_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Alert “Close” Action Button Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "activation_alert_background_color",
+            "type": "color_picker",
+            "label": "Activation Alert Background Color",
+            "label_tooltip": "Background Color for the Activation Alert Screen. The screen is shown when the service returns an error or notice.",
+            "initial_value": "#4A4A4A"
+          },
+          {
+            "key": "error_description_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Description Text.",
+            "initial_value": "36"
+          },
+          {
+            "key": "error_description_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Description Text.",
+            "initial_value": "#545A5C"
+          }
+        ]
+      },
+      {
+        "group": true,
+        "label": "Login Screen. General Settings",
+        "tooltip": "These fields determine how the plugin is triggered and basic behavior.",
+        "folded": true,
+        "fields": [
+          {
+            "key": "login_service",
+            "type": "text_input",
+            "label": "Login Service",
+            "label_tooltip": "This field determines the URL for the web service in charge of the login flow.",
+            "initial_value": "",
+            "placeholder": "e.g. https://mydoamin.com/Login"
+          }
+        ]
+      },
+      {
+        "group": true,
+        "label": "Login Screen. Screen Design and Text",
+        "tooltip": "These fields affect the design of the main screen plugin.",
+        "folded": true,
+        "fields": [
+          {
+            "key": "login_title_text",
+            "type": "text_input",
+            "label": "Login Title Text",
+            "label_tooltip": "Main text at the right of the screen. Preferably use to depict the name of the app or welcome the user.",
+            "initial_value": "Welcome To The App",
+            "placeholder": "Welcome To The App"
+          },
+          {
+            "key": "login_title_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Login Title Text.",
+            "initial_value": "60"
+          },
+          {
+            "key": "login_title_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Login Title Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "main_description_text",
+            "type": "text_input",
+            "label": "Main Description Text",
+            "label_tooltip": "This text can be used to give a brief introduction to the product.",
+            "initial_value": "Helping companies maximize any cloud infrastructure, reduce costs, increase engagement, and significantly improve time to market and speed of ongoing innovation.",
+            "placeholder": "Helping companies maximize any cloud infrastructure, reduce costs, increase engagement, and significantly improve time to market and speed of ongoing innovation."
+          },
+          {
+            "key": "main_description_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Main Description Text.",
+            "initial_value": "38"
+          },
+          {
+            "key": "main_description_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Main Description Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "optional_instructions_1_text",
+            "type": "text_input",
+            "label": "Optional Instructions 1 Text",
+            "label_tooltip": "This text can be used to add information relevant to the user(Support/Terms of use/links).",
+            "initial_value": "Optional Instructions",
+            "placeholder": "Optional Instructions"
+          },
+          {
+            "key": "optional_instructions_1_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Optional Instructions 1 Text.",
+            "initial_value": "26"
+          },
+          {
+            "key": "optional_instructions_1_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Optional Instructions 1 Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "optional_instructions_2_text",
+            "type": "text_input",
+            "label": "Optional Instructions 1 Text",
+            "label_tooltip": "This text can be used to add information relevant to the user(Support/Terms of use/links).",
+            "initial_value": "Optional Instructions",
+            "placeholder": "Optional Instructions"
+          },
+          {
+            "key": "optional_instructions_2_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Optional Instructions 1 Text.",
+            "initial_value": "26"
+          },
+          {
+            "key": "optional_instructions_2_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Optional Instructions 1 Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "username_input_placeholder",
+            "type": "text_input",
+            "label": "Username Input placeholder",
+            "label_tooltip": "Placeholder to show for the Username Input Field.",
+            "initial_value": "Username",
+            "placeholder": "Username"
+          },
+          {
+            "key": "username_input_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Username Input Field.",
+            "initial_value": "30"
+          },
+          {
+            "key": "username_input_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Username Input Field.",
+            "initial_value": "#9B9B9B"
+          },
+          {
+            "key": "password_input_placeholder",
+            "type": "text_input",
+            "label": "Password Input placeholder",
+            "label_tooltip": "Placeholder to show for the Password Input Field.",
+            "initial_value": "Password",
+            "placeholder": "Password"
+          },
+          {
+            "key": "password_input_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Username Input Field.",
+            "initial_value": "30"
+          },
+          {
+            "key": "password_input_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Username Input Field.",
+            "initial_value": "#9B9B9B"
+          },
+          {
+            "key": "login_action_button_text",
+            "type": "text_input",
+            "label": "Login Action Button Text",
+            "label_tooltip": "Text for the Login Button.",
+            "initial_value": "Log In",
+            "placeholder": "Log In"
+          },
+          {
+            "key": "login_action_button_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Login Action Button Text.",
+            "initial_value": "40"
+          },
+          {
+            "key": "login_action_button_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Login Action Button Text.",
+            "initial_value": "#545A5C"
+          },
+          {
+            "key": "enable_skip_functionality",
+            "type": "switch",
+            "label": "Enable Skip Functionality",
+            "label_tooltip": "Enables the ability to skip the login by using the back button or activating the skip button in the UI.",
+            "initial_value": "true"
+          },
+          {
+            "key": "skip_action_button_text",
+            "type": "text_input",
+            "label": "Skip Action Button Text",
+            "label_tooltip": "Text for the Skip Button.",
+            "initial_value": "Skip",
+            "placeholder": "Skip",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/enable_skip_functionality"
+              }
+            ]
+          },
+          {
+            "key": "skip_action_button_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for Skip Action Button Text.",
+            "initial_value": "40",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/enable_skip_functionality"
+              }
+            ]
+          },
+          {
+            "key": "skip_action_button_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for Skip Action Button Text.",
+            "initial_value": "#545A5C",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/enable_skip_functionality"
+              }
+            ]
+          },
+          {
+            "key": "username_password_empty_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for notice text when Log In action is called and username and/or password are empty.",
+            "initial_value": "24"
+          },
+          {
+            "key": "username_password_empty_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for notice text when Log In action is called and username and/or password are empty.",
+            "initial_value": "#DE4B61"
+          }
+        ]
+      },
+      {
+        "group": true,
+        "label": "Login Screen. Alert Design and Text",
+        "tooltip": "These fields affect the design of plugin alert component.",
+        "folded": true,
+        "fields": [
+          {
+            "key": "error_notice_message_fontsize",
+            "type": "number_input",
+            "label_tooltip": "Font Size for notices and errors text received from the login service.",
+            "initial_value": "41"
+          },
+          {
+            "key": "error_notice_message_fontcolor",
+            "type": "color_picker",
+            "label_tooltip": "Font Color for notices and errors text received from the login service.",
+            "initial_value": "#FFFFFF"
+          },
+          {
+            "key": "alert_background_color",
+            "type": "color_picker",
+            "label": "Alert Background Color",
+            "label_tooltip": "<p>Background Color for the Alert component. The component is shown when the service returns an error or notice.</p><p>Serves as fallback or primary if an image is not found in the plugin assets.</p>",
+            "initial_value": "#202020"
+          }
+        ]
+      }
+    ]
+  },
+  "custom_configuration_fields": [
+    {
+      "key": "ios_assets_bundle", //rename it corresponginly to platform you want to use
+      "type": "uploader",
+      "label": "tvOS Design Assets",
+      "label_tooltip": "Please upload a zip file to provide the design assets for this plugin. For guidance and proper naming of the assets, please refer to this <a href='https://assets-production.applicaster.com.s3.amazonaws.com/applicaster-employees/marketplace/OPT/Login%20Plugin%20-%20Designer%20Documentation.sketch'>resource</a>."
+    }
+  ],
+  "targets": [
+    "tv"
+  ],
+  "react_bundle_url": "https://",
+  "extra_dependencies": [],
+  "npm_dependencies": [],
+  "project_dependencies": []
+}
