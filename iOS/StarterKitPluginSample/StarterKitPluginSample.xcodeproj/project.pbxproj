@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,86 @@
 		A64E1BA32384202D008A31AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64E1BA12384202D008A31AD /* Main.storyboard */; };
 		A64E1BA52384202F008A31AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A64E1BA42384202F008A31AD /* Assets.xcassets */; };
 		A64E1BA82384202F008A31AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64E1BA62384202F008A31AD /* LaunchScreen.storyboard */; };
+		B64402BA23C88A6A007E9891 /* ZappIOSMockedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64402B923C88A6A007E9891 /* ZappIOSMockedFunctions.swift */; };
+		B64402BC23C892DC007E9891 /* mock_config.json in Resources */ = {isa = PBXBuildFile; fileRef = B64402BB23C892DC007E9891 /* mock_config.json */; };
+		B67518F123C7925500A5F884 /* cam_alert_button_asset@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518A323C7925400A5F884 /* cam_alert_button_asset@3x.png */; };
+		B67518F223C7925500A5F884 /* cam_cancel_button_asset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518A423C7925400A5F884 /* cam_cancel_button_asset@2x.png */; };
+		B67518F323C7925500A5F884 /* cam_background_image~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518A523C7925400A5F884 /* cam_background_image~ipad.png */; };
+		B67518F423C7925500A5F884 /* cam_login_plugin_input_field_asset_active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518A623C7925400A5F884 /* cam_login_plugin_input_field_asset_active@3x.png */; };
+		B67518F523C7925500A5F884 /* cam_cancel_button_asset@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518A723C7925400A5F884 /* cam_cancel_button_asset@2x~ipad.png */; };
+		B67518F623C7925500A5F884 /* cam_back_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518A823C7925400A5F884 /* cam_back_button@3x.png */; };
+		B67518F723C7925500A5F884 /* cam_login_plugin_input_field_asset_active~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518A923C7925400A5F884 /* cam_login_plugin_input_field_asset_active~ipad.png */; };
+		B67518F823C7925500A5F884 /* cam_back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518AA23C7925400A5F884 /* cam_back_button@2x.png */; };
+		B67518F923C7925500A5F884 /* cam_login_plugin_input_field_asset_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518AB23C7925400A5F884 /* cam_login_plugin_input_field_asset_active@2x.png */; };
+		B67518FA23C7925500A5F884 /* field_alert_bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518AC23C7925400A5F884 /* field_alert_bubble.png */; };
+		B67518FB23C7925500A5F884 /* cam_alert_button_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518AD23C7925400A5F884 /* cam_alert_button_asset.png */; };
+		B67518FC23C7925500A5F884 /* cam_action_button_asset@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518AE23C7925400A5F884 /* cam_action_button_asset@2x~ipad.png */; };
+		B67518FD23C7925500A5F884 /* cam_payment_option_component_asset@2x~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518AF23C7925400A5F884 /* cam_payment_option_component_asset@2x~iPad.png */; };
+		B67518FE23C7925500A5F884 /* cam_alert_button_asset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518B023C7925400A5F884 /* cam_alert_button_asset@2x.png */; };
+		B67518FF23C7925500A5F884 /* cam_cancel_button_asset@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518B123C7925400A5F884 /* cam_cancel_button_asset@3x.png */; };
+		B675190023C7925500A5F884 /* cam_background_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518B223C7925400A5F884 /* cam_background_image@3x.png */; };
+		B675190123C7925500A5F884 /* cam_separator_asset_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518B323C7925400A5F884 /* cam_separator_asset_left@2x.png */; };
+		B675190223C7925500A5F884 /* cam_header_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518B423C7925400A5F884 /* cam_header_logo@3x.png */; };
+		B675190323C7925500A5F884 /* cam_input_alert_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518B523C7925400A5F884 /* cam_input_alert_indicator.png */; };
+		B675190423C7925500A5F884 /* cam_field_alert_bubble_shadow@2x~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518B623C7925400A5F884 /* cam_field_alert_bubble_shadow@2x~iPad.png */; };
+		B675190523C7925500A5F884 /* cam_input_field_asset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518B723C7925400A5F884 /* cam_input_field_asset@2x.png */; };
+		B675190623C7925500A5F884 /* cam_payment_option_component_asset~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518B823C7925400A5F884 /* cam_payment_option_component_asset~iPad.png */; };
+		B675190723C7925500A5F884 /* cam_signin_component_done@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518B923C7925400A5F884 /* cam_signin_component_done@3x.png */; };
+		B675190823C7925500A5F884 /* cam_payment_option_component_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518BA23C7925400A5F884 /* cam_payment_option_component_asset.png */; };
+		B675190923C7925500A5F884 /* cam_payment_option_button_asset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518BB23C7925400A5F884 /* cam_payment_option_button_asset@2x.png */; };
+		B675190A23C7925500A5F884 /* cam_header_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518BC23C7925400A5F884 /* cam_header_logo.png */; };
+		B675190B23C7925500A5F884 /* cam_action_button_asset~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518BD23C7925400A5F884 /* cam_action_button_asset~ipad.png */; };
+		B675190C23C7925500A5F884 /* cam_payment_option_button_asset~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518BE23C7925400A5F884 /* cam_payment_option_button_asset~ipad.png */; };
+		B675190D23C7925500A5F884 /* cam_field_alert_bubble_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518BF23C7925400A5F884 /* cam_field_alert_bubble_shadow.png */; };
+		B675190E23C7925500A5F884 /* cam_payment_option_button_asset@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518C023C7925400A5F884 /* cam_payment_option_button_asset@3x.png */; };
+		B675190F23C7925500A5F884 /* cam_field_alert_bubble@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518C123C7925400A5F884 /* cam_field_alert_bubble@2x~ipad.png */; };
+		B675191023C7925500A5F884 /* cam_signin_component_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518C223C7925400A5F884 /* cam_signin_component_done@2x.png */; };
+		B675191123C7925500A5F884 /* cam_login_plugin_input_field_asset_active@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518C323C7925400A5F884 /* cam_login_plugin_input_field_asset_active@2x~ipad.png */; };
+		B675191223C7925500A5F884 /* cam_input_field_asset@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518C423C7925400A5F884 /* cam_input_field_asset@3x.png */; };
+		B675191323C7925500A5F884 /* cam_close_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518C523C7925400A5F884 /* cam_close_button.png */; };
+		B675191423C7925500A5F884 /* cam_payment_option_component_asset@3x~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518C623C7925400A5F884 /* cam_payment_option_component_asset@3x~iPad.png */; };
+		B675191523C7925500A5F884 /* cam_header_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518C723C7925400A5F884 /* cam_header_logo@2x.png */; };
+		B675191623C7925500A5F884 /* cam_alert_component.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518C823C7925400A5F884 /* cam_alert_component.png */; };
+		B675191723C7925500A5F884 /* cam_separator_asset_left@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518C923C7925400A5F884 /* cam_separator_asset_left@3x.png */; };
+		B675191823C7925500A5F884 /* cam_background_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518CA23C7925400A5F884 /* cam_background_image@2x.png */; };
+		B675191923C7925500A5F884 /* cam_input_alert_indicator@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518CB23C7925400A5F884 /* cam_input_alert_indicator@3x.png */; };
+		B675191A23C7925500A5F884 /* cam_payment_option_component_asset@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518CC23C7925400A5F884 /* cam_payment_option_component_asset@3x.png */; };
+		B675191B23C7925500A5F884 /* cam_close_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518CD23C7925400A5F884 /* cam_close_button@3x.png */; };
+		B675191C23C7925500A5F884 /* cam_action_button_asset@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518CE23C7925400A5F884 /* cam_action_button_asset@3x.png */; };
+		B675191D23C7925500A5F884 /* cam_background_image~ipad@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518CF23C7925400A5F884 /* cam_background_image~ipad@3x.png */; };
+		B675191E23C7925500A5F884 /* cam_alert_component@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518D023C7925400A5F884 /* cam_alert_component@2x~ipad.png */; };
+		B675191F23C7925500A5F884 /* cam_cancel_button_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518D123C7925400A5F884 /* cam_cancel_button_asset.png */; };
+		B675192023C7925500A5F884 /* cam_input_field_asset@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518D223C7925400A5F884 /* cam_input_field_asset@2x~ipad.png */; };
+		B675192123C7925500A5F884 /* cam_separator_asset_right.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518D323C7925400A5F884 /* cam_separator_asset_right.png */; };
+		B675192223C7925500A5F884 /* cam_login_plugin_input_field_asset_active.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518D423C7925400A5F884 /* cam_login_plugin_input_field_asset_active.png */; };
+		B675192323C7925500A5F884 /* cam_background_image~ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518D523C7925400A5F884 /* cam_background_image~ipad@2x.png */; };
+		B675192423C7925500A5F884 /* cam_alert_component~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518D623C7925400A5F884 /* cam_alert_component~ipad.png */; };
+		B675192523C7925500A5F884 /* cam_action_button_asset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518D723C7925400A5F884 /* cam_action_button_asset@2x.png */; };
+		B675192623C7925500A5F884 /* cam_cancel_button_asset~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518D823C7925400A5F884 /* cam_cancel_button_asset~ipad.png */; };
+		B675192723C7925500A5F884 /* cam_close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518D923C7925400A5F884 /* cam_close_button@2x.png */; };
+		B675192823C7925500A5F884 /* cam_payment_option_component_asset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518DA23C7925400A5F884 /* cam_payment_option_component_asset@2x.png */; };
+		B675192923C7925500A5F884 /* cam_input_alert_indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518DB23C7925400A5F884 /* cam_input_alert_indicator@2x.png */; };
+		B675192A23C7925500A5F884 /* cam_action_button_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518DC23C7925400A5F884 /* cam_action_button_asset.png */; };
+		B675192B23C7925500A5F884 /* cam_alert_component@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518DD23C7925400A5F884 /* cam_alert_component@2x.png */; };
+		B675192C23C7925500A5F884 /* cam_payment_option_button_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518DE23C7925400A5F884 /* cam_payment_option_button_asset.png */; };
+		B675192D23C7925500A5F884 /* cam_separator_asset_right@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518DF23C7925400A5F884 /* cam_separator_asset_right@3x.png */; };
+		B675192E23C7925500A5F884 /* field_alert_bubble@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518E023C7925400A5F884 /* field_alert_bubble@3x.png */; };
+		B675192F23C7925500A5F884 /* cam_back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518E123C7925400A5F884 /* cam_back_button.png */; };
+		B675193023C7925500A5F884 /* cam_field_alert_bubble_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518E223C7925400A5F884 /* cam_field_alert_bubble_shadow@2x.png */; };
+		B675193123C7925500A5F884 /* cam_field_alert_bubble_shadow~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518E323C7925400A5F884 /* cam_field_alert_bubble_shadow~iPad.png */; };
+		B675193223C7925500A5F884 /* cam_field_alert_bubble~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518E423C7925400A5F884 /* cam_field_alert_bubble~ipad.png */; };
+		B675193323C7925500A5F884 /* cam_input_field_asset.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518E523C7925400A5F884 /* cam_input_field_asset.png */; };
+		B675193423C7925500A5F884 /* cam_background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518E623C7925400A5F884 /* cam_background_image.png */; };
+		B675193523C7925500A5F884 /* cam_alert_button_asset~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518E723C7925400A5F884 /* cam_alert_button_asset~ipad.png */; };
+		B675193623C7925500A5F884 /* cam_field_alert_bubble_shadow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518E823C7925400A5F884 /* cam_field_alert_bubble_shadow@3x.png */; };
+		B675193723C7925500A5F884 /* cam_input_field_asset~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518E923C7925400A5F884 /* cam_input_field_asset~ipad.png */; };
+		B675193823C7925500A5F884 /* cam_separator_asset_left.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518EA23C7925400A5F884 /* cam_separator_asset_left.png */; };
+		B675193923C7925500A5F884 /* cam_payment_option_button_asset@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518EB23C7925400A5F884 /* cam_payment_option_button_asset@2x~ipad.png */; };
+		B675193A23C7925500A5F884 /* cam_separator_asset_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518EC23C7925400A5F884 /* cam_separator_asset_right@2x.png */; };
+		B675193B23C7925500A5F884 /* field_alert_bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518ED23C7925400A5F884 /* field_alert_bubble@2x.png */; };
+		B675193C23C7925500A5F884 /* cam_signin_component_done.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518EE23C7925400A5F884 /* cam_signin_component_done.png */; };
+		B675193D23C7925500A5F884 /* cam_alert_button_asset@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518EF23C7925400A5F884 /* cam_alert_button_asset@2x~ipad.png */; };
+		B675193E23C7925500A5F884 /* cam_alert_component@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67518F023C7925400A5F884 /* cam_alert_component@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +106,86 @@
 		A64E1BA42384202F008A31AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A64E1BA72384202F008A31AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A64E1BA92384202F008A31AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B64402B923C88A6A007E9891 /* ZappIOSMockedFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZappIOSMockedFunctions.swift; sourceTree = "<group>"; };
+		B64402BB23C892DC007E9891 /* mock_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = mock_config.json; path = ../mock_config.json; sourceTree = "<group>"; };
+		B67518A323C7925400A5F884 /* cam_alert_button_asset@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_alert_button_asset@3x.png"; sourceTree = "<group>"; };
+		B67518A423C7925400A5F884 /* cam_cancel_button_asset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_cancel_button_asset@2x.png"; sourceTree = "<group>"; };
+		B67518A523C7925400A5F884 /* cam_background_image~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_background_image~ipad.png"; sourceTree = "<group>"; };
+		B67518A623C7925400A5F884 /* cam_login_plugin_input_field_asset_active@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_login_plugin_input_field_asset_active@3x.png"; sourceTree = "<group>"; };
+		B67518A723C7925400A5F884 /* cam_cancel_button_asset@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_cancel_button_asset@2x~ipad.png"; sourceTree = "<group>"; };
+		B67518A823C7925400A5F884 /* cam_back_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_back_button@3x.png"; sourceTree = "<group>"; };
+		B67518A923C7925400A5F884 /* cam_login_plugin_input_field_asset_active~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_login_plugin_input_field_asset_active~ipad.png"; sourceTree = "<group>"; };
+		B67518AA23C7925400A5F884 /* cam_back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_back_button@2x.png"; sourceTree = "<group>"; };
+		B67518AB23C7925400A5F884 /* cam_login_plugin_input_field_asset_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_login_plugin_input_field_asset_active@2x.png"; sourceTree = "<group>"; };
+		B67518AC23C7925400A5F884 /* field_alert_bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field_alert_bubble.png; sourceTree = "<group>"; };
+		B67518AD23C7925400A5F884 /* cam_alert_button_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_alert_button_asset.png; sourceTree = "<group>"; };
+		B67518AE23C7925400A5F884 /* cam_action_button_asset@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_action_button_asset@2x~ipad.png"; sourceTree = "<group>"; };
+		B67518AF23C7925400A5F884 /* cam_payment_option_component_asset@2x~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_payment_option_component_asset@2x~iPad.png"; sourceTree = "<group>"; };
+		B67518B023C7925400A5F884 /* cam_alert_button_asset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_alert_button_asset@2x.png"; sourceTree = "<group>"; };
+		B67518B123C7925400A5F884 /* cam_cancel_button_asset@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_cancel_button_asset@3x.png"; sourceTree = "<group>"; };
+		B67518B223C7925400A5F884 /* cam_background_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_background_image@3x.png"; sourceTree = "<group>"; };
+		B67518B323C7925400A5F884 /* cam_separator_asset_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_separator_asset_left@2x.png"; sourceTree = "<group>"; };
+		B67518B423C7925400A5F884 /* cam_header_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_header_logo@3x.png"; sourceTree = "<group>"; };
+		B67518B523C7925400A5F884 /* cam_input_alert_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_input_alert_indicator.png; sourceTree = "<group>"; };
+		B67518B623C7925400A5F884 /* cam_field_alert_bubble_shadow@2x~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_field_alert_bubble_shadow@2x~iPad.png"; sourceTree = "<group>"; };
+		B67518B723C7925400A5F884 /* cam_input_field_asset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_input_field_asset@2x.png"; sourceTree = "<group>"; };
+		B67518B823C7925400A5F884 /* cam_payment_option_component_asset~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_payment_option_component_asset~iPad.png"; sourceTree = "<group>"; };
+		B67518B923C7925400A5F884 /* cam_signin_component_done@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_signin_component_done@3x.png"; sourceTree = "<group>"; };
+		B67518BA23C7925400A5F884 /* cam_payment_option_component_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_payment_option_component_asset.png; sourceTree = "<group>"; };
+		B67518BB23C7925400A5F884 /* cam_payment_option_button_asset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_payment_option_button_asset@2x.png"; sourceTree = "<group>"; };
+		B67518BC23C7925400A5F884 /* cam_header_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_header_logo.png; sourceTree = "<group>"; };
+		B67518BD23C7925400A5F884 /* cam_action_button_asset~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_action_button_asset~ipad.png"; sourceTree = "<group>"; };
+		B67518BE23C7925400A5F884 /* cam_payment_option_button_asset~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_payment_option_button_asset~ipad.png"; sourceTree = "<group>"; };
+		B67518BF23C7925400A5F884 /* cam_field_alert_bubble_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_field_alert_bubble_shadow.png; sourceTree = "<group>"; };
+		B67518C023C7925400A5F884 /* cam_payment_option_button_asset@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_payment_option_button_asset@3x.png"; sourceTree = "<group>"; };
+		B67518C123C7925400A5F884 /* cam_field_alert_bubble@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_field_alert_bubble@2x~ipad.png"; sourceTree = "<group>"; };
+		B67518C223C7925400A5F884 /* cam_signin_component_done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_signin_component_done@2x.png"; sourceTree = "<group>"; };
+		B67518C323C7925400A5F884 /* cam_login_plugin_input_field_asset_active@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_login_plugin_input_field_asset_active@2x~ipad.png"; sourceTree = "<group>"; };
+		B67518C423C7925400A5F884 /* cam_input_field_asset@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_input_field_asset@3x.png"; sourceTree = "<group>"; };
+		B67518C523C7925400A5F884 /* cam_close_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_close_button.png; sourceTree = "<group>"; };
+		B67518C623C7925400A5F884 /* cam_payment_option_component_asset@3x~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_payment_option_component_asset@3x~iPad.png"; sourceTree = "<group>"; };
+		B67518C723C7925400A5F884 /* cam_header_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_header_logo@2x.png"; sourceTree = "<group>"; };
+		B67518C823C7925400A5F884 /* cam_alert_component.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_alert_component.png; sourceTree = "<group>"; };
+		B67518C923C7925400A5F884 /* cam_separator_asset_left@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_separator_asset_left@3x.png"; sourceTree = "<group>"; };
+		B67518CA23C7925400A5F884 /* cam_background_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_background_image@2x.png"; sourceTree = "<group>"; };
+		B67518CB23C7925400A5F884 /* cam_input_alert_indicator@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_input_alert_indicator@3x.png"; sourceTree = "<group>"; };
+		B67518CC23C7925400A5F884 /* cam_payment_option_component_asset@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_payment_option_component_asset@3x.png"; sourceTree = "<group>"; };
+		B67518CD23C7925400A5F884 /* cam_close_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_close_button@3x.png"; sourceTree = "<group>"; };
+		B67518CE23C7925400A5F884 /* cam_action_button_asset@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_action_button_asset@3x.png"; sourceTree = "<group>"; };
+		B67518CF23C7925400A5F884 /* cam_background_image~ipad@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_background_image~ipad@3x.png"; sourceTree = "<group>"; };
+		B67518D023C7925400A5F884 /* cam_alert_component@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_alert_component@2x~ipad.png"; sourceTree = "<group>"; };
+		B67518D123C7925400A5F884 /* cam_cancel_button_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_cancel_button_asset.png; sourceTree = "<group>"; };
+		B67518D223C7925400A5F884 /* cam_input_field_asset@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_input_field_asset@2x~ipad.png"; sourceTree = "<group>"; };
+		B67518D323C7925400A5F884 /* cam_separator_asset_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_separator_asset_right.png; sourceTree = "<group>"; };
+		B67518D423C7925400A5F884 /* cam_login_plugin_input_field_asset_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_login_plugin_input_field_asset_active.png; sourceTree = "<group>"; };
+		B67518D523C7925400A5F884 /* cam_background_image~ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_background_image~ipad@2x.png"; sourceTree = "<group>"; };
+		B67518D623C7925400A5F884 /* cam_alert_component~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_alert_component~ipad.png"; sourceTree = "<group>"; };
+		B67518D723C7925400A5F884 /* cam_action_button_asset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_action_button_asset@2x.png"; sourceTree = "<group>"; };
+		B67518D823C7925400A5F884 /* cam_cancel_button_asset~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_cancel_button_asset~ipad.png"; sourceTree = "<group>"; };
+		B67518D923C7925400A5F884 /* cam_close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_close_button@2x.png"; sourceTree = "<group>"; };
+		B67518DA23C7925400A5F884 /* cam_payment_option_component_asset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_payment_option_component_asset@2x.png"; sourceTree = "<group>"; };
+		B67518DB23C7925400A5F884 /* cam_input_alert_indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_input_alert_indicator@2x.png"; sourceTree = "<group>"; };
+		B67518DC23C7925400A5F884 /* cam_action_button_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_action_button_asset.png; sourceTree = "<group>"; };
+		B67518DD23C7925400A5F884 /* cam_alert_component@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_alert_component@2x.png"; sourceTree = "<group>"; };
+		B67518DE23C7925400A5F884 /* cam_payment_option_button_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_payment_option_button_asset.png; sourceTree = "<group>"; };
+		B67518DF23C7925400A5F884 /* cam_separator_asset_right@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_separator_asset_right@3x.png"; sourceTree = "<group>"; };
+		B67518E023C7925400A5F884 /* field_alert_bubble@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "field_alert_bubble@3x.png"; sourceTree = "<group>"; };
+		B67518E123C7925400A5F884 /* cam_back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_back_button.png; sourceTree = "<group>"; };
+		B67518E223C7925400A5F884 /* cam_field_alert_bubble_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_field_alert_bubble_shadow@2x.png"; sourceTree = "<group>"; };
+		B67518E323C7925400A5F884 /* cam_field_alert_bubble_shadow~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_field_alert_bubble_shadow~iPad.png"; sourceTree = "<group>"; };
+		B67518E423C7925400A5F884 /* cam_field_alert_bubble~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_field_alert_bubble~ipad.png"; sourceTree = "<group>"; };
+		B67518E523C7925400A5F884 /* cam_input_field_asset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_input_field_asset.png; sourceTree = "<group>"; };
+		B67518E623C7925400A5F884 /* cam_background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_background_image.png; sourceTree = "<group>"; };
+		B67518E723C7925400A5F884 /* cam_alert_button_asset~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_alert_button_asset~ipad.png"; sourceTree = "<group>"; };
+		B67518E823C7925400A5F884 /* cam_field_alert_bubble_shadow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_field_alert_bubble_shadow@3x.png"; sourceTree = "<group>"; };
+		B67518E923C7925400A5F884 /* cam_input_field_asset~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_input_field_asset~ipad.png"; sourceTree = "<group>"; };
+		B67518EA23C7925400A5F884 /* cam_separator_asset_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_separator_asset_left.png; sourceTree = "<group>"; };
+		B67518EB23C7925400A5F884 /* cam_payment_option_button_asset@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_payment_option_button_asset@2x~ipad.png"; sourceTree = "<group>"; };
+		B67518EC23C7925400A5F884 /* cam_separator_asset_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_separator_asset_right@2x.png"; sourceTree = "<group>"; };
+		B67518ED23C7925400A5F884 /* field_alert_bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "field_alert_bubble@2x.png"; sourceTree = "<group>"; };
+		B67518EE23C7925400A5F884 /* cam_signin_component_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cam_signin_component_done.png; sourceTree = "<group>"; };
+		B67518EF23C7925400A5F884 /* cam_alert_button_asset@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_alert_button_asset@2x~ipad.png"; sourceTree = "<group>"; };
+		B67518F023C7925400A5F884 /* cam_alert_component@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam_alert_component@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,13 +214,14 @@
 				8CD52C074DB48C29F62A1681 /* Pods-StarterKitPluginSample.debug.xcconfig */,
 				4504781C9E674C2ED88C09F9 /* Pods-StarterKitPluginSample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		A64E1B912384202D008A31AD = {
 			isa = PBXGroup;
 			children = (
+				B64402BB23C892DC007E9891 /* mock_config.json */,
+				B67518A223C7925400A5F884 /* ios_assets */,
 				A64E1B9C2384202D008A31AD /* StarterKitPluginSample */,
 				A64E1B9B2384202D008A31AD /* Products */,
 				8ABD6A44F72A8B4BF6F7949D /* Pods */,
@@ -81,12 +242,99 @@
 			children = (
 				A64E1B9D2384202D008A31AD /* AppDelegate.swift */,
 				A64E1B9F2384202D008A31AD /* ViewController.swift */,
+				B64402B923C88A6A007E9891 /* ZappIOSMockedFunctions.swift */,
 				A64E1BA12384202D008A31AD /* Main.storyboard */,
 				A64E1BA42384202F008A31AD /* Assets.xcassets */,
 				A64E1BA62384202F008A31AD /* LaunchScreen.storyboard */,
 				A64E1BA92384202F008A31AD /* Info.plist */,
 			);
 			path = StarterKitPluginSample;
+			sourceTree = "<group>";
+		};
+		B67518A223C7925400A5F884 /* ios_assets */ = {
+			isa = PBXGroup;
+			children = (
+				B67518A323C7925400A5F884 /* cam_alert_button_asset@3x.png */,
+				B67518A423C7925400A5F884 /* cam_cancel_button_asset@2x.png */,
+				B67518A523C7925400A5F884 /* cam_background_image~ipad.png */,
+				B67518A623C7925400A5F884 /* cam_login_plugin_input_field_asset_active@3x.png */,
+				B67518A723C7925400A5F884 /* cam_cancel_button_asset@2x~ipad.png */,
+				B67518A823C7925400A5F884 /* cam_back_button@3x.png */,
+				B67518A923C7925400A5F884 /* cam_login_plugin_input_field_asset_active~ipad.png */,
+				B67518AA23C7925400A5F884 /* cam_back_button@2x.png */,
+				B67518AB23C7925400A5F884 /* cam_login_plugin_input_field_asset_active@2x.png */,
+				B67518AC23C7925400A5F884 /* field_alert_bubble.png */,
+				B67518AD23C7925400A5F884 /* cam_alert_button_asset.png */,
+				B67518AE23C7925400A5F884 /* cam_action_button_asset@2x~ipad.png */,
+				B67518AF23C7925400A5F884 /* cam_payment_option_component_asset@2x~iPad.png */,
+				B67518B023C7925400A5F884 /* cam_alert_button_asset@2x.png */,
+				B67518B123C7925400A5F884 /* cam_cancel_button_asset@3x.png */,
+				B67518B223C7925400A5F884 /* cam_background_image@3x.png */,
+				B67518B323C7925400A5F884 /* cam_separator_asset_left@2x.png */,
+				B67518B423C7925400A5F884 /* cam_header_logo@3x.png */,
+				B67518B523C7925400A5F884 /* cam_input_alert_indicator.png */,
+				B67518B623C7925400A5F884 /* cam_field_alert_bubble_shadow@2x~iPad.png */,
+				B67518B723C7925400A5F884 /* cam_input_field_asset@2x.png */,
+				B67518B823C7925400A5F884 /* cam_payment_option_component_asset~iPad.png */,
+				B67518B923C7925400A5F884 /* cam_signin_component_done@3x.png */,
+				B67518BA23C7925400A5F884 /* cam_payment_option_component_asset.png */,
+				B67518BB23C7925400A5F884 /* cam_payment_option_button_asset@2x.png */,
+				B67518BC23C7925400A5F884 /* cam_header_logo.png */,
+				B67518BD23C7925400A5F884 /* cam_action_button_asset~ipad.png */,
+				B67518BE23C7925400A5F884 /* cam_payment_option_button_asset~ipad.png */,
+				B67518BF23C7925400A5F884 /* cam_field_alert_bubble_shadow.png */,
+				B67518C023C7925400A5F884 /* cam_payment_option_button_asset@3x.png */,
+				B67518C123C7925400A5F884 /* cam_field_alert_bubble@2x~ipad.png */,
+				B67518C223C7925400A5F884 /* cam_signin_component_done@2x.png */,
+				B67518C323C7925400A5F884 /* cam_login_plugin_input_field_asset_active@2x~ipad.png */,
+				B67518C423C7925400A5F884 /* cam_input_field_asset@3x.png */,
+				B67518C523C7925400A5F884 /* cam_close_button.png */,
+				B67518C623C7925400A5F884 /* cam_payment_option_component_asset@3x~iPad.png */,
+				B67518C723C7925400A5F884 /* cam_header_logo@2x.png */,
+				B67518C823C7925400A5F884 /* cam_alert_component.png */,
+				B67518C923C7925400A5F884 /* cam_separator_asset_left@3x.png */,
+				B67518CA23C7925400A5F884 /* cam_background_image@2x.png */,
+				B67518CB23C7925400A5F884 /* cam_input_alert_indicator@3x.png */,
+				B67518CC23C7925400A5F884 /* cam_payment_option_component_asset@3x.png */,
+				B67518CD23C7925400A5F884 /* cam_close_button@3x.png */,
+				B67518CE23C7925400A5F884 /* cam_action_button_asset@3x.png */,
+				B67518CF23C7925400A5F884 /* cam_background_image~ipad@3x.png */,
+				B67518D023C7925400A5F884 /* cam_alert_component@2x~ipad.png */,
+				B67518D123C7925400A5F884 /* cam_cancel_button_asset.png */,
+				B67518D223C7925400A5F884 /* cam_input_field_asset@2x~ipad.png */,
+				B67518D323C7925400A5F884 /* cam_separator_asset_right.png */,
+				B67518D423C7925400A5F884 /* cam_login_plugin_input_field_asset_active.png */,
+				B67518D523C7925400A5F884 /* cam_background_image~ipad@2x.png */,
+				B67518D623C7925400A5F884 /* cam_alert_component~ipad.png */,
+				B67518D723C7925400A5F884 /* cam_action_button_asset@2x.png */,
+				B67518D823C7925400A5F884 /* cam_cancel_button_asset~ipad.png */,
+				B67518D923C7925400A5F884 /* cam_close_button@2x.png */,
+				B67518DA23C7925400A5F884 /* cam_payment_option_component_asset@2x.png */,
+				B67518DB23C7925400A5F884 /* cam_input_alert_indicator@2x.png */,
+				B67518DC23C7925400A5F884 /* cam_action_button_asset.png */,
+				B67518DD23C7925400A5F884 /* cam_alert_component@2x.png */,
+				B67518DE23C7925400A5F884 /* cam_payment_option_button_asset.png */,
+				B67518DF23C7925400A5F884 /* cam_separator_asset_right@3x.png */,
+				B67518E023C7925400A5F884 /* field_alert_bubble@3x.png */,
+				B67518E123C7925400A5F884 /* cam_back_button.png */,
+				B67518E223C7925400A5F884 /* cam_field_alert_bubble_shadow@2x.png */,
+				B67518E323C7925400A5F884 /* cam_field_alert_bubble_shadow~iPad.png */,
+				B67518E423C7925400A5F884 /* cam_field_alert_bubble~ipad.png */,
+				B67518E523C7925400A5F884 /* cam_input_field_asset.png */,
+				B67518E623C7925400A5F884 /* cam_background_image.png */,
+				B67518E723C7925400A5F884 /* cam_alert_button_asset~ipad.png */,
+				B67518E823C7925400A5F884 /* cam_field_alert_bubble_shadow@3x.png */,
+				B67518E923C7925400A5F884 /* cam_input_field_asset~ipad.png */,
+				B67518EA23C7925400A5F884 /* cam_separator_asset_left.png */,
+				B67518EB23C7925400A5F884 /* cam_payment_option_button_asset@2x~ipad.png */,
+				B67518EC23C7925400A5F884 /* cam_separator_asset_right@2x.png */,
+				B67518ED23C7925400A5F884 /* field_alert_bubble@2x.png */,
+				B67518EE23C7925400A5F884 /* cam_signin_component_done.png */,
+				B67518EF23C7925400A5F884 /* cam_alert_button_asset@2x~ipad.png */,
+				B67518F023C7925400A5F884 /* cam_alert_component@3x.png */,
+			);
+			name = ios_assets;
+			path = ../ios_assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,7 +349,6 @@
 				A64E1B972384202D008A31AD /* Frameworks */,
 				A64E1B982384202D008A31AD /* Resources */,
 				995349AEAD4FCB29F00CBBFC /* [CP] Embed Pods Frameworks */,
-				1CA4AD50BF97E075CC972BBE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -150,32 +397,94 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B67518F323C7925500A5F884 /* cam_background_image~ipad.png in Resources */,
+				B675190823C7925500A5F884 /* cam_payment_option_component_asset.png in Resources */,
+				B67518FA23C7925500A5F884 /* field_alert_bubble.png in Resources */,
+				B675190F23C7925500A5F884 /* cam_field_alert_bubble@2x~ipad.png in Resources */,
+				B67518F223C7925500A5F884 /* cam_cancel_button_asset@2x.png in Resources */,
+				B67518F623C7925500A5F884 /* cam_back_button@3x.png in Resources */,
+				B675191E23C7925500A5F884 /* cam_alert_component@2x~ipad.png in Resources */,
+				B675193C23C7925500A5F884 /* cam_signin_component_done.png in Resources */,
+				B675193223C7925500A5F884 /* cam_field_alert_bubble~ipad.png in Resources */,
+				B675192C23C7925500A5F884 /* cam_payment_option_button_asset.png in Resources */,
+				B675193723C7925500A5F884 /* cam_input_field_asset~ipad.png in Resources */,
+				B675192B23C7925500A5F884 /* cam_alert_component@2x.png in Resources */,
+				B675192A23C7925500A5F884 /* cam_action_button_asset.png in Resources */,
 				A64E1BA82384202F008A31AD /* LaunchScreen.storyboard in Resources */,
+				B675193A23C7925500A5F884 /* cam_separator_asset_right@2x.png in Resources */,
+				B675191223C7925500A5F884 /* cam_input_field_asset@3x.png in Resources */,
+				B675193123C7925500A5F884 /* cam_field_alert_bubble_shadow~iPad.png in Resources */,
+				B675191423C7925500A5F884 /* cam_payment_option_component_asset@3x~iPad.png in Resources */,
+				B675193E23C7925500A5F884 /* cam_alert_component@3x.png in Resources */,
+				B67518F923C7925500A5F884 /* cam_login_plugin_input_field_asset_active@2x.png in Resources */,
+				B67518F123C7925500A5F884 /* cam_alert_button_asset@3x.png in Resources */,
+				B67518F523C7925500A5F884 /* cam_cancel_button_asset@2x~ipad.png in Resources */,
+				B675192123C7925500A5F884 /* cam_separator_asset_right.png in Resources */,
+				B675191523C7925500A5F884 /* cam_header_logo@2x.png in Resources */,
+				B675191C23C7925500A5F884 /* cam_action_button_asset@3x.png in Resources */,
+				B675190223C7925500A5F884 /* cam_header_logo@3x.png in Resources */,
+				B67518FF23C7925500A5F884 /* cam_cancel_button_asset@3x.png in Resources */,
+				B675190723C7925500A5F884 /* cam_signin_component_done@3x.png in Resources */,
+				B67518FE23C7925500A5F884 /* cam_alert_button_asset@2x.png in Resources */,
+				B675190D23C7925500A5F884 /* cam_field_alert_bubble_shadow.png in Resources */,
+				B675190523C7925500A5F884 /* cam_input_field_asset@2x.png in Resources */,
 				A64E1BA52384202F008A31AD /* Assets.xcassets in Resources */,
+				B675190923C7925500A5F884 /* cam_payment_option_button_asset@2x.png in Resources */,
 				A64E1BA32384202D008A31AD /* Main.storyboard in Resources */,
+				B675190323C7925500A5F884 /* cam_input_alert_indicator.png in Resources */,
+				B675191D23C7925500A5F884 /* cam_background_image~ipad@3x.png in Resources */,
+				B675191A23C7925500A5F884 /* cam_payment_option_component_asset@3x.png in Resources */,
+				B675192923C7925500A5F884 /* cam_input_alert_indicator@2x.png in Resources */,
+				B675190B23C7925500A5F884 /* cam_action_button_asset~ipad.png in Resources */,
+				B675190C23C7925500A5F884 /* cam_payment_option_button_asset~ipad.png in Resources */,
+				B675192323C7925500A5F884 /* cam_background_image~ipad@2x.png in Resources */,
+				B675191623C7925500A5F884 /* cam_alert_component.png in Resources */,
+				B675193B23C7925500A5F884 /* field_alert_bubble@2x.png in Resources */,
+				B675191923C7925500A5F884 /* cam_input_alert_indicator@3x.png in Resources */,
+				B67518F823C7925500A5F884 /* cam_back_button@2x.png in Resources */,
+				B675193523C7925500A5F884 /* cam_alert_button_asset~ipad.png in Resources */,
+				B67518F723C7925500A5F884 /* cam_login_plugin_input_field_asset_active~ipad.png in Resources */,
+				B675192523C7925500A5F884 /* cam_action_button_asset@2x.png in Resources */,
+				B675193823C7925500A5F884 /* cam_separator_asset_left.png in Resources */,
+				B675190E23C7925500A5F884 /* cam_payment_option_button_asset@3x.png in Resources */,
+				B675191023C7925500A5F884 /* cam_signin_component_done@2x.png in Resources */,
+				B675192F23C7925500A5F884 /* cam_back_button.png in Resources */,
+				B675192E23C7925500A5F884 /* field_alert_bubble@3x.png in Resources */,
+				B675190A23C7925500A5F884 /* cam_header_logo.png in Resources */,
+				B675191323C7925500A5F884 /* cam_close_button.png in Resources */,
+				B675190123C7925500A5F884 /* cam_separator_asset_left@2x.png in Resources */,
+				B675193923C7925500A5F884 /* cam_payment_option_button_asset@2x~ipad.png in Resources */,
+				B67518FC23C7925500A5F884 /* cam_action_button_asset@2x~ipad.png in Resources */,
+				B675193623C7925500A5F884 /* cam_field_alert_bubble_shadow@3x.png in Resources */,
+				B675192623C7925500A5F884 /* cam_cancel_button_asset~ipad.png in Resources */,
+				B675191123C7925500A5F884 /* cam_login_plugin_input_field_asset_active@2x~ipad.png in Resources */,
+				B675191823C7925500A5F884 /* cam_background_image@2x.png in Resources */,
+				B675191723C7925500A5F884 /* cam_separator_asset_left@3x.png in Resources */,
+				B67518F423C7925500A5F884 /* cam_login_plugin_input_field_asset_active@3x.png in Resources */,
+				B675192723C7925500A5F884 /* cam_close_button@2x.png in Resources */,
+				B675193023C7925500A5F884 /* cam_field_alert_bubble_shadow@2x.png in Resources */,
+				B675193D23C7925500A5F884 /* cam_alert_button_asset@2x~ipad.png in Resources */,
+				B675190623C7925500A5F884 /* cam_payment_option_component_asset~iPad.png in Resources */,
+				B67518FD23C7925500A5F884 /* cam_payment_option_component_asset@2x~iPad.png in Resources */,
+				B675192D23C7925500A5F884 /* cam_separator_asset_right@3x.png in Resources */,
+				B675192423C7925500A5F884 /* cam_alert_component~ipad.png in Resources */,
+				B675190023C7925500A5F884 /* cam_background_image@3x.png in Resources */,
+				B675193423C7925500A5F884 /* cam_background_image.png in Resources */,
+				B64402BC23C892DC007E9891 /* mock_config.json in Resources */,
+				B67518FB23C7925500A5F884 /* cam_alert_button_asset.png in Resources */,
+				B675192223C7925500A5F884 /* cam_login_plugin_input_field_asset_active.png in Resources */,
+				B675192023C7925500A5F884 /* cam_input_field_asset@2x~ipad.png in Resources */,
+				B675191B23C7925500A5F884 /* cam_close_button@3x.png in Resources */,
+				B675193323C7925500A5F884 /* cam_input_field_asset.png in Resources */,
+				B675191F23C7925500A5F884 /* cam_cancel_button_asset.png in Resources */,
+				B675190423C7925500A5F884 /* cam_field_alert_bubble_shadow@2x~iPad.png in Resources */,
+				B675192823C7925500A5F884 /* cam_payment_option_component_asset@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1CA4AD50BF97E075CC972BBE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StarterKitPluginSample/Pods-StarterKitPluginSample-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StarterKitPluginSample/Pods-StarterKitPluginSample-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StarterKitPluginSample/Pods-StarterKitPluginSample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6D8B85E85DA16E76C9B0E365 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,6 +533,7 @@
 			files = (
 				A64E1BA02384202D008A31AD /* ViewController.swift in Sources */,
 				A64E1B9E2384202D008A31AD /* AppDelegate.swift in Sources */,
+				B64402BA23C88A6A007E9891 /* ZappIOSMockedFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

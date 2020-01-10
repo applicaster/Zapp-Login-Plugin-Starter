@@ -31,14 +31,15 @@ import CAM
                 break
             }
         }
+        // WARNING
+        // In real app authFields will be url pointing at json file that you need to download. Currently it is mocked in mock_config.json
+        //        if let authFieldsURLString = pluginConfiguration[CAMKeys.authFields.rawValue] as? String,
+        //            let authFieldsURL = URL(string: authFieldsURLString),
+        //            let authFieldsData = try? Data(contentsOf: authFieldsURL),
+        //            let authFieldsStringData = String(data: authFieldsData, encoding: .utf8) {
+        //            result[CAMKeys.authFields.rawValue] = authFieldsStringData
+        //        }
         
-        if let authFieldsURLString = pluginConfiguration[CAMKeys.authFields.rawValue] as? String,
-            let authFieldsURL = URL(string: authFieldsURLString),
-            let authFieldsData = try? Data(contentsOf: authFieldsURL),
-            let authFieldsStringData = String(data: authFieldsData, encoding: .utf8) {
-            result[CAMKeys.authFields.rawValue] = authFieldsStringData
-        }
-
         return result
     }()
     
@@ -183,9 +184,17 @@ import CAM
     }
     
     public func logout(_ completion: @escaping ((ZPLoginOperationStatus) -> Void)) {
-        ZAAppConnector.sharedInstance().identityDelegate.updateAuthorizationTokens(withAuthorizationProviders: [])
-        
-        completion(.completedSuccessfully)
+        guard let controller = UIViewController.topmostViewController() else {
+            assert(false, "No topmost controller")
+            completion(.failed)
+            return
+        }
+        let contentAccessManager = ContentAccessManager(rootViewController: controller,
+                                                        camDelegate: self,
+                                                        camFlow: .logout) { (isCompleted) in
+            (isCompleted == true) ? completion(.completedSuccessfully) : completion(.failed)
+        }
+        contentAccessManager.startFlow()
     }
     
     public func isAuthenticated() -> Bool {
