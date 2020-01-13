@@ -113,6 +113,17 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
     }
 
     /**
+     * User performed action on Logout dialog
+     * @param isConfirmedByUser: if positive (i.e. "Okay") button click pass true, false otherwise
+     *
+     */
+    override fun logout(isConfirmedByUser: Boolean) {
+        /**
+         * TODO: handle logout if necessary
+         */
+    }
+
+    /**
      * Passing plugin configuration. For more info see [com.applicaster.cam.starterkit.cam.mocks.MockPluginConfigurator]
      * and [com.applicaster.cam.starterkit.SampleLoginPlugin.executeHook]
      */
@@ -164,5 +175,4 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
             entitlementsCallback?.onSuccess(arrayListOf())
         }, 1250)
     }
-
 }
