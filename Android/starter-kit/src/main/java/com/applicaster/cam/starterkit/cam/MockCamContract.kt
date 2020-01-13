@@ -27,6 +27,7 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
      * https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration
      * and default config sample:
      * https://github.com/applicaster/applicaster-cam-framework/blob/master/authentication_fields_sample.json
+     * @param callback: CAM action callback. Callback MUST be executed to continue flow handling
      */
     override fun login(authFieldsInput: HashMap<String, String>, callback: LoginCallback) {
         /**
@@ -47,6 +48,7 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
      * https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration
      * and default config sample:
      * https://github.com/applicaster/applicaster-cam-framework/blob/master/authentication_fields_sample.json
+     * @param callback: CAM action callback. Callback MUST be executed to continue flow handling
      */
     override fun signUp(authFieldsInput: HashMap<String, String>, callback: SignUpCallback) {
         /**
@@ -65,6 +67,7 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
      * https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration
      * and default config sample:
      * https://github.com/applicaster/applicaster-cam-framework/blob/master/authentication_fields_sample.json
+     * @param callback: CAM action callback. Callback MUST be executed to continue flow handling
      */
     override fun resetPassword(authFieldsInput: HashMap<String, String>, callback: PasswordResetCallback) {
         /**

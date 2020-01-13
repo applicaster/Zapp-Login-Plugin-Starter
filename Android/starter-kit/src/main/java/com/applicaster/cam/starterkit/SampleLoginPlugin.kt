@@ -33,7 +33,9 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
 
     /**
      *  Called when login plugin will be triggered as hook (trigger will be executed by the Applicaster SDK)
-     *  @param hookProps will contain datasource info including information about item (for example Playable)
+     *  @param hookProps: will contain datasource info including information about item (for example Playable)
+     *  @param hookListener: sdk callback. Login plugin/Player play may not work properly if this callback will
+     *  not be executed
      *
      *
      *  IMPORTANT:
@@ -54,6 +56,7 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
 
     /**
      * Obtain Map with plugin configuration from hook
+     * @return Map<String, String> with all configurations set on Zapp
      */
     private fun getPluginConfiguration(): Map<String, String>? {
         val fullPluginConfig =
@@ -77,6 +80,7 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
     //region Applicaster SDK interface methods
     /**
      * Check whether item locked or not
+     * @param model: data item, generally [Playable] item
      */
     override fun isItemLocked(model: Any?): Boolean {
 //        TODO("Handle purchasable/locked items")
@@ -85,9 +89,11 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
 
     /**
      * Called on the application startup
+     *  @param listener: sdk callback. Login plugin/Player play may not work properly if this callback will
      */
     override fun executeOnStartup(context: Context?, listener: HookListener?) {
         //Handle application startup if necessary
+        listener?.onHookFinished()
     }
 
     override fun isTokenValid(): Boolean {
@@ -106,6 +112,7 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
 
     override fun logout(context: Context?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
         //handle logout if necessary
+        callback?.onResult(true)
     }
 
     override fun isFlowBlocker(): Boolean = true
@@ -131,10 +138,12 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
 
     override fun login(context: Context?, playable: Playable?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
         // handle login if necessary
+        callback?.onResult(true)
     }
 
     override fun login(context: Context?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
         // handle login if necessary
+        callback?.onResult(true)
     }
 
     override fun setPluginConfigurationParams(params: MutableMap<Any?, Any?>?) {
