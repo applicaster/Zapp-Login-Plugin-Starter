@@ -5,11 +5,16 @@ import android.support.v4.app.Fragment
 import com.applicaster.cam.starterkit.cam.mocks.MockPluginConfigurator
 import com.applicaster.hook_screen.HookScreen
 import com.applicaster.hook_screen.HookScreenListener
+import com.applicaster.plugin_manager.Plugin
+import com.applicaster.plugin_manager.PluginManager
 import com.applicaster.plugin_manager.hook.HookListener
 import com.applicaster.plugin_manager.login.LoginContract
 import com.applicaster.plugin_manager.playersmanager.Playable
 import com.applicaster.plugin_manager.screen.PluginScreen
+import com.applicaster.zapp.configfetcher.ZappConfigFetcher
 import com.google.gson.Gson
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.launch
 import java.io.Serializable
 
 /**
@@ -45,29 +50,25 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
      *  IT IS MADE ONLY FOR THE DEVELOPMENT PURPOSES
      *
      *  For the published Applicaster plugin this config will be provided by the SDK (based on Zapp UI Builder config)
-     *  and passed via hook or other calls.  See [getPluginConfiguration]
+     *  and passed via hook or other calls.  See [loadPluginConfig]
      */
     override fun executeHook(context: Context, hookListener: HookScreenListener, hookProps: Map<String, Any>?) {
-        val pluginConfig = MockPluginConfigurator.getPluginConfiguration(context) // mock impl
-//            val pluginConfig = getPluginConfiguration() // prod impl
-        contentAccessService.pluginConfig = pluginConfig
-        contentAccessService.launchCam(context)
+        launch(UI) {
+            val pluginConfig = MockPluginConfigurator.getPluginConfiguration(context) // mock impl
+//            val pluginConfig = loadPluginConfig(context) // prod impl
+
+            contentAccessService.pluginConfig = pluginConfig
+            contentAccessService.launchCam(context)
+        }
     }
 
     /**
-     * Obtain Map with plugin configuration from hook
+     * Obtain Map with plugin configurations using ZappConfigFetcher
      * @return Map<String, String> with all configurations set on Zapp
      */
-    private fun getPluginConfiguration(): Map<String, String>? {
-        val fullPluginConfig =
-                Gson().fromJson(hook["screenMap"].orEmpty(), Map::class.java) as? Map<String, Any>
-        val generalConfig: MutableMap<Any?, Any?>? =
-                fullPluginConfig?.get("general") as? MutableMap<Any?, Any?>
-
-        //transform MutableMap<Any?, Any?>? to Map<String, String>?
-        return generalConfig?.entries?.associate { entry ->
-            entry.key.toString() to entry.value.toString()
-        }
+    private suspend fun loadPluginConfig(context: Context?): Map<String, String> {
+        val configFetcher = ZappConfigFetcher()
+        return configFetcher.loadFullConfig(context, true, hook)
     }
 
     /**
@@ -89,11 +90,18 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
 
     /**
      * Called on the application startup
+     * If trigger on app launch functionality if necessary plugin configuration can be loaded here
      *  @param listener: sdk callback. Login plugin/Player play may not work properly if this callback will
      */
     override fun executeOnStartup(context: Context?, listener: HookListener?) {
         //Handle application startup if necessary
-        listener?.onHookFinished()
+        launch(UI) {
+            val pluginConfig = MockPluginConfigurator.getPluginConfiguration(context) // mock impl
+//            val pluginConfig = loadPluginConfig(context) // prod impl
+            contentAccessService.pluginConfig = pluginConfig
+            
+            listener?.onHookFinished()
+        }
     }
 
     override fun isTokenValid(): Boolean {
