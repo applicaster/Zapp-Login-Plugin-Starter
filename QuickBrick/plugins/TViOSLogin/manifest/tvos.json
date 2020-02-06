@@ -11,11 +11,11 @@
   "author_name": "Olga Duk", // replace it with your author name
   "author_email": "oduk@scand.com", // replace it with your author email
   "manifest_version": "0.0.4", // replace it with your manifest version
-  "name": "QuickBrick Login Starter", // replace it with your plugin name
-  "description": "Login hook plugin starter kit", // replace it with your plugin description
+  "name": "QuickBrick Login Starter", // replace it with your plugins name
+  "description": "Login hook plugin starter kit", // replace it with your plugins description
   "type": "general",
   "screen": true,
-  "identifier": "zapp-login-plugin-starter", // replace it with your plugin id
+  "identifier": "zapp-login-plugin-starter", // replace it with your plugins id
   "ui_builder_support": true,
   "whitelisted_account_ids": [
     "5a4516fa41442c000b0195d6",
