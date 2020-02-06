@@ -162,7 +162,7 @@
     react-router-native "^4.3.0"
     url "^0.11.0"
 
-"@applicaster/zapp-react-native-bridge@2.1.1", "@applicaster/zapp-react-native-bridge@^2.1.1":
+"@applicaster/zapp-react-native-bridge@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-bridge/-/zapp-react-native-bridge-2.1.1.tgz#43502aa591dd64ec97886af2d2df3f91392c3d7b"
   integrity sha512-PNKOM3pe1/skf/GSbg6Uy5izBrEVGjQ7lcGOH7+QveQPr4aJ76GP0Cg9ReA6F3NtFpDzgO1jX6a1vbqKkd3+ag==
@@ -188,7 +188,7 @@
   dependencies:
     keymirror "^0.1.1"
 
-"@applicaster/zapp-react-native-redux@2.1.1", "@applicaster/zapp-react-native-redux@^2.1.1":
+"@applicaster/zapp-react-native-redux@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-redux/-/zapp-react-native-redux-2.1.1.tgz#e8c280f1a2e668f7cd183af62eec11329c4029a3"
   integrity sha512-7R1I/UDFV8NqCJuJCf1hw6KWAL9GGeyB4AVuhVWDOfhEbnjzZCuI8EG9VF+1GQCKfx9U87pbORnQyFlr9IMG2w==
@@ -225,7 +225,7 @@
     "@applicaster/zapp-react-native-tvos-ui-components" "2.1.1"
     "@applicaster/zapp-react-native-ui-components" "2.1.1"
 
-"@applicaster/zapp-react-native-tvos-ui-components@2.1.1", "@applicaster/zapp-react-native-tvos-ui-components@^2.1.1":
+"@applicaster/zapp-react-native-tvos-ui-components@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-tvos-ui-components/-/zapp-react-native-tvos-ui-components-2.1.1.tgz#9e869ae80294b09d13e1697d6262a58e6cce74b1"
   integrity sha512-Y09YgjlaIVJUfsfqV4tfRVgoCnR04n3WbZXE18f8QNHKIkjlV1fH9v4M3qarOXLfaVrYsLiTY56aWwczgjSm0Q==
@@ -236,7 +236,7 @@
     ramda "^0.26.0"
     uuid "^3.3.2"
 
-"@applicaster/zapp-react-native-ui-components@2.1.1", "@applicaster/zapp-react-native-ui-components@^2.1.1":
+"@applicaster/zapp-react-native-ui-components@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-ui-components/-/zapp-react-native-ui-components-2.1.1.tgz#b110795f0fda381a896d659c63379a6654576f1f"
   integrity sha512-NdGHHuqzfKBnNnOFiidY0FGyaFGHdtAXOWJG79CU0VJ9JDZ9ItljEDXxe8csttJgK8UTtvw+s2BoGcn6f/MyrQ==
@@ -249,7 +249,7 @@
     url "^0.11.0"
     uuid "^3.3.2"
 
-"@applicaster/zapp-react-native-utils@2.1.1", "@applicaster/zapp-react-native-utils@^2.1.1":
+"@applicaster/zapp-react-native-utils@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-utils/-/zapp-react-native-utils-2.1.1.tgz#ae4e29efdea363e976446d30aa3582c025da3edd"
   integrity sha512-mZh7puR51kB4fDiSPObFfjdWLPIGW1fEjyRiJ5RxjuOaq4Bc+CXgBPRN1dC9fD5Ji73EGnAbZoK0JzFAzmwKKw==
