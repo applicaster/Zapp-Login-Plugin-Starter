@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Dimensions } from 'react-native';
-import trackEvent from '../../../Analytics/index';
+import trackEvent from '../../../Analytics';
 import AdditionalInfo from '../../Components/AdditionalInfo';
 import TextBlock from '../../Components/TextBlock';
 import QRBlock from '../../Components/QRBlock';
