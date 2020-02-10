@@ -13,20 +13,11 @@ function Layout(props) {
     logo,
     error,
     children,
-    closeHook
+    remoteHandler
   } = props;
 
-  const playerRemoteHandler = (component, event) => {
-    const { eventType } = event;
-    if (eventType === 'menu') {
-      closeHook({
-        success: false
-      });
-    }
-  };
-
   return (
-    <TVEventHandlerComponent tvEventHandler={playerRemoteHandler}>
+    <TVEventHandlerComponent tvEventHandler={remoteHandler}>
       <ImageBackground
         source={{ uri: backgroundUri }}
         style={{ backgroundColor, ...styles.container }}

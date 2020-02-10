@@ -5,6 +5,7 @@ import {
   SafeAreaView
 } from 'react-native';
 import { Formik } from 'formik';
+import session from '../../../Common/Config/Session';
 import validationSchema from '../../Utils/validation';
 import Button from '../../../Common/Components/Button';
 import Input from '../Input';
@@ -47,6 +48,21 @@ export default function LoginForm(props) {
     const { username, password } = values;
     onLogin(username, password);
   };
+
+  const renderSkipButton = () => (
+    session.isHomeScreen
+    && session.appLaunch
+    && (
+      <Button
+        label={skipLabel}
+        onPress={handleSkip}
+        buttonStyle={styles.input}
+        textStyle={customStyles.skipButtonStyle}
+        backgroundButtonUri={ASSETS.skipButtonBackground}
+        backgroundButtonUriActive={ASSETS.skipButtonBackgroundActive}
+      />
+    )
+  );
 
   return (
     <Formik
@@ -98,17 +114,7 @@ export default function LoginForm(props) {
                       backgroundButtonUriActive={ASSETS.loginButtonBackgroundActive}
                     />
                     {
-                      skip
-                      && (
-                        <Button
-                          label={skipLabel}
-                          onPress={handleSkip}
-                          buttonStyle={styles.input}
-                          textStyle={customStyles.skipButtonStyle}
-                          backgroundButtonUri={ASSETS.skipButtonBackground}
-                          backgroundButtonUriActive={ASSETS.skipButtonBackgroundActive}
-                        />
-                      )
+                      skip && renderSkipButton()
                     }
                   </>
                 )
