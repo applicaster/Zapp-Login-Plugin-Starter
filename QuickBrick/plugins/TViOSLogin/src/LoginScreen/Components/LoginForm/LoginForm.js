@@ -17,7 +17,8 @@ export default function LoginForm(props) {
     onLogin,
     screenData,
     isLoading,
-    handleSkip
+    handleSkip,
+    handleError
   } = props;
 
   const customStyles = createStyleSheet(screenData);
@@ -31,6 +32,17 @@ export default function LoginForm(props) {
     }
   } = screenData;
 
+  const handleValidation = async (validateForm, handleSubmit) => {
+    try {
+      const errors = await validateForm();
+      return (Object.keys(errors).length > 0)
+        ? handleError(errors.username || errors.password)
+        : handleSubmit();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleOnLogin = async (values, actions) => {
     const { username, password } = values;
     onLogin(username, password);
@@ -39,9 +51,7 @@ export default function LoginForm(props) {
   return (
     <Formik
       initialValues={{ username: '', password: '' }}
-      onSubmit={(values, actions) => {
-        handleOnLogin(values, actions);
-      }}
+      onSubmit={(values, actions) => handleOnLogin(values, actions)}
       validationSchema={validationSchema}
     >
       {(
@@ -49,8 +59,7 @@ export default function LoginForm(props) {
           handleChange,
           values,
           handleSubmit,
-          errors,
-          touched
+          validateForm
         }
       ) => (
         <SafeAreaView>
@@ -83,7 +92,7 @@ export default function LoginForm(props) {
                     <Button
                       label={loginLabel}
                       buttonStyle={styles.input}
-                      onPress={handleSubmit}
+                      onPress={() => handleValidation(validateForm, handleSubmit)}
                       textStyle={customStyles.loginButtonStyle}
                       backgroundButtonUri={ASSETS.loginButtonBackground}
                       backgroundButtonUriActive={ASSETS.loginButtonBackgroundActive}
