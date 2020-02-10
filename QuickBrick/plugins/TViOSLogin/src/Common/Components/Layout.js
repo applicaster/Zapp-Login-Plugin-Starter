@@ -9,6 +9,7 @@ function Layout(props) {
     backgroundColor = '',
     backgroundUri = '',
     errorBackground = '',
+    errorStyle,
     logo,
     error,
     children,
@@ -38,7 +39,14 @@ function Layout(props) {
           />
         </View>
         {
-          error && <ErrorComponent error={error} errorBackground={errorBackground} />
+          error
+          && (
+            <ErrorComponent
+              error={error}
+              errorBackground={errorBackground}
+              errorStyle={errorStyle}
+            />
+          )
         }
         <View style={styles.subContainer}>
           {children}

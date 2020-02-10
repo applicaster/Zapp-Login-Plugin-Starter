@@ -4,12 +4,13 @@ import {
   Text
 } from 'react-native';
 
-export default function ErrorComponent({ error = {}, errorBackground = '' }) {
+export default function ErrorComponent({ error = {}, errorBackground = '', errorStyle }) {
   return (
     <ImageBackground source={{ uri: errorBackground }} style={styles.errorContainer}>
       <Text
-        style={styles.errorText}
-        numberOfLines={2}
+        style={errorStyle}
+        adjustsFontSizeToFit
+        numberOfLines={4}
         ellipsizeMode="tail"
       >
         {error && error.message}
@@ -25,14 +26,8 @@ const styles = {
     right: 24,
     justifyContent: 'center',
     alignItems: 'center',
-    minWidth: 500,
-    minHeight: 180,
-    maxWidth: 600,
-    maxHeight: 210
-  },
-  errorText: {
-    fontSize: 41,
-    fontWeight: 'normal',
-    color: '#fff'
+    width: 500,
+    height: 200,
+    padding: 20
   }
 };

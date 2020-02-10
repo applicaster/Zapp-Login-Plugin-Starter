@@ -27,7 +27,8 @@ export default function Button(
             >
               <Text
                 style={focused ? { ...textStyle, color: '#5F5F5F' } : textStyle}
-                adjustsFontSizeToFit
+                numberOfLines={2}
+                ellipsizeMode="tail"
               >
                 {label}
               </Text>

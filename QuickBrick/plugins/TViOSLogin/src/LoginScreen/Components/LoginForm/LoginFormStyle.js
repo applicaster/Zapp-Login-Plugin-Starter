@@ -9,41 +9,33 @@ export default function createStyleSheet(screenData) {
     login_action_button_fontcolor: loginButtonFontColor,
     login_action_button_fontsize: loginButtonFontSize,
     skip_action_button_fontcolor: skipButtonFontColor,
-    skip_action_button_fontsize: skipButtonFontSize,
-    username_password_empty_fontcolor: fieldsEmptyErrorFontColor,
-    username_password_empty_fontsize: fieldsEmptyErrorFontSize
+    skip_action_button_fontsize: skipButtonFontSize
   } = getPluginData(screenData);
 
   const usernameInputStyle = {
     color: usernameFontColor,
-    fontSize: Number(usernameFontSize)
+    fontSize: usernameFontSize
   };
 
   const passwordInputStyle = {
     color: passwordFontColor,
-    fontSize: Number(passwordFontSize)
+    fontSize: passwordFontSize
   };
 
   const loginButtonStyle = {
     color: loginButtonFontColor,
-    fontSize: Number(loginButtonFontSize)
+    fontSize: loginButtonFontSize
   };
 
   const skipButtonStyle = {
     color: skipButtonFontColor,
-    fontSize: Number(skipButtonFontSize)
-  };
-
-  const fieldsEmptyErrorStyle = {
-    color: fieldsEmptyErrorFontColor,
-    fontSize: Number(fieldsEmptyErrorFontSize)
+    fontSize: skipButtonFontSize
   };
 
   return {
     usernameInputStyle,
     passwordInputStyle,
     loginButtonStyle,
-    skipButtonStyle,
-    fieldsEmptyErrorStyle
+    skipButtonStyle
   };
 }

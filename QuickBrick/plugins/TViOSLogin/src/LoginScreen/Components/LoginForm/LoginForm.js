@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ActivityIndicator,
   View,
@@ -8,7 +8,6 @@ import { Formik } from 'formik';
 import validationSchema from '../../Utils/validation';
 import Button from '../../../Common/Components/Button';
 import Input from '../Input';
-import ErrorMessage from '../ErrorMessage';
 import createStyleSheet from './LoginFormStyle';
 import ASSETS from './LoginFormAssets';
 
@@ -17,11 +16,9 @@ export default function LoginForm(props) {
   const {
     onLogin,
     screenData,
-    error,
+    isLoading,
     handleSkip
   } = props;
-
-  const [loading, setLoading] = useState(false);
 
   const customStyles = createStyleSheet(screenData);
   const {
@@ -36,13 +33,7 @@ export default function LoginForm(props) {
 
   const handleOnLogin = async (values, actions) => {
     const { username, password } = values;
-    try {
-      setLoading(true);
-      onLogin(username, password);
-    } catch (err) {
-      setLoading(false);
-      throw err;
-    }
+    onLogin(username, password);
   };
 
   return (
@@ -85,7 +76,7 @@ export default function LoginForm(props) {
           </View>
           <View style={styles.container}>
             {
-              (loading && !error)
+              isLoading
                 ? <ActivityIndicator size="large" />
                 : (
                   <>
@@ -104,7 +95,7 @@ export default function LoginForm(props) {
                           label={skipLabel}
                           onPress={handleSkip}
                           buttonStyle={styles.input}
-                          textStyle={customStyles.loginButtonStyle}
+                          textStyle={customStyles.skipButtonStyle}
                           backgroundButtonUri={ASSETS.skipButtonBackground}
                           backgroundButtonUriActive={ASSETS.skipButtonBackgroundActive}
                         />
@@ -113,10 +104,6 @@ export default function LoginForm(props) {
                   </>
                 )
             }
-            <ErrorMessage
-              errorValue={(touched.password && errors.password) || (touched.username && errors.username)}
-              customStyles={customStyles}
-            />
           </View>
         </SafeAreaView>
       )}
