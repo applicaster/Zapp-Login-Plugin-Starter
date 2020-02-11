@@ -170,6 +170,15 @@
     "@applicaster/zapp-pipes-dev-kit" "^1.4.0"
     uuid "^3.3.2"
 
+"@applicaster/zapp-react-native-bridge@2.2.0", "@applicaster/zapp-react-native-bridge@^2.1.1":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-bridge/-/zapp-react-native-bridge-2.2.0.tgz#6b78588a17240a0d76a7c99d22db8f9efeb6b3df"
+  integrity sha512-gu7hfFzvboa8OkVi7z+yCkCMkaKpDr1pzwONctkKGTnEovrv2LMhiLhqdDenBDvZ3JPxXu60p1oG+Dt2Qdwr/A==
+  dependencies:
+    "@applicaster/zapp-pipes-dev-kit" "^1.4.1"
+    "@applicaster/zapp-react-native-utils" "2.2.0"
+    uuid "^3.3.2"
+
 "@applicaster/zapp-react-native-cli-template@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-cli-template/-/zapp-react-native-cli-template-2.1.1.tgz#543af82261ebe0e69474cce6044d068e1970013c"
@@ -195,6 +204,19 @@
   dependencies:
     "@applicaster/zapp-react-native-bridge" "2.1.1"
     "@applicaster/zapp-react-native-utils" "2.1.1"
+    ramda "^0.25.0"
+    react-redux "^5.0.7"
+    redux "4.0.0"
+    redux-thunk "^2.3.0"
+    reselect "^3.0.1"
+
+"@applicaster/zapp-react-native-redux@2.2.0", "@applicaster/zapp-react-native-redux@^2.1.1":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-redux/-/zapp-react-native-redux-2.2.0.tgz#a723a2b8a6ca4d8425a9a964cd5cb309a9f8dbd1"
+  integrity sha512-ns461P9xZzQoZ93RVH8JzmxF10OcVG8agyMxYd9DZr1QLLawl02V3mg0ynQFlbu+6QAaJk14hMmZT5lyZa0YUA==
+  dependencies:
+    "@applicaster/zapp-react-native-bridge" "2.2.0"
+    "@applicaster/zapp-react-native-utils" "2.2.0"
     ramda "^0.25.0"
     react-redux "^5.0.7"
     redux "4.0.0"
@@ -236,6 +258,17 @@
     ramda "^0.26.0"
     uuid "^3.3.2"
 
+"@applicaster/zapp-react-native-tvos-ui-components@^2.1.1":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-tvos-ui-components/-/zapp-react-native-tvos-ui-components-2.2.0.tgz#8fa0ab569416052a18ad6c447e1f23a368d09512"
+  integrity sha512-hfDi5/6t48eOoziY4cgyihERfhU5y65q0Aaf+gEoEMhPxfqsKajNj63HL9u9mB3ht+ZuXXNZZPU2OVfKhWbaCw==
+  dependencies:
+    "@applicaster/zapp-react-native-redux" "2.2.0"
+    "@applicaster/zapp-react-native-ui-components" "2.2.0"
+    "@applicaster/zapp-react-native-utils" "2.2.0"
+    ramda "^0.26.0"
+    uuid "^3.3.2"
+
 "@applicaster/zapp-react-native-ui-components@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-ui-components/-/zapp-react-native-ui-components-2.1.1.tgz#b110795f0fda381a896d659c63379a6654576f1f"
@@ -249,10 +282,35 @@
     url "^0.11.0"
     uuid "^3.3.2"
 
+"@applicaster/zapp-react-native-ui-components@2.2.0", "@applicaster/zapp-react-native-ui-components@^2.1.1":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-ui-components/-/zapp-react-native-ui-components-2.2.0.tgz#b1ed72b1f48f7520cea6797f5b107c5f280d652d"
+  integrity sha512-PQp0h1nujtPsuODKwJ8wNbV+bl2FKiODFcXT3lN8yKkeMVIRpp/ITx755HCBg0sc+9N24pHDY3tnMU30o6ECXA==
+  dependencies:
+    "@applicaster/zapp-react-native-bridge" "2.2.0"
+    "@applicaster/zapp-react-native-redux" "2.2.0"
+    "@applicaster/zapp-react-native-utils" "2.2.0"
+    ramda "^0.25.0"
+    react-router-native "^4.3.0"
+    url "^0.11.0"
+    uuid "^3.3.2"
+
 "@applicaster/zapp-react-native-utils@2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-utils/-/zapp-react-native-utils-2.1.1.tgz#ae4e29efdea363e976446d30aa3582c025da3edd"
   integrity sha512-mZh7puR51kB4fDiSPObFfjdWLPIGW1fEjyRiJ5RxjuOaq4Bc+CXgBPRN1dC9fD5Ji73EGnAbZoK0JzFAzmwKKw==
+  dependencies:
+    buffer "^5.2.1"
+    camelize "^1.0.0"
+    create-react-context "^0.2.3"
+    create-react-ref "^0.1.0"
+    prop-types "^15.0.0"
+    ramda "^0.25.0"
+
+"@applicaster/zapp-react-native-utils@2.2.0", "@applicaster/zapp-react-native-utils@^2.1.1":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@applicaster/zapp-react-native-utils/-/zapp-react-native-utils-2.2.0.tgz#7ec28f1ee016031a915b25c5a766a57c5c68f19d"
+  integrity sha512-1XU3BfebHyOflxxJrX+RxN5XT1Sl95dMbQaKNfBW2u3KttVkpZjVViH3WiGrVn2IXfwUEdroGuK+Uj4VV0abMw==
   dependencies:
     buffer "^5.2.1"
     camelize "^1.0.0"
