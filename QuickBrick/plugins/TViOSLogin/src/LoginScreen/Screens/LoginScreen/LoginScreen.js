@@ -54,7 +54,7 @@ function LoginScreen(props) {
       const accessToken = await getAccessToken(username, password);
 
       if (accessToken) {
-        await setToLocalStorage('accessToken', accessToken);
+        await setToLocalStorage('token', accessToken);
 
         trackEvent(EVENTS.loginSuccess, { screenData, payload });
         closeHook({ success: true });

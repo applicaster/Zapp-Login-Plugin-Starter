@@ -12,17 +12,17 @@ export default function createStyleSheet(screenData) {
 
   const retryButtonStyle = {
     color: retryButtonFontColor,
-    fontSize: Number(retryButtonFontSize)
+    fontSize: retryButtonFontSize
   };
 
   const closeButtonStyle = {
     color: closeButtonFontColor,
-    fontSize: Number(closeButtonFontSize)
+    fontSize: closeButtonFontSize
   };
 
   const errorDescriptionStyle = {
     color: errorDescriptionFontColor,
-    fontSize: Number(errorDescriptionFontSize)
+    fontSize: errorDescriptionFontSize
   };
 
   return {

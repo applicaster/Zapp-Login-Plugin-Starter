@@ -7,6 +7,7 @@ export function getPluginData(screenData) {
 
   if (screenData && screenData.general) {
     pluginData = { ...pluginData, ...screenData.general };
+    validateStyles(pluginData);
   }
 
   return pluginData;

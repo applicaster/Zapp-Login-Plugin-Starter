@@ -4,6 +4,7 @@ import {
   ActivityIndicator,
   Dimensions
 } from 'react-native';
+import * as R from 'ramda';
 import { connectToStore } from '@applicaster/zapp-react-native-redux';
 import session from './Common/Config/Session';
 import SignInScreen from './2ndActivationScreen/Screens/SignInScreen/SignInScreen';
@@ -14,11 +15,10 @@ import { getFromLocalStorage, isHomeScreen, isPlayerHook } from './Common/Utils'
 const { height } = Dimensions.get('window');
 
 // While screenData is not passed to the plugins,
-// please use this storeConnector with id of the plugins screen
-// to obtain screenData
+// please use this storeConnector to obtain screenData
 const storeConnector = connectToStore((state) => {
   const values = Object.values(state.rivers);
-  const screenData = values.find(({ type }) => type === 'quick-brick-login-starter-kit');
+  const screenData = values.find(({ type }) => type === 'zapp-login-plugin-starter');
   const homeScreen = values.find(({ home }) => home === true);
   return { screenData, homeScreen };
 });
@@ -70,7 +70,7 @@ function LoginPluginComponent(props) {
 
   const start = async () => {
     try {
-      const accessToken = await getFromLocalStorage('accessToken');
+      const accessToken = await getFromLocalStorage('token');
       if (accessToken) {
         successLoginFlow();
       } else {
@@ -123,6 +123,7 @@ function LoginPluginComponent(props) {
       screenData={screenData}
       payload={payload}
       goToScreen={goToScreen}
+      remoteHandler={remoteHandler}
     />
   );
 
