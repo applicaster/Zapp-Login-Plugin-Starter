@@ -8,7 +8,16 @@ export const fontsize = {
   password_input: 30,
   login_action_button: 40,
   skip_action_button: 40,
-  username_password_empty: 26
+  retry_action_button: 41,
+  close_action_button: 41,
+  error_description: 36,
+  main_instructions: 41,
+  go_to_url: 30,
+  activation_url: 30,
+  code_instructions: 30,
+  activation_code: 105,
+  qr_code_hint: 30,
+  additional_info: 30
 };
 
 export const fontcolor = {
@@ -21,5 +30,14 @@ export const fontcolor = {
   password_input: 'rgba(155,155,155,1.00)',
   login_action_button: 'rgba(84,90,92,1.00)',
   skip_action_button: 'rgba(84,90,92,1.00)',
-  username_password_empty: 'rgba(222,75,97,1.00)'
+  retry_action_button: 'rgba(84,90,92,1.00)',
+  close_action_button: 'rgba(84,90,92,1.00)',
+  error_description: 'rgba(84,90,92,1.00)',
+  main_instructions: 'rgba(84,90,92,1.00)',
+  go_to_url: 'rgba(84,90,92,1.00)',
+  activation_url: 'rgba(84,90,92,1.00)',
+  code_instructions: 'rgba(84,90,92,1.00)',
+  activation_code: 'rgba(84,90,92,1.00)',
+  qr_code_hint: 'rgba(84,90,92,1.00)',
+  additional_info: 'rgba(84,90,92,1.00)'
 };
