@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@RoundedButton Render Render with default props 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#CCCCCC",
+      "borderColor": "#000000",
+      "borderRadius": 40,
+      "borderWidth": 1,
+      "display": "flex",
+      "padding": 15,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "textAlign": "center",
+        "width": "100%",
+      }
+    }
+  >
+    Test
+  </Text>
+</View>
+`;

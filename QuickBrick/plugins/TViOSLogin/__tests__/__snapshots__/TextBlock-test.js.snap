@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextBlock renders correctly 1`] = `
+Array [
+  <Text
+    ellipsizeMode="tail"
+    numberOfLines={2}
+    style={
+      Object {
+        "fontWeight": "bold",
+        "marginBottom": "8%",
+        "marginTop": "1.4%",
+      }
+    }
+  >
+    
+  </Text>,
+  <Text
+    ellipsizeMode="tail"
+    numberOfLines={1}
+    style={
+      Object {
+        "marginBottom": "1.4%",
+      }
+    }
+  >
+    
+  </Text>,
+  <Text
+    adjustsFontSizeToFit={true}
+    style={
+      Object {
+        "fontWeight": "bold",
+        "marginBottom": "2%",
+      }
+    }
+  >
+    
+  </Text>,
+  <Text
+    ellipsizeMode="tail"
+    numberOfLines={1}
+  >
+    
+  </Text>,
+  <View
+    style={
+      Object {
+        "fontWeight": "bold",
+        "marginTop": "5.2%",
+        "width": "80%",
+      }
+    }
+  >
+    <Text
+      adjustsFontSizeToFit={true}
+    >
+      
+    </Text>
+  </View>,
+]
+`;

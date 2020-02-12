@@ -1,0 +1,395 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginScreen renders correctly 1`] = `
+<View
+  accessibilityIgnoresInvertColors={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "",
+      "flex": 1,
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "login_screen_background_asset.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": "100%",
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignSelf": "flex-start",
+        "marginBottom": "5.2%",
+        "marginLeft": "2.6%",
+        "marginTop": "5.2%",
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "uri": "login_logo_asset.png",
+        }
+      }
+      style={
+        Object {
+          "height": 100,
+          "width": 350,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": "12%",
+        "paddingRight": "12%",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "height": 1334,
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "paddingRight": "2%",
+            }
+          }
+        >
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": NaN,
+                "fontWeight": "bold",
+                "paddingTop": 10,
+              }
+            }
+          >
+            
+          </Text>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={4}
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": NaN,
+                "marginBottom": "7%",
+                "marginTop": "7%",
+              }
+            }
+          >
+            
+          </Text>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={2}
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": NaN,
+                "marginBottom": "3.3%",
+              }
+            }
+          >
+            
+          </Text>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={2}
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": NaN,
+                "marginBottom": "3.3%",
+              }
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "paddingLeft": "2%",
+            }
+          }
+        >
+          <RCTSafeAreaView
+            emulateUnlessSupported={true}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "marginBottom": "7%",
+                  "minHeight": "6%",
+                  "minWidth": "31.8%",
+                }
+              }
+            >
+              <View
+                accessibilityIgnoresInvertColors={true}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": undefined,
+                    "fontSize": NaN,
+                    "justifyContent": "center",
+                    "marginBottom": 15,
+                    "minHeight": 100,
+                    "minWidth": 610,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "login_username_input_field_asset.png",
+                    }
+                  }
+                  style={
+                    Array [
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      },
+                      Object {
+                        "height": undefined,
+                        "width": undefined,
+                      },
+                      undefined,
+                    ]
+                  }
+                />
+                <TextInput
+                  allowFontScaling={true}
+                  onChangeText={[Function]}
+                  onFocus={[Function]}
+                  placeholder=""
+                  rejectResponderTermination={true}
+                  secureTextEntry={false}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "color": undefined,
+                      "fontSize": NaN,
+                      "justifyContent": "center",
+                      "marginBottom": "1.5%",
+                      "minHeight": 100,
+                      "minWidth": 610,
+                      "padding": 20,
+                    }
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                />
+              </View>
+              <View
+                accessibilityIgnoresInvertColors={true}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "color": undefined,
+                    "fontSize": NaN,
+                    "justifyContent": "center",
+                    "marginBottom": 15,
+                    "minHeight": 100,
+                    "minWidth": 610,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "uri": "login_username_input_field_asset.png",
+                    }
+                  }
+                  style={
+                    Array [
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      },
+                      Object {
+                        "height": undefined,
+                        "width": undefined,
+                      },
+                      undefined,
+                    ]
+                  }
+                />
+                <TextInput
+                  allowFontScaling={true}
+                  onChangeText={[Function]}
+                  onFocus={[Function]}
+                  placeholder=""
+                  rejectResponderTermination={true}
+                  secureTextEntry={true}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "color": undefined,
+                      "fontSize": NaN,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "minHeight": 100,
+                      "minWidth": 610,
+                      "padding": 20,
+                    }
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "marginBottom": "7%",
+                  "minHeight": "6%",
+                  "minWidth": "31.8%",
+                }
+              }
+            >
+              <View
+                groupId={null}
+                itemId={null}
+                onLayout={[Function]}
+                onPress={[Function]}
+                onViewBlur={[Function]}
+                onViewFocus={[Function]}
+                onViewPress={[Function]}
+              >
+                <View
+                  accessibilityIgnoresInvertColors={true}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "marginBottom": "1.5%",
+                      "minHeight": 100,
+                      "minWidth": 610,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "login_action_button_asset.png",
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "bottom": 0,
+                          "left": 0,
+                          "position": "absolute",
+                          "right": 0,
+                          "top": 0,
+                        },
+                        Object {
+                          "height": undefined,
+                          "width": undefined,
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                  <Text
+                    adjustsFontSizeToFit={true}
+                    style={
+                      Object {
+                        "color": undefined,
+                        "fontSize": NaN,
+                      }
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "marginTop": "8%",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": undefined,
+                      "fontSize": NaN,
+                    }
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
+          </RCTSafeAreaView>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

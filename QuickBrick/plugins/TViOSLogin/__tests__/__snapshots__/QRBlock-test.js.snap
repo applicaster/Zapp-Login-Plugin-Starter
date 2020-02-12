@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QRBlock renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "marginRight": "5.5%",
+      "marginTop": "6.3%",
+      "minHeight": 340,
+      "minWidth": 340,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "uri": "",
+        }
+      }
+      style={
+        Object {
+          "height": 340,
+          "width": 340,
+        }
+      }
+    />
+    <Text
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Object {
+          "marginTop": "3.5%",
+        }
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
