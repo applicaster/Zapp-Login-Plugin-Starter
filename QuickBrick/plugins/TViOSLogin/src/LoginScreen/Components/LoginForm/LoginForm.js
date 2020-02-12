@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ActivityIndicator,
   View,
   SafeAreaView
 } from 'react-native';
 import { Formik } from 'formik';
+import session from '../../../Common/Config/Session';
 import validationSchema from '../../Utils/validation';
 import Button from '../../../Common/Components/Button';
 import Input from '../Input';
-import ErrorMessage from '../ErrorMessage';
 import createStyleSheet from './LoginFormStyle';
 import ASSETS from './LoginFormAssets';
 
@@ -17,11 +17,10 @@ export default function LoginForm(props) {
   const {
     onLogin,
     screenData,
-    error,
-    handleSkip
+    isLoading,
+    handleSkip,
+    handleError
   } = props;
-
-  const [loading, setLoading] = useState(false);
 
   const customStyles = createStyleSheet(screenData);
   const {
@@ -34,23 +33,41 @@ export default function LoginForm(props) {
     }
   } = screenData;
 
-  const handleOnLogin = async (values, actions) => {
-    const { username, password } = values;
+  const handleValidation = async (validateForm, handleSubmit) => {
     try {
-      setLoading(true);
-      onLogin(username, password);
+      const errors = await validateForm();
+      return (Object.keys(errors).length > 0)
+        ? handleError(errors.username || errors.password)
+        : handleSubmit();
     } catch (err) {
-      setLoading(false);
-      throw err;
+      console.log(err);
     }
   };
+
+  const handleOnLogin = async (values, actions) => {
+    const { username, password } = values;
+    onLogin(username, password);
+  };
+
+  const renderSkipButton = () => (
+    session.isHomeScreen
+    && session.appLaunch
+    && (
+      <Button
+        label={skipLabel}
+        onPress={handleSkip}
+        buttonStyle={styles.input}
+        textStyle={customStyles.skipButtonStyle}
+        backgroundButtonUri={ASSETS.skipButtonBackground}
+        backgroundButtonUriActive={ASSETS.skipButtonBackgroundActive}
+      />
+    )
+  );
 
   return (
     <Formik
       initialValues={{ username: '', password: '' }}
-      onSubmit={(values, actions) => {
-        handleOnLogin(values, actions);
-      }}
+      onSubmit={(values, actions) => handleOnLogin(values, actions)}
       validationSchema={validationSchema}
     >
       {(
@@ -58,8 +75,7 @@ export default function LoginForm(props) {
           handleChange,
           values,
           handleSubmit,
-          errors,
-          touched
+          validateForm
         }
       ) => (
         <SafeAreaView>
@@ -85,38 +101,24 @@ export default function LoginForm(props) {
           </View>
           <View style={styles.container}>
             {
-              (loading && !error)
+              isLoading
                 ? <ActivityIndicator size="large" />
                 : (
                   <>
                     <Button
                       label={loginLabel}
                       buttonStyle={styles.input}
-                      onPress={handleSubmit}
+                      onPress={() => handleValidation(validateForm, handleSubmit)}
                       textStyle={customStyles.loginButtonStyle}
                       backgroundButtonUri={ASSETS.loginButtonBackground}
                       backgroundButtonUriActive={ASSETS.loginButtonBackgroundActive}
                     />
                     {
-                      skip
-                      && (
-                        <Button
-                          label={skipLabel}
-                          onPress={handleSkip}
-                          buttonStyle={styles.input}
-                          textStyle={customStyles.loginButtonStyle}
-                          backgroundButtonUri={ASSETS.skipButtonBackground}
-                          backgroundButtonUriActive={ASSETS.skipButtonBackgroundActive}
-                        />
-                      )
+                      skip && renderSkipButton()
                     }
                   </>
                 )
             }
-            <ErrorMessage
-              errorValue={(touched.password && errors.password) || (touched.username && errors.username)}
-              customStyles={customStyles}
-            />
           </View>
         </SafeAreaView>
       )}

@@ -9,23 +9,15 @@ function Layout(props) {
     backgroundColor = '',
     backgroundUri = '',
     errorBackground = '',
+    errorStyle,
     logo,
     error,
     children,
-    closeHook
+    remoteHandler
   } = props;
 
-  const playerRemoteHandler = (component, event) => {
-    const { eventType } = event;
-    if (eventType === 'menu') {
-      closeHook({
-        success: false
-      });
-    }
-  };
-
   return (
-    <TVEventHandlerComponent tvEventHandler={playerRemoteHandler}>
+    <TVEventHandlerComponent tvEventHandler={remoteHandler}>
       <ImageBackground
         source={{ uri: backgroundUri }}
         style={{ backgroundColor, ...styles.container }}
@@ -38,7 +30,14 @@ function Layout(props) {
           />
         </View>
         {
-          error && <ErrorComponent error={error} errorBackground={errorBackground} />
+          error
+          && (
+            <ErrorComponent
+              error={error}
+              errorBackground={errorBackground}
+              errorStyle={errorStyle}
+            />
+          )
         }
         <View style={styles.subContainer}>
           {children}

@@ -19,7 +19,8 @@ function SignInScreen(props) {
     screenData,
     payload,
     closeHook,
-    goToScreen
+    goToScreen,
+    remoteHandler
   } = props;
 
   const [loading, setLoading] = useState(true);
@@ -85,6 +86,7 @@ function SignInScreen(props) {
       screenData={screenData}
       goToScreen={goToScreen}
       closeHook={closeHook}
+      remoteHandler={remoteHandler}
     />
   );
 
@@ -93,7 +95,7 @@ function SignInScreen(props) {
       backgroundColor={activationBackground}
       backgroundUri={ASSETS.screenBackground}
       logo={ASSETS.logo}
-      closeHook={closeHook}
+      remoteHandler={remoteHandler}
     >
       <View style={styles.container}>
         <View style={styles.columnsContainer}>

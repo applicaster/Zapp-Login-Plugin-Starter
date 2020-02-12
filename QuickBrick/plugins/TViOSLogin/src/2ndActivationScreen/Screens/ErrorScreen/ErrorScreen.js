@@ -19,6 +19,7 @@ function ErrorScreenComponent(props) {
     screenData = {},
     goToScreen,
     closeHook,
+    remoteHandler,
     navigator
   } = props;
 
@@ -34,6 +35,9 @@ function ErrorScreenComponent(props) {
   const onClose = () => {
     if (navigator.canGoBack()) {
       navigator.goBack();
+      closeHook({
+        success: false
+      });
     } else {
       closeHook({
         success: false
@@ -49,7 +53,7 @@ function ErrorScreenComponent(props) {
     <Layout
       backgroundColor={errorBackground}
       backgroundUri={ASSETS.screenBackground}
-      closeHook={closeHook}
+      remoteHandler={remoteHandler}
       logo={ASSETS.logo}
     >
       <View style={styles.container}>

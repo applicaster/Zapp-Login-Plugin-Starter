@@ -28,18 +28,6 @@
   "general": { // remove unnecessary fields
     "fields": [
       {
-        "type": "switch",
-        "key": "is_flow_blocker",
-        "tooltip_text": "Define if hook will block flow in case cancellation",
-        "initial_value": true
-      },
-      {
-        "type": "switch",
-        "key": "allow_screen_plugin_presentation",
-        "tooltip_text": "Define if",
-        "initial_value": true
-      },
-      {
         "group": true,
         "label": "2nd Screen Activation. General Settings",
         "tooltip": "These fields determine how the plugin is triggered and basic behavior.",
@@ -108,7 +96,7 @@
           },
           {
             "key": "main_instructions_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Main Instructions Text.",
             "initial_value": "#545A5C"
           },
@@ -128,7 +116,7 @@
           },
           {
             "key": "go_to_url_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Go To Text.",
             "initial_value": "#545A5C"
           },
@@ -148,7 +136,7 @@
           },
           {
             "key": "activation_url_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Activation URL.",
             "initial_value": "#545A5C"
           },
@@ -168,7 +156,7 @@
           },
           {
             "key": "code_instructions_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Code Instructions Text.",
             "initial_value": "#545A5C"
           },
@@ -180,7 +168,7 @@
           },
           {
             "key": "activation_code_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for the automatically generated Activation Code.",
             "initial_value": "#545A5C"
           },
@@ -200,7 +188,7 @@
           },
           {
             "key": "qr_code_hint_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for QR Code Hint Text.",
             "initial_value": "#545A5C"
           },
@@ -243,7 +231,7 @@
           },
           {
             "key": "additional_info_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Optional Instructions.",
             "initial_value": "#545A5C",
             "conditional_fields": [
@@ -257,7 +245,7 @@
           },
           {
             "key": "activation_screen_background_color",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label": "Activation Screen Background Color",
             "label_tooltip": "Background Color for the Activation Screen. Serves as fallback or primary if an image is not found in the plugin assets.",
             "initial_value": "#D5D5D5"
@@ -286,7 +274,7 @@
           },
           {
             "key": "retry_action_button_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Alert “Try Again” Action Button Text.",
             "initial_value": "#545A5C"
           },
@@ -306,13 +294,13 @@
           },
           {
             "key": "close_action_button_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Alert “Close” Action Button Text.",
             "initial_value": "#545A5C"
           },
           {
             "key": "activation_alert_background_color",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label": "Activation Alert Background Color",
             "label_tooltip": "Background Color for the Activation Alert Screen. The screen is shown when the service returns an error or notice.",
             "initial_value": "#4A4A4A"
@@ -325,7 +313,7 @@
           },
           {
             "key": "error_description_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Description Text.",
             "initial_value": "#545A5C"
           }
@@ -369,7 +357,7 @@
           },
           {
             "key": "login_title_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Login Title Text.",
             "initial_value": "#545A5C"
           },
@@ -389,7 +377,7 @@
           },
           {
             "key": "main_description_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Main Description Text.",
             "initial_value": "#545A5C"
           },
@@ -409,7 +397,7 @@
           },
           {
             "key": "optional_instructions_1_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Optional Instructions 1 Text.",
             "initial_value": "#545A5C"
           },
@@ -429,7 +417,7 @@
           },
           {
             "key": "optional_instructions_2_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Optional Instructions 1 Text.",
             "initial_value": "#545A5C"
           },
@@ -449,7 +437,7 @@
           },
           {
             "key": "username_input_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Username Input Field.",
             "initial_value": "#9B9B9B"
           },
@@ -469,7 +457,7 @@
           },
           {
             "key": "password_input_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Username Input Field.",
             "initial_value": "#9B9B9B"
           },
@@ -489,7 +477,7 @@
           },
           {
             "key": "login_action_button_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Login Action Button Text.",
             "initial_value": "#545A5C"
           },
@@ -532,7 +520,7 @@
           },
           {
             "key": "skip_action_button_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for Skip Action Button Text.",
             "initial_value": "#545A5C",
             "conditional_fields": [
@@ -543,18 +531,6 @@
                 "key": "general/enable_skip_functionality"
               }
             ]
-          },
-          {
-            "key": "username_password_empty_fontsize",
-            "type": "number_input",
-            "label_tooltip": "Font Size for notice text when Log In action is called and username and/or password are empty.",
-            "initial_value": "24"
-          },
-          {
-            "key": "username_password_empty_fontcolor",
-            "type": "color_picker",
-            "label_tooltip": "Font Color for notice text when Log In action is called and username and/or password are empty.",
-            "initial_value": "#DE4B61"
           }
         ]
       },
@@ -572,16 +548,9 @@
           },
           {
             "key": "error_notice_message_fontcolor",
-            "type": "color_picker",
+            "type": "color_picker_rgba",
             "label_tooltip": "Font Color for notices and errors text received from the login service.",
             "initial_value": "#FFFFFF"
-          },
-          {
-            "key": "alert_background_color",
-            "type": "color_picker",
-            "label": "Alert Background Color",
-            "label_tooltip": "<p>Background Color for the Alert component. The component is shown when the service returns an error or notice.</p><p>Serves as fallback or primary if an image is not found in the plugin assets.</p>",
-            "initial_value": "#202020"
           }
         ]
       }

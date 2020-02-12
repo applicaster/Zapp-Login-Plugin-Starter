@@ -20,37 +20,37 @@ export default function createStyleSheet(screenData) {
 
   const mainTextStyle = {
     color: mainFontColor,
-    fontSize: Number(mainFontSize)
+    fontSize: mainFontSize
   };
 
   const goToTextStyle = {
     color: goToFontColor,
-    fontSize: Number(goToFontSize)
+    fontSize: goToFontSize
   };
 
   const activationUrlStyle = {
     color: activationUrlFontColor,
-    fontSize: Number(activationUrlFontSize)
+    fontSize: activationUrlFontSize
   };
 
   const codeInstructionsStyle = {
     color: codeInstructionsFontColor,
-    fontSize: Number(codeInstructionsFontSize)
+    fontSize: codeInstructionsFontSize
   };
 
   const activationCodeStyle = {
     color: activationCodeFontColor,
-    fontSize: Number(activationCodeFontSize)
+    fontSize: activationCodeFontSize
   };
 
   const qrCodeHintStyle = {
     color: qrCodeHintFontColor,
-    fontSize: Number(qrCodeHintFontSize)
+    fontSize: qrCodeHintFontSize
   };
 
   const additionalInfoStyle = {
     color: additionalInfoFontColor,
-    fontSize: Number(additionalInfoFontSize)
+    fontSize: additionalInfoFontSize
   };
 
   return {

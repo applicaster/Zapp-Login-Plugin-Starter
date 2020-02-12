@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   Dimensions
 } from 'react-native';
+import session from '../../../Common/Config/Session';
 import Layout from '../../../Common/Components/Layout';
 import LoginForm from '../../Components/LoginForm/LoginForm';
 import { getAccessToken } from '../../../LoginPluginInterface';
@@ -19,11 +20,16 @@ function LoginScreen(props) {
   const {
     closeHook,
     screenData,
-    payload
+    payload,
+    remoteHandler
   } = props;
 
-  const [error, setError] = useState(null);
+  useEffect(() => () => {
+    session.appLaunch = false;
+  }, [session.isSkipped]);
 
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const customStyles = createStyleSheet(screenData);
   const {
     general: {
@@ -36,15 +42,11 @@ function LoginScreen(props) {
   } = screenData;
 
   const onLogin = async (username, password) => {
-    try {
-      trackEvent(EVENTS.clickLogin, { screenData, payload });
+    trackEvent(EVENTS.clickLogin, { screenData, payload });
+    setLoading(true);
+    setError(null);
 
-      await getSignInStatus(username, password);
-    } catch (err) {
-      trackEvent(EVENTS.loginFailure, { screenData, payload });
-      console.log(err);
-      setError(err);
-    }
+    return getSignInStatus(username, password);
   };
 
   const getSignInStatus = async (username, password) => {
@@ -59,12 +61,17 @@ function LoginScreen(props) {
       }
     } catch (err) {
       trackEvent(EVENTS.loginFailure, { screenData, payload });
-      console.log(err);
+      setLoading(false);
       setError(err);
     }
   };
 
-  const handleSkip = () => {
+  const handleError = (message) => {
+    setError({ message });
+  };
+
+  const handleSkip = async () => {
+    session.isSkipped = true;
     trackEvent(EVENTS.clickSkip, { screenData, payload });
     closeHook({ success: true });
   };
@@ -74,9 +81,10 @@ function LoginScreen(props) {
       backgroundColor={loginBackground}
       backgroundUri={ASSETS.loginScreenBackground}
       error={error}
+      errorStyle={customStyles.errorNoticeMessageStyle}
       errorBackground={ASSETS.errorBackground}
       logo={ASSETS.logo}
-      closeHook={closeHook}
+      remoteHandler={remoteHandler}
     >
       <View style={styles.loginContainer}>
         <View style={styles.container}>
@@ -114,8 +122,9 @@ function LoginScreen(props) {
             <LoginForm
               onLogin={onLogin}
               screenData={screenData}
-              error={error}
+              isLoading={loading}
               handleSkip={handleSkip}
+              handleError={handleError}
             />
           </View>
         </View>

@@ -27,6 +27,7 @@ function Input(props) {
         secureTextEntry={secureTextEntry}
         placeholder={placeholder}
         style={{ ...style, padding: 20 }}
+        maxLength={50}
       />
     </ImageBackground>
   );

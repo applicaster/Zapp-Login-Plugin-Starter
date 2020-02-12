@@ -16,27 +16,27 @@ export default function createStyleSheet(screenData) {
 
   const loginTitleStyle = {
     color: loginTitleFontColor,
-    fontSize: Number(loginTitleFontSize)
+    fontSize: loginTitleFontSize
   };
 
   const mainDescriptionStyle = {
     color: mainDescriptionFontColor,
-    fontSize: Number(mainDescriptionFontSize)
+    fontSize: mainDescriptionFontSize
   };
 
   const optionalInstructions1Style = {
     color: instructions1FontColor,
-    fontSize: Number(instructions1FontSize)
+    fontSize: instructions1FontSize
   };
 
   const optionalInstructions2Style = {
     color: instructions2FontColor,
-    fontSize: Number(instructions2FontSize)
+    fontSize: instructions2FontSize
   };
 
   const errorNoticeMessageStyle = {
     color: errorMessageFontColor,
-    fontSize: Number(errorMessageFontSize)
+    fontSize: errorMessageFontSize
   };
 
   return {

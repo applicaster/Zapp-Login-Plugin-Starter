@@ -1,0 +1,43 @@
+export const fontsize = {
+  login_title: 60,
+  main_description: 40,
+  optional_instructions_1: 30,
+  optional_instructions_2: 30,
+  error_notice_message: 24,
+  username_input: 30,
+  password_input: 30,
+  login_action_button: 40,
+  skip_action_button: 40,
+  retry_action_button: 41,
+  close_action_button: 41,
+  error_description: 36,
+  main_instructions: 41,
+  go_to_url: 30,
+  activation_url: 30,
+  code_instructions: 30,
+  activation_code: 105,
+  qr_code_hint: 30,
+  additional_info: 30
+};
+
+export const fontcolor = {
+  login_title: 'rgba(84,90,92,1.00)',
+  main_description: 'rgba(84,90,92,1.00)',
+  optional_instructions_1: 'rgba(84,90,92,1.00)',
+  optional_instructions_2: 'rgba(84,90,92,1.00)',
+  error_notice_message: 'rgba(255,255,255,1.00)',
+  username_input: 'rgba(155,155,155,1.00)',
+  password_input: 'rgba(155,155,155,1.00)',
+  login_action_button: 'rgba(84,90,92,1.00)',
+  skip_action_button: 'rgba(84,90,92,1.00)',
+  retry_action_button: 'rgba(84,90,92,1.00)',
+  close_action_button: 'rgba(84,90,92,1.00)',
+  error_description: 'rgba(84,90,92,1.00)',
+  main_instructions: 'rgba(84,90,92,1.00)',
+  go_to_url: 'rgba(84,90,92,1.00)',
+  activation_url: 'rgba(84,90,92,1.00)',
+  code_instructions: 'rgba(84,90,92,1.00)',
+  activation_code: 'rgba(84,90,92,1.00)',
+  qr_code_hint: 'rgba(84,90,92,1.00)',
+  additional_info: 'rgba(84,90,92,1.00)'
+};
