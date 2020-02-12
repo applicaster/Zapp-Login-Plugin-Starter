@@ -62,7 +62,7 @@ const validateFontcolor = (key, pluginData) => {
   const value = pluginData[key];
   const keyname = R.replace('_fontcolor', '', key);
 
-  pluginData[key] = (value !== undefined && value !== null) ? value : fontcolor[keyname];
+  pluginData[key] = value || fontcolor[keyname];
 };
 
 export const isHomeScreen = (navigator, homeScreen) => {

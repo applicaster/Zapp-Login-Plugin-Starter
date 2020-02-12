@@ -19,7 +19,7 @@ const { height } = Dimensions.get('window');
 const storeConnector = connectToStore((state) => {
   const values = Object.values(state.rivers);
   const screenData = values.find(({ type }) => type === 'zapp-login-plugin-starter');
-  const homeScreen = values.find(({ home }) => home === true);
+  const homeScreen = values.find(({ home }) => home === true) || {};
   return { screenData, homeScreen };
 });
 
