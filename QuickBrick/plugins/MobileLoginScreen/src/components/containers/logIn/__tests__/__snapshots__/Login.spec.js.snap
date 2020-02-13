@@ -6,7 +6,7 @@ exports[`@Login Render Render with default props 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#BB9757",
+        "backgroundColor": "#2132B3",
         "display": "flex",
         "flex": 1,
       },
@@ -94,6 +94,7 @@ exports[`@Login Render Render with default props 1`] = `
             allowFontScaling={true}
             autoCorrect={false}
             onBlur={[Function]}
+            onChange={[Function]}
             onFocus={[Function]}
             rejectResponderTermination={true}
             secureTextEntry={false}
@@ -173,6 +174,7 @@ exports[`@Login Render Render with default props 1`] = `
             allowFontScaling={true}
             autoCorrect={false}
             onBlur={[Function]}
+            onChange={[Function]}
             onFocus={[Function]}
             rejectResponderTermination={true}
             secureTextEntry={true}
@@ -202,14 +204,18 @@ exports[`@Login Render Render with default props 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "#CCCCCC",
-              "borderColor": "#000000",
-              "borderRadius": 40,
-              "borderWidth": 1,
-              "display": "flex",
-              "padding": 15,
-            }
+            Array [
+              Object {
+                "borderColor": "#000000",
+                "borderRadius": 40,
+                "borderWidth": 1,
+                "display": "flex",
+                "padding": 15,
+              },
+              Object {
+                "backgroundColor": "#CCCCCC",
+              },
+            ]
           }
         >
           <Text

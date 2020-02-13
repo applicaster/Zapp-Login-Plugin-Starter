@@ -29,6 +29,7 @@ exports[`@InputField Render Render with default props 1`] = `
     allowFontScaling={true}
     autoCorrect={false}
     onBlur={[Function]}
+    onChange={[Function]}
     onFocus={[Function]}
     rejectResponderTermination={true}
     secureTextEntry={true}

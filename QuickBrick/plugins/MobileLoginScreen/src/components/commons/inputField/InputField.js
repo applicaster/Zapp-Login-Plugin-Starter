@@ -9,21 +9,30 @@ class InputField extends Component {
       secureInput: !(props.inputType === 'text' || props.inputType === 'email'),
       isValid: true,
     }
-    this.toggleShowPassword = this.toggleShowPassword.bind(this)
-    this.validateInput = this.validateInput.bind(this)
   }
 
-  toggleShowPassword() {
+  toggleShowPassword = () => {
     this.setState({secureInput: !this.state.secureInput})
   }
 
-  validateInput(event) {
+  validateInput = event => {
     const {inputValidation} = this.props
     if (inputValidation) {
       event.persist()
       const value = event.nativeEvent.text
       this.setState({isValid: inputValidation(value) === ''})
     }
+  }
+
+  updateCallback = event => {
+    const {onUpdateValue, inputType} = this.props
+    event.persist()
+    const value = event.nativeEvent.text
+    onUpdateValue(value, inputType)
+  }
+
+  resetAsValidInput = () => {
+    this.setState({isValid: true})
   }
 
   render() {
@@ -53,7 +62,7 @@ class InputField extends Component {
         <Text style={[{color: validationColor, fontSize}, styles.label]}>
           {labelText}
         </Text>
-        {inputType === 'password' ? (
+        {inputType === 'password' && (
           <TouchableOpacity
             style={styles.showButton}
             onPress={this.toggleShowPassword}>
@@ -61,18 +70,17 @@ class InputField extends Component {
               {secureInput ? 'Show' : 'Hide'}
             </Text>
           </TouchableOpacity>
-        ) : null}
+        )}
         <TextInput
           autoCorrect={false}
           style={[
             {color: inputColor, borderBottomColor: borderBottom},
-            styles.inputFiled,
+            styles.inputField,
           ]}
           secureTextEntry={secureInput}
-          onFocus={() => {
-            this.setState({isValid: true})
-          }}
+          onFocus={this.resetAsValidInput}
           onBlur={this.validateInput}
+          onChange={this.updateCallback}
         />
       </View>
     )
@@ -84,7 +92,7 @@ const styles = StyleSheet.create({
     display: 'flex',
   },
   label: {fontWeight: '700', marginBottom: 10},
-  inputFiled: {
+  inputField: {
     borderBottomWidth: 1,
     paddingTop: 5,
     paddingBottom: 5,

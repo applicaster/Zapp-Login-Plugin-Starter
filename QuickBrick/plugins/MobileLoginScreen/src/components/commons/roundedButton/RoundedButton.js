@@ -1,13 +1,29 @@
 import React, {Component} from 'react'
 import propTypes from 'prop-types'
-import {Text, View, TouchableHighlight, StyleSheet} from 'react-native'
+import {Text, TouchableHighlight, StyleSheet} from 'react-native'
 import colors from '../../../style/color'
 
 export default class RoundedButton extends Component {
+  static propTypes = {
+    text: propTypes.string,
+    isEnabled: propTypes.bool,
+    action: propTypes.func,
+  }
+
+  callActionIfEnabled = () => {
+    const {isEnabled, action} = this.props
+    if (isEnabled) {
+      action()
+    }
+  }
+
   render() {
-    const {text} = this.props
+    const {text, isEnabled} = this.props
+    const bgColor = isEnabled ? styles.isEnabled : styles.isDisabled
     return (
-      <TouchableHighlight style={styles.wrapper}>
+      <TouchableHighlight
+        style={[styles.wrapper, bgColor]}
+        onPress={this.callActionIfEnabled}>
         <Text style={styles.buttonText}>{text}</Text>
       </TouchableHighlight>
     )
@@ -24,7 +40,12 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     borderWidth: 1,
     borderColor: colors.black,
+  },
+  isDisabled: {
     backgroundColor: colors.grey,
+  },
+  isEnabled: {
+    backgroundColor: colors.green,
   },
   buttonText: {
     fontSize: 16,
