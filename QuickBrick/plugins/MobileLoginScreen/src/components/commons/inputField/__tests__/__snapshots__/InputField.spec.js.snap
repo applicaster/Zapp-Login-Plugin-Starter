@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@InputField Render Render with default props 1`] = `
+<View
+  style={
+    Array [
+      undefined,
+      Object {
+        "display": "flex",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+        },
+        Object {
+          "fontWeight": "700",
+          "marginBottom": 10,
+        },
+      ]
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    autoCorrect={false}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    rejectResponderTermination={true}
+    secureTextEntry={true}
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "transparent",
+          "color": "#ffffff",
+        },
+        Object {
+          "borderBottomWidth": 1,
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        },
+      ]
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

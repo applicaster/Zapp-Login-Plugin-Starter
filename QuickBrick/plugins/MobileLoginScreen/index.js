@@ -1,8 +1,8 @@
-import Component from './src/components/App';
+import Component from './src/App'
 
 export default {
   isFlowBlocker: () => true,
-  presentFullScreen: false,
-  skipHook: () => true,
-  Component
-};
+  presentFullScreen: true,
+  skipHook: () => false,
+  Component,
+}

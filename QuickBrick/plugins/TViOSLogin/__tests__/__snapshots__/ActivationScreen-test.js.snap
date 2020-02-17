@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInScreen renders correctly 1`] = `
+<View
+  accessibilityIgnoresInvertColors={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "",
+      "flex": 1,
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "activation_screen_background_asset.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": "100%",
+          "width": "100%",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignSelf": "flex-start",
+        "marginBottom": "5.2%",
+        "marginLeft": "2.6%",
+        "marginTop": "5.2%",
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "uri": "activation_screen_logo_asset.png",
+        }
+      }
+      style={
+        Object {
+          "height": 100,
+          "width": 350,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": "12%",
+        "paddingRight": "12%",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "height": 1334,
+          "width": "100%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+            }
+          }
+        >
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={2}
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": NaN,
+                "fontWeight": "bold",
+                "marginBottom": "8%",
+                "marginTop": "1.4%",
+              }
+            }
+          >
+            
+          </Text>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": NaN,
+                "marginBottom": "1.4%",
+              }
+            }
+          >
+            
+          </Text>
+          <Text
+            adjustsFontSizeToFit={true}
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": NaN,
+                "fontWeight": "bold",
+                "marginBottom": "2%",
+              }
+            }
+          >
+            
+          </Text>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": NaN,
+              }
+            }
+          >
+            
+          </Text>
+          <View
+            style={
+              Object {
+                "fontWeight": "bold",
+                "marginTop": "5.2%",
+                "width": "80%",
+              }
+            }
+          >
+            <ActivityIndicator
+              animating={true}
+              color="#D8D8D8"
+              hidesWhenStopped={true}
+              size="small"
+            />
+          </View>
+          
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "marginRight": "5.5%",
+                "marginTop": "6.3%",
+                "minHeight": 340,
+                "minWidth": 340,
+              }
+            }
+          >
+            <ActivityIndicator
+              animating={true}
+              color="#D8D8D8"
+              hidesWhenStopped={true}
+              size="large"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+<View
+  groupId={null}
+  itemId={null}
+  onLayout={[Function]}
+  onViewBlur={[Function]}
+  onViewFocus={[Function]}
+  onViewPress={[Function]}
+>
+  <View
+    accessibilityIgnoresInvertColors={true}
+    style={Object {}}
+  >
+    <Image
+      source={
+        Object {
+          "uri": "background",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          Object {
+            "height": undefined,
+            "width": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+    <Text
+      adjustsFontSizeToFit={true}
+      style={Object {}}
+    >
+      
+    </Text>
+  </View>
+</View>
+`;

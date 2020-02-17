@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@Login Render Render with default props 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#2132B3",
+        "display": "flex",
+        "flex": 1,
+      },
+      Object {
+        "paddingBottom": 0,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "marginTop": 20,
+      }
+    }
+  >
+    <RCTScrollView
+      style={
+        Object {
+          "flex": 1,
+          "paddingLeft": 30,
+          "paddingRight": 30,
+          "paddingTop": 20,
+        }
+      }
+    >
+      <View>
+        <Image
+          source={
+            Object {
+              "testUri": "../../../plugins/MobileLoginScreen/src/style/images/applicaster_logo.png",
+            }
+          }
+          style={
+            Object {
+              "height": 50,
+              "marginBottom": 40,
+              "marginTop": 10,
+              "width": "100%",
+            }
+          }
+        />
+        <Text
+          style={
+            Object {
+              "color": "#000000",
+              "fontSize": 28,
+              "fontWeight": "300",
+              "marginBottom": 40,
+            }
+          }
+        >
+          Screen Login Plugin
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "marginBottom": 30,
+              },
+              Object {
+                "display": "flex",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                },
+                Object {
+                  "fontWeight": "700",
+                  "marginBottom": 10,
+                },
+              ]
+            }
+          >
+            EMAIL ADDRESS
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            autoCorrect={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            rejectResponderTermination={true}
+            secureTextEntry={false}
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ffffff",
+                  "color": "#ffffff",
+                },
+                Object {
+                  "borderBottomWidth": 1,
+                  "paddingBottom": 5,
+                  "paddingTop": 5,
+                },
+              ]
+            }
+            underlineColorAndroid="transparent"
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "marginBottom": 30,
+              },
+              Object {
+                "display": "flex",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                },
+                Object {
+                  "fontWeight": "700",
+                  "marginBottom": 10,
+                },
+              ]
+            }
+          >
+            PASSWORD
+          </Text>
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+                "position": "absolute",
+                "right": 0,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontWeight": "700",
+                }
+              }
+            >
+              Show
+            </Text>
+          </View>
+          <TextInput
+            allowFontScaling={true}
+            autoCorrect={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            rejectResponderTermination={true}
+            secureTextEntry={true}
+            style={
+              Array [
+                Object {
+                  "borderBottomColor": "#ffffff",
+                  "color": "#ffffff",
+                },
+                Object {
+                  "borderBottomWidth": 1,
+                  "paddingBottom": 5,
+                  "paddingTop": 5,
+                },
+              ]
+            }
+            underlineColorAndroid="transparent"
+          />
+        </View>
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "borderColor": "#000000",
+                "borderRadius": 40,
+                "borderWidth": 1,
+                "display": "flex",
+                "padding": 15,
+              },
+              Object {
+                "backgroundColor": "#CCCCCC",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "textAlign": "center",
+                "width": "100%",
+              }
+            }
+          >
+            Login
+          </Text>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;

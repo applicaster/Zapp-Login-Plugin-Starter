@@ -6,7 +6,7 @@
   "dependency_version": "0.0.1",
   "author_name": "Enzo Donofrio",
   "author_email": "e.donofrio@applicaster.com",
-  "manifest_version": "0.0.1",
+  "manifest_version": "0.0.2",
   "name": "QuickBrick Screen Login",
   "description": "Quick Brick screen login plugin",
   "type": "general",
@@ -24,8 +24,28 @@
       {
         "type": "switch",
         "key": "is_testing",
-        "tooltip_text": "Enable Test the login with fake credential",
+        "tooltip": "Enable Test the login with fake credential",
         "initial_value": false
+      },
+      {
+        "group": true,
+        "label": "Layout Settings",
+        "tooltip": "These fields Allow to set color and basic style on the login",
+        "folded": true,
+        "fields": [
+          {
+            "key": "app_bgcolor",
+            "type": "color_picker",
+            "label_tooltip": "BackGround Color for Main.",
+            "initial_value": "#2132B3ff"
+          },
+          {
+            "key": "font_color",
+            "type": "color_picker",
+            "label_tooltip": "Color for the main font.",
+            "initial_value": "#000000ff"
+          }
+        ]
       }
     ]
   },
