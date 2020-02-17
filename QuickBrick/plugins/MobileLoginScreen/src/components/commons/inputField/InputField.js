@@ -20,6 +20,9 @@ class InputField extends Component {
     if (inputValidation) {
       event.persist()
       const value = event.nativeEvent.text
+      console.log('event', event)
+      console.log('value : ', inputValidation(value), value)
+      console.log('control !!', inputValidation(value) === '')
       this.setState({isValid: inputValidation(value) === ''})
     }
   }
@@ -27,6 +30,7 @@ class InputField extends Component {
   updateCallback = event => {
     const {onUpdateValue, inputType} = this.props
     event.persist()
+    console.log('event on change', event)
     const value = event.nativeEvent.text
     onUpdateValue(value, inputType)
   }
@@ -55,6 +59,7 @@ class InputField extends Component {
     const inputColor = textColor || colors.white
     const borderBottom = borderBottomColor || 'transparent'
 
+    console.log('isValid', isValid)
     const validationColor = isValid ? color : errorColor
 
     return (
@@ -79,7 +84,7 @@ class InputField extends Component {
           ]}
           secureTextEntry={secureInput}
           onFocus={this.resetAsValidInput}
-          onBlur={this.validateInput}
+          onEndEditing={this.validateInput}
           onChange={this.updateCallback}
         />
       </View>
