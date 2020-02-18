@@ -17,7 +17,8 @@
     "start": "./node_modules/.bin/react-native start --projectRoot ./development-app",
     "start:samsung": "yarn workspace quick-brick-app start",
     "npm:publish": "yarn workspace @applicaster/quick-brick-login-starter-kit publish",
-    "lint": "eslint *.js **/*.js"
+    "lint": "eslint *.js **/*.js",
+    "publish_plugin": "node_modules/.bin/zapplicaster-cli publish_plugin $PLUGIN_PATH --yarn"
   },
   "keywords": [],
   "author": "",

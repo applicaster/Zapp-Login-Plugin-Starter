@@ -1,11 +1,10 @@
 {
   "name": "@applicaster/quick-brick-screen-login",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Mobile Login Screen",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "postpublish": "zappifest publish --manifest ./manifest/ios.json && zappifest publish --manifest ./manifest/android.json"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -23,10 +22,10 @@
     "@applicaster/zapp-react-native-redux": "^2.1.1",
     "@applicaster/zapp-react-native-ui-components": "^2.1.1",
     "@applicaster/zapp-react-native-utils": "^2.1.1",
+    "@react-native-community/eslint-config": "^0.0.7",
     "react": "16.8.3",
     "react-native": "0.59.10",
     "react-native-web": "0.11.5",
-    "@react-native-community/eslint-config": "^0.0.7",
     "react-test-renderer": "16.8.3"
   },
   "dependencies": {
@@ -37,5 +36,11 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "applicaster": {
+    "supportedPlatforms": [
+      "ios",
+      "android"
+    ]
   }
 }
