@@ -1,11 +1,10 @@
 {
   "name": "@applicaster/quick-brick-screen-login",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Mobile Login Screen",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "postpublish": "zappifest publish --manifest ./manifest/ios.json && zappifest publish --manifest ./manifest/android.json"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -37,5 +36,11 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "applicaster": {
+    "supportedPlatforms": [
+      "ios",
+      "android"
+    ]
   }
 }
