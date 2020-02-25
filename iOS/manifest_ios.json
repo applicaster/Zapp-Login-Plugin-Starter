@@ -65,6 +65,7 @@
           },
           {
             "key": "require_payment",
+            "label": "App Includes Purchasable Content",
             "type": "switch",
             "label_tooltip": "<p>When this field is on, the plugin will check if content requires payment (an entitlement or purchasable product) when given content is triggered.</p><p>This field also influences what configuration fields are available for the plugin.</p>",
             "initial_value": "true"
@@ -690,6 +691,37 @@
               }
             ],
             "initial_value": "Please provide Facebook permission to share email information in order to login with Facebook."
+          },
+          {
+            "key": "custom_link_font_ios",
+            "type": "ios_font_selector",
+            "label_tooltip": "The font (for iOS) for any custom links presented. The links and text for these would be defined in the configuration for the given screens (supported in login, sign-up, and storefront screens)."
+          },
+          {
+            "key": "custom_link_font_android",
+            "type": "android_font_selector",
+            "label_tooltip": "The font (for Android) for any custom links presented. The links and text for these would be defined in the configuration for the given screens (supported in login, sign-up, and storefront screens)."
+          },
+          {
+            "key": "custom_link_size_phone",
+            "label": "Custom Link Font Size Phone",
+            "type": "number_input",
+            "label_tooltip": "The font size (for smartphones) for any custom links presented. The links and text for these would be defined in the configuration for the given screens (supported in login, sign-up, and storefront screens).",
+            "initial_value": "11"
+          },
+          {
+            "key": "custom_link_size_tablet",
+            "label": "Custom Link Font Size Tablet",
+            "type": "number_input",
+            "label_tooltip": "The font size (for tablets) for any custom links presented. The links and text for these would be defined in the configuration for the given screens (supported in login, sign-up, and storefront screens).",
+            "initial_value": "11"
+          },
+          {
+            "key": "custom_link_color",
+            "label": "Custom Link Font Color",
+            "type": "color_picker",
+            "label_tooltip": "The font color for any custom links presented. The links and text for these would be defined in the configuration for the given screens (supported in login, sign-up, and storefront screens).",
+            "initial_value": "#ffffff"
           }
         ]
       },
@@ -891,6 +923,68 @@
                 "key": "general/authentication_requirement"
               }
             ]
+          },
+          {
+            "key": "login_screen_custom_link_1",
+            "type": "text_input",
+            "label_tooltip": "The url scheme for where to deliver the end user upon clicking the custom link. If not populated, the link will not be presented.",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
+          {
+            "key": "login_screen_custom_link_1_text",
+            "type": "text_input",
+            "label_tooltip": "<p>The text the user will see for the first custom link presented to the user. If not populated, the link will not be presented.</p><p>We recommend keeping this text short to keep the screen clean (e.g. “Privacy”)</p>",
+            "initial_value": "Leave it blank",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
+          {
+            "key": "login_screen_custom_link_2",
+            "type": "text_input",
+            "label_tooltip": "The url scheme for where to deliver the end user upon clicking the custom link. If not populated, the link will not be presented to the user.",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
+          {
+            "key": "login_screen_custom_link_2_text",
+            "type": "text_input",
+            "label_tooltip": "<p>The text the user will see for the second custom link presented to the user.If not populated, the link will not be presented.</p><p>We recommend keeping this text short to keep the screen clean (e.g. “Privacy”)</p>",
+            "initial_value": "Leave it blank",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
           }
         ]
       },
@@ -900,6 +994,22 @@
         "tooltip": "The fields below configure the sign-up screen. Fields will not appear for this screen if the Authentication Requirement field is set to “Never require”.",
         "folded": true,
         "fields": [
+          {
+            "key": "use_signup_activation_code_method",
+            "type": "switch",
+            "label_tooltip": "<p>If switched on, the signup mechanism will rely on the provider delivering an activation code which the user will need to enter within the app.</p><p>This will require a second “Account Activation” screen in the sign-up process where the user enters the provided code to activate their account</p><p>This is not supported in combination with “Alternative Authentication” (e.g. Facebook login)</p>",
+            "initial_value": "false",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
           {
             "key": "sign_up_title_text",
             "type": "text_input",
@@ -919,7 +1029,7 @@
           {
             "key": "sign_up_button_text",
             "type": "text_input",
-            "label_tooltip": "The text within the main call-to-action button of the sign-up screen, triggering the sign-up (aka registration) process",
+            "label_tooltip": "The text within the main call-to-action button of the sign-up screen, triggering the sign-up (aka registration) process. If the field `Use Signup Activation Code Method` is switched on, this will also send the user an activation code, so we recommend changing the default value to something like “Sign Up and Send Code”",
             "initial_value": "Sign Up",
             "conditional_fields": [
               {
@@ -979,6 +1089,276 @@
               }
             ],
             "initial_value": "This user already exists. Try logging in."
+          },
+          {
+            "key": "sign_up_screen_custom_link_1",
+            "type": "text_input",
+            "label_tooltip": "The url scheme for where to deliver the end user upon clicking the custom link. If not populated, the link will not be presented.",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
+          {
+            "key": "sign_up_screen_custom_link_1_text",
+            "type": "text_input",
+            "label_tooltip": "<p>The text the user will see for the first custom link presented to the user. If not populated, the link will not be presented.</p><p>We recommend keeping this text short to keep the screen clean (e.g. “Privacy”)</p>",
+            "initial_value": "Leave it blank",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
+          {
+            "key": "sign_up_screen_custom_link_2",
+            "type": "text_input",
+            "label_tooltip": "The url scheme for where to deliver the end user upon clicking the custom link. If not populated, the link will not be presented to the user.",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
+          {
+            "key": "sign_up_screen_custom_link_2_text",
+            "type": "text_input",
+            "label_tooltip": "<p>The text the user will see for the second custom link presented to the user. If not populated, the link will not be presented.</p><p>We recommend keeping this text short to keep the screen clean (e.g. “Privacy”)</p>",
+            "initial_value": "Leave it blank",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
+          {
+            "key": "account_activation_screen_title_text",
+            "type": "text_input",
+            "label_tooltip": "The title text at the top of the account activation screen",
+            "initial_value": "Activate Your New Account",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_signup_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
+          },
+          {
+            "key": "account_activation_description_text",
+            "type": "text_input",
+            "label_tooltip": "The text presented to the user below the title and above the input field of the account activation screen",
+            "initial_value": "Enter the activation code that was delivered to your email",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_signup_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
+          },
+          {
+            "key": "activate_account_button_text",
+            "type": "text_input",
+            "label_tooltip": "The text within the main call-to-action button of the account activation screen, activating the account if a proper code is entered",
+            "initial_value": "Activate My Account",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_signup_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
+          },
+          {
+            "key": "resend_code_text",
+            "type": "text_input",
+            "label_tooltip": "The text the user would click to resend themselves an activation code",
+            "initial_value": "Resend Code",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_signup_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
+          },
+          {
+            "key": "resend_code_font_ios",
+            "type": "ios_font_selector",
+            "label_tooltip": "The font (for iOS) for the Resend Code Text",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_signup_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
+          },
+          {
+            "key": "resend_code_font_android",
+            "type": "android_font_selector",
+            "label_tooltip": "The font (for Android) for the Resend Code Text",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_signup_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
+          },
+          {
+            "key": "resend_code_size_phone",
+            "label": "Resend Code Font Size Phone",
+            "type": "number_input",
+            "label_tooltip": "The font-size (for smartphones) for the Resend Code Text",
+            "initial_value": "12",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_signup_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
+          },
+          {
+            "key": "resend_code_size_tablet",
+            "label": "Resend Code Font Size Tablet",
+            "type": "number_input",
+            "label_tooltip": "The font-size (for tablets) for the Resend Code Text",
+            "initial_value": "12",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_signup_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
+          },
+          {
+            "key": "resend_code_color",
+            "label": "Resend Code Font Color",
+            "type": "color_picker",
+            "label_tooltip": "The font-color for the Resend Code Text",
+            "initial_value": "#ffffff",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_signup_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
           }
         ]
       },
@@ -1052,11 +1432,9 @@
             "conditional_fields": [
               {
                 "condition_value": [
-                  "always_require",
-                  "require_on_all_purchasable_items",
-                  "require_when_specified_on_the_data_source"
+                  true
                 ],
-                "key": "general/authentication_requirement"
+                "key": "general/require_payment"
               }
             ]
           },
@@ -1068,11 +1446,9 @@
             "conditional_fields": [
               {
                 "condition_value": [
-                  "always_require",
-                  "require_on_all_purchasable_items",
-                  "require_when_specified_on_the_data_source"
+                  true
                 ],
-                "key": "general/authentication_requirement"
+                "key": "general/require_payment"
               }
             ]
           },
@@ -1330,6 +1706,60 @@
               }
             ],
             "initial_value": "#122040"
+          },
+          {
+            "key": "storefront_screen_custom_link_1",
+            "type": "text_input",
+            "label_tooltip": "The url scheme for where to deliver the end user upon clicking the custom link. If not populated, the link will not be presented.",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/require_payment"
+              }
+            ]
+          },
+          {
+            "key": "storefront_screen_custom_link_1_text",
+            "type": "text_input",
+            "label_tooltip": "<p>The text the user will see for the first custom link presented to the user. If not populated, the link will not be presented.</p><p>We recommend keeping this text short to keep the screen clean (e.g. “Privacy”)</p>",
+            "initial_value": "Leave it blank",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/require_payment"
+              }
+            ]
+          },
+          {
+            "key": "storefront_screen_custom_link_2",
+            "type": "text_input",
+            "label_tooltip": "The url scheme for where to deliver the end user upon clicking the custom link. If not populated, the link will not be presented to the user.",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/require_payment"
+              }
+            ]
+          },
+          {
+            "key": "storefront_screen_custom_link_2_text",
+            "type": "text_input",
+            "label_tooltip": "<p>The text the user will see for the second custom link presented to the user. If not populated, the link will not be presented.</p><p>We recommend keeping this text short to keep the screen clean (e.g. “Privacy”)</p>",
+            "initial_value": "Leave it blank",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/require_payment"
+              }
+            ]
           }
         ]
       },
@@ -1339,6 +1769,22 @@
         "tooltip": "The fields below configure the password reset screen. Fields will not appear for this screen if the Authentication Requirement field is set to “Never require”.",
         "folded": true,
         "fields": [
+          {
+            "key": "use_pw_activation_code_method",
+            "type": "switch",
+            "label_tooltip": "If switched on, the password reset mechanism will rely on the provider delivering an activation code so the user can reset the password within the app",
+            "initial_value": "false",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
           {
             "key": "password_reset_title_text",
             "type": "text_input",
@@ -1383,15 +1829,114 @@
                   "require_when_specified_on_the_data_source"
                 ],
                 "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  false
+                ],
+                "key": "general/use_pw_activation_code_method"
               }
             ],
+            "rules": "all_conditions",
             "initial_value": "Reset Password"
+          },
+          {
+            "key": "send_pw_activation_code_button_text",
+            "type": "text_input",
+            "label_tooltip": "The text within the main call-to-action button of the first password reset screen, delivering an activation code to the user",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_pw_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions",
+            "initial_value": "Send Code"
+          },
+          {
+            "key": "password_update_title_text",
+            "type": "text_input",
+            "label_tooltip": "The title text at the top of the Password Update screen",
+            "initial_value": "Update Your Password",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_pw_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
+          },
+          {
+            "key": "password_update_description_text",
+            "type": "text_input",
+            "label_tooltip": "The text presented to the user below the title and above the input field of the password update screen",
+            "initial_value": "",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_pw_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
+          },
+          {
+            "key": "password_update_button_text",
+            "type": "text_input",
+            "label_tooltip": "The text within the main call-to-action button of the second password reset screen, updating the user’s password",
+            "initial_value": "Update Password",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              },
+              {
+                "condition_value": [
+                  true
+                ],
+                "key": "general/use_pw_activation_code_method"
+              }
+            ],
+            "rules": "all_conditions"
           }
         ]
       },
       {
         "group": true,
-        "label": "Confirmation Screen",
+        "label": "Confirmation and Logout Screen",
         "tooltip": "The font that will be used for the text at the top of each screen in the gateway process",
         "folded": true,
         "fields": [
@@ -1495,6 +2040,43 @@
             "initial_value": "#ffffff"
           },
           {
+            "key": "cancel_button_text",
+            "type": "text_input",
+            "label_tooltip": "<p>The text on the button of a confirmation screen which indicates the user has read the message and does not want to execute the message of the screen, but rather move back.</p><p>This button only appears in the confirmation screen provided in the context of the logout process.</p>",
+            "initial_value": "Cancel"
+          },
+          {
+            "key": "cancel_button_color",
+            "label": "Cancel Button Font Color",
+            "type": "color_picker",
+            "label_tooltip": "The font-color for the Cancel Button Text",
+            "initial_value": "#ffffff"
+          },
+          {
+            "key": "cancel_button_font_ios",
+            "type": "ios_font_selector",
+            "label_tooltip": "The font (for iOS) for the Cancel Button Text"
+          },
+          {
+            "key": "cancel_button_font_android",
+            "type": "android_font_selector",
+            "label_tooltip": "The font (for Android) for the Cancel Button Text"
+          },
+          {
+            "key": "cancel_button_size_phone",
+            "label": "Cancel Button Font Size Phone",
+            "type": "number_input",
+            "label_tooltip": "The font-size (for smartphones) for the Cancel Button Text",
+            "initial_value": "14"
+          },
+          {
+            "key": "cancel_button_size_tablet",
+            "label": "Cancel Button Font Size Tablet",
+            "type": "number_input",
+            "label_tooltip": "The font-size (for tablets) for the Cancel Button Text",
+            "initial_value": "14"
+          },
+          {
             "key": "payment_confirmation_title_text",
             "type": "text_input",
             "label_tooltip": "<p>The title text at the top of confirmation notice after a payment was successful.</p><p>This field is required in order for a confirmation alert to be displayed.</p><p>This field is required in order for a confirmation alert to be displayed.</p>",
@@ -1581,6 +2163,54 @@
                 "key": "general/authentication_requirement"
               }
             ]
+          },
+          {
+            "key": "logout_title_text",
+            "type": "text_input",
+            "label_tooltip": "<p>The title text at the top of the logout screen.</p><p>This field is required in order for a logout UI to be displayed.</p>",
+            "initial_value": "Log Out",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
+          {
+            "key": "logout_description_text",
+            "type": "text_input",
+            "label_tooltip": "<p>The descriptive text below the title in the logout screen. We recommend changing from the default value to better match your brand and the circumstances of the flow for accessing content in your app.</p><p>This field is required in order for a logout UI to be displayed.</p>",
+            "initial_value": "Are you sure you want to log out?",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
+          },
+          {
+            "key": "logout_error_alert_text",
+            "type": "text_input",
+            "label_tooltip": "<p>The text that will be displayed in the alert message presented when the user tries to logout and the provider returns an error.</p><p>This will return to the logout screen.</p>",
+            "initial_value": "The logout process encountered an error. Please try again.",
+            "conditional_fields": [
+              {
+                "condition_value": [
+                  "always_require",
+                  "require_on_all_purchasable_items",
+                  "require_when_specified_on_the_data_source"
+                ],
+                "key": "general/authentication_requirement"
+              }
+            ]
           }
         ]
       }
@@ -1590,7 +2220,7 @@
     {
       "key": "ios_assets_bundle",
       "type": "uploader",
-      "label_tooltip": "Please upload a zip file which will provide all the relevant design assets to required for the screens of this plugin. For a guide on how to create such a zip file, please direct your designer to the resource \u003ca href='https://assets-production.applicaster.com.s3.amazonaws.com/applicaster-employees/marketplace/OPT/Login%20Plugin%20-%20Designer%20Documentation.sketch'\u003ehere\u003c/a\u003e."
+      "label_tooltip": "Please upload a zip file which will provide all the iOS relevant design assets to required for the screens of this plugin. For a guide on how to create such a zip file, please direct your designer to the resource \u003ca href='https://assets-production.applicaster.com.s3.amazonaws.com/applicaster-employees/marketplace/OPT/Login%20Plugin%20-%20Designer%20Documentation.sketch'\u003ehere\u003c/a\u003e."
     }
   ],
   "hooks": {

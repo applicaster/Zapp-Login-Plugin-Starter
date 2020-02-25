@@ -1,23 +1,22 @@
 PODS:
-  - Alamofire (4.9.1)
-  - ApplicasterIAP (0.0.4)
-  - CAM (2.0.2):
+  - Alamofire (5.0.2)
+  - ApplicasterIAP (0.0.5)
+  - CAM (3.5.0):
     - ApplicasterIAP
     - ZappPlugins (>= 11.1.2)
   - CAMStarterKit (2.0.0):
     - Alamofire
-    - CAM (~> 2.0.2)
+    - CAM (~> 3.5.0)
     - ZappPlugins
-  - ZappCore (0.5.0)
-  - ZappPlugins (11.3.0):
+  - ZappCore (0.8.3)
+  - ZappPlugins (11.6.0):
     - ZappCore
 
 DEPENDENCIES:
+  - CAM (from `/Users/brel/Documents/ZappLoginPluginCleeng/Submodules/CAM/CAM.podspec`)
   - CAMStarterKit (from `../ContentAccessPluginsStarterKit/CAMStarterKit.podspec`)
 
 SPEC REPOS:
-  "git@github.com:applicaster/applicaster-cam-framework.git":
-    - CAM
   "git@github.com:applicaster/applicaster-iap-framework.git":
     - ApplicasterIAP
   "git@github.com:applicaster/CocoaPods.git":
@@ -27,17 +26,19 @@ SPEC REPOS:
     - Alamofire
 
 EXTERNAL SOURCES:
+  CAM:
+    :path: "/Users/brel/Documents/ZappLoginPluginCleeng/Submodules/CAM/CAM.podspec"
   CAMStarterKit:
     :path: "../ContentAccessPluginsStarterKit/CAMStarterKit.podspec"
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  ApplicasterIAP: 7feda96b051aa4e6ab36d2bc1a59e643a1e331a5
-  CAM: 1c84c6e41e041bed231bf16937dd1e738a2a4957
-  CAMStarterKit: 926d28917a0de742b4afcb734800ea35dcb53e2a
-  ZappCore: f92ff80112b8dfac6ebba117b393df0665e93241
-  ZappPlugins: 3a6592c577790586d519b021dcc143bab15bf49c
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  ApplicasterIAP: 52b26e42126693cf42926b8d9e86fd4445533ee8
+  CAM: 3622f8265e97e7fd2ec3733b7b8ad50efeba15fd
+  CAMStarterKit: be18d8d42d298196037b630067cdb9ed30fd81eb
+  ZappCore: 628a56faa834d6fb48c8f38a43e31c96420d9f9c
+  ZappPlugins: c31b785a68534fcaaea2c5c60982ffb4313b03b6
 
-PODFILE CHECKSUM: 074d82c3fac3f26d95abee7084c4ae4ef632503e
+PODFILE CHECKSUM: 5e454257fc0fae57c9d54caa627a015b7d92f994
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.8.4
