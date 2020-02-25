@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.dependency 'ZappPlugins'
   s.dependency 'Alamofire'
-  s.dependency 'CAM', '~> 2.0.2'
+  s.dependency 'CAM', '~> 3.5.0'
   s.xcconfig =  {
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
     'ENABLE_BITCODE' => 'YES',

@@ -222,7 +222,6 @@ import CAM
 // MARK: - CAMDelegate
 
 extension CAMStarterKitLoginPlugin: CAMDelegate {
-   
     /**
      Default implementation. In general there are no reasons to change it.
      */
@@ -250,7 +249,44 @@ extension CAMStarterKitLoginPlugin: CAMDelegate {
     }
     
     /**
-     Auth data contains user input in Login screen.
+     Use this method in case you need provide account activation logic.
+    */
+    
+    public func isUserActivated() -> Bool {
+        return false
+    }
+    
+    /**
+    Auth data contains user input in Activate account screen.
+    Possible keys are described in configration json of plugin.
+    [For more information, see](https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration)
+    */
+    
+    public func activateAccount(data: [String : String], completion: @escaping (Result<Void, Error>) -> Void) {
+        
+    }
+    
+    /**
+    Auth data contains user input in Login/Sign up screen.
+    Possible keys are described in configration json of plugin.
+    [For more information, see](https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration)
+    */
+    
+    public func sendAuthActivationCode(data: [String : String], completion: @escaping (Result<Void, Error>) -> Void) {
+        
+    }
+    
+    /**
+    Auth data contains user input in Login/Sign up screen.
+    Possible keys are described in configration json of plugin.
+    [For more information, see](https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration)
+    */
+    
+    public func sendPasswordActivationCode(data: [String : String], completion: @escaping (Result<Void, Error>) -> Void) {
+        
+    }
+    /**
+     Auth data contains user input in Reset password screen.
      Possible keys are described in configration json of plugin.
      [For more information, see](https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration)
      */
@@ -282,6 +318,16 @@ extension CAMStarterKitLoginPlugin: CAMDelegate {
      */
     
     public func resetPassword(data: [String: String], completion: @escaping (Result<Void, Error>) -> Void) {
+        
+    }
+    
+    /**
+    Data contains user input in Reset Password screen and Update password screen.
+    Possible keys are described in configration json of plugin.
+    [For more information, see](https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration)
+    */
+    
+    public func updatePassword(data: [String : String], completion: @escaping (Result<Void, Error>) -> Void) {
         
     }
     
