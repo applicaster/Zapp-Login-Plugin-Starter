@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 2
-        versionName "1.1.0"
+        versionCode 3
+        versionName "2.0.0"
     }
 
     buildTypes {
@@ -64,7 +64,7 @@ buildscript {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    def camPath = 'com.applicaster:applicaster-cam-framework:2.0.1'
+    def camPath = 'com.applicaster:applicaster-cam-framework:4.1.0'
     def devCAM = findProject(':cam')
     if (devCAM != null) {
         implementation project(':cam')

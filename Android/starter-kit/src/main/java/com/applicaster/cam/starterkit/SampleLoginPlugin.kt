@@ -1,20 +1,18 @@
 package com.applicaster.cam.starterkit
 
 import android.content.Context
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.applicaster.cam.starterkit.cam.mocks.MockPluginConfigurator
 import com.applicaster.hook_screen.HookScreen
 import com.applicaster.hook_screen.HookScreenListener
-import com.applicaster.plugin_manager.Plugin
-import com.applicaster.plugin_manager.PluginManager
 import com.applicaster.plugin_manager.hook.HookListener
 import com.applicaster.plugin_manager.login.LoginContract
 import com.applicaster.plugin_manager.playersmanager.Playable
 import com.applicaster.plugin_manager.screen.PluginScreen
 import com.applicaster.zapp.configfetcher.ZappConfigFetcher
-import com.google.gson.Gson
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.android.UI
+import kotlinx.coroutines.launch
 import java.io.Serializable
 
 /**
@@ -52,8 +50,12 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
      *  For the published Applicaster plugin this config will be provided by the SDK (based on Zapp UI Builder config)
      *  and passed via hook or other calls.  See [loadPluginConfig]
      */
-    override fun executeHook(context: Context, hookListener: HookScreenListener, hookProps: Map<String, Any>?) {
-        launch(UI) {
+    override fun executeHook(
+        context: Context,
+        hookListener: HookScreenListener,
+        hookProps: Map<String, Any>?
+    ) {
+        GlobalScope.launch(UI) {
             val pluginConfig = MockPluginConfigurator.getPluginConfiguration(context) // mock impl
 //            val pluginConfig = loadPluginConfig(context) // prod impl
 
@@ -95,11 +97,13 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
      */
     override fun executeOnStartup(context: Context?, listener: HookListener?) {
         //Handle application startup if necessary
-        launch(UI) {
-            val pluginConfig = MockPluginConfigurator.getPluginConfiguration(context) // mock impl
+        GlobalScope.launch(UI) {
+            val pluginConfig =
+                context?.let { MockPluginConfigurator.getPluginConfiguration(context) }
+                    ?: mapOf() // mock impl
 //            val pluginConfig = loadPluginConfig(context) // prod impl
             contentAccessService.pluginConfig = pluginConfig
-            
+
             listener?.onHookFinished()
         }
     }
@@ -118,7 +122,11 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
         return ""
     }
 
-    override fun logout(context: Context?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
+    override fun logout(
+        context: Context?,
+        additionalParams: MutableMap<Any?, Any?>?,
+        callback: LoginContract.Callback?
+    ) {
         //handle logout if necessary
         callback?.onResult(true)
     }
@@ -144,12 +152,21 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
         }
     }
 
-    override fun login(context: Context?, playable: Playable?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
+    override fun login(
+        context: Context?,
+        playable: Playable?,
+        additionalParams: MutableMap<Any?, Any?>?,
+        callback: LoginContract.Callback?
+    ) {
         // handle login if necessary
         callback?.onResult(true)
     }
 
-    override fun login(context: Context?, additionalParams: MutableMap<Any?, Any?>?, callback: LoginContract.Callback?) {
+    override fun login(
+        context: Context?,
+        additionalParams: MutableMap<Any?, Any?>?,
+        callback: LoginContract.Callback?
+    ) {
         // handle login if necessary
         callback?.onResult(true)
     }
@@ -167,14 +184,17 @@ class SampleLoginPlugin : LoginContract, PluginScreen, HookScreen {
         // handle app ready execution if necessary
     }
 
-    override fun generateFragment(screenMap: HashMap<String, Any>?, dataSource: Serializable?): Fragment? =
-            null
+    override fun generateFragment(
+        screenMap: HashMap<String, Any>?,
+        dataSource: Serializable?
+    ): Fragment? =
+        null
 
     override fun present(
-            context: Context?,
-            screenMap: HashMap<String, Any>?,
-            dataSource: Serializable?,
-            isActivity: Boolean
+        context: Context?,
+        screenMap: HashMap<String, Any>?,
+        dataSource: Serializable?,
+        isActivity: Boolean
     ) {
     }
     //endregion

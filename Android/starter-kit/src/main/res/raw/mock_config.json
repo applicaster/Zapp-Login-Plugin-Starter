@@ -7,7 +7,7 @@
   "design_assets":"",
   "offer_alternative_authentication": "false",
 
-  "authentication_input_fields": "{\"Sign-up\":[{\"type\":\"EMAIL\",\"key\":\"email\",\"title\":\"Email\",\"hint\":\"Email\",\"mandatory\":true},{\"type\":\"PASSWORD\",\"key\":\"password\",\"title\":\"Password\",\"hint\":\"Password\",\"mandatory\":true},{\"type\":\"NUMBER\",\"key\":\"phone\",\"title\":\"Phone\",\"hint\":\"Phone\",\"mandatory\":true},{\"type\":\"TEXT\",\"key\":\"gender\",\"title\":\"Gender\",\"hint\":\"Gender\",\"mandatory\":false}],\"Login\":[{\"type\":\"EMAIL\",\"key\":\"email\",\"title\":\"Email\",\"hint\":\"Email\",\"mandatory\":true},{\"type\":\"PASSWORD\",\"key\":\"password\",\"title\":\"Password\",\"hint\":\"Password\",\"mandatory\":true}],\"Password-reset\":[{\"type\":\"EMAIL\",\"key\":\"email\",\"title\":\"Email\",\"hint\":\"Email\",\"mandatory\":true}]}",
+  "authentication_input_fields": "{\"Sign-up\":[{\"type\":\"EMAIL\",\"key\":\"email\",\"title\":\"Email\",\"hint\":\"Email\",\"mandatory\":true},{\"type\":\"PASSWORD\",\"key\":\"password\",\"title\":\"Password\",\"hint\":\"Password\",\"mandatory\":true},{\"type\":\"NUMBER\",\"key\":\"phone\",\"title\":\"Phone\",\"hint\":\"Phone\",\"mandatory\":true},{\"type\":\"TEXT\",\"key\":\"gender\",\"title\":\"Gender\",\"hint\":\"Gender\",\"mandatory\":false}],\"Login\":[{\"type\":\"EMAIL\",\"key\":\"email\",\"title\":\"Email\",\"hint\":\"Email\",\"mandatory\":true},{\"type\":\"PASSWORD\",\"key\":\"password\",\"title\":\"Password\",\"hint\":\"Password\",\"mandatory\":true}],\"Password-reset\":[{\"type\":\"TEXT\",\"key\":\"username\",\"title\":\"Username\",\"hint\":\"Username\",\"mandatory\":true}],\"Account-activation\":[{\"type\":\"NUMBER\",\"key\":\"code\",\"title\":\"Code\",\"hint\":\"Code\",\"mandatory\":true}],\"Password-update\":[{\"type\":\"NUMBER\",\"key\":\"code\",\"title\":\"Code\",\"hint\":\"Code\",\"mandatory\":true},{\"type\":\"TEXT\",\"key\":\"new_password\",\"title\":\"New password\",\"hint\":\"New password\",\"mandatory\":true}]}",
 
   "alternative_authentication_priority":"false",
   "alternative_authentication_separator_text":"Or",
@@ -15,7 +15,8 @@
 
   "restore_help_message_text":"If you’ve already made a purchase, you will be able to restore that purchase at no cost once you’ve logged in.",
 
-
+  "use_signup_activation_code_method":"true",
+  "use_pw_activation_code_method": "false",
   "login_title_text":"Login to Your Account",
   "login_button_text":"Login",
   "password_reset_link_text":"Forgot Your Password?",
@@ -48,6 +49,19 @@
   "restore_purchase_confirmation_description_text":"Any pre-existing purchases you’ve made have been restored and assigned to your account.",
   "password_reset_confirmation_title_text":"Password Reset Delivered",
   "password_reset_confirmation_description_text":"Check your email in order reset your password for this account",
+  "logout_title_text": "Logout title",
+  "logout_description_text": "Logout desc",
+  "logout_error_alert_text": "Logout error",
+
+  "account_activation_screen_title_text":"Activate account",
+  "account_activation_description_text":"Enter the activation code that was delivered to your mail",
+  "activate_account_button_text":"ACTIVATE",
+  "resend_code_text":"Resend Code",
+
+  "send_pw_activation_code_button_text": "SEND CODE",
+  "password_update_title_text": "Update password",
+  "password_update_description_text": "Enter the activation code that was delivered to your email",
+  "password_update_button_text": "UPDATE PASSWORD",
 
   "invalid_email_alert_text":"Please enter a valid email address",
   "required_field_alert_text":"Required Field",
@@ -137,5 +151,11 @@
   "confirmation_button_font_android":"",
   "confirmation_button_size_phone":"14",
   "confirmation_button_size_pad":"14",
-  "confirmation_button_color":"#ffffff"
+  "confirmation_button_color":"#ffffff",
+
+  "resend_code_font_ios":"",
+  "resend_code_font_android":"",
+  "resend_code_size_phone":"14",
+  "resend_code_size_pad":"14",
+  "resend_code_color":"#ffffff"
 }
