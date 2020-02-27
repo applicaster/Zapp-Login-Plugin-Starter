@@ -76,6 +76,47 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
         simulateMockEventForSuccessScenario(actionCallback = callback)
     }
 
+    /**
+     * [updatePassword] & [sendPasswordActivationCode] is alternative flow for [resetPassword], i.e.
+     * based on plugin configurations update password flow will replace reset flow
+     *
+     * @param authFieldsInput contains pair of auth field key and value
+     * Sample of the map that will be passed with default auth fields config:
+     * {"email" = "user@test.test"}
+     * For more info see Authentication Fields Configuration documentation:
+     * https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration
+     * and default config sample:
+     * https://github.com/applicaster/applicaster-cam-framework/blob/master/authentication_fields_sample.json
+     * @param callback: CAM action callback. Callback MUST be executed to continue flow handling
+     */
+    override fun updatePassword(
+        authFieldsInput: HashMap<String, String>,
+        callback: PasswordUpdateCallback
+    ) {
+        simulateMockEventForSuccessScenario(actionCallback = callback)
+    }
+
+
+    /**
+     * [updatePassword] & [sendPasswordActivationCode] is alternative flow for [resetPassword], i.e.
+     * based on plugin configurations update password flow will replace reset flow
+     *
+     * @param authFieldsInput contains pair of auth field key and value
+     * Sample of the map that will be passed with default auth fields config:
+     * {"email" = "user@test.test"}
+     * For more info see Authentication Fields Configuration documentation:
+     * https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration
+     * and default config sample:
+     * https://github.com/applicaster/applicaster-cam-framework/blob/master/authentication_fields_sample.json
+     * @param callback: CAM action callback. Callback MUST be executed to continue flow handling
+     */
+    override fun sendPasswordActivationCode(
+        authFieldsInput: HashMap<String, String>,
+        callback: SendPasswordActivationCodeCallback
+    ) {
+        simulateMockEventForSuccessScenario(activationCodeCallback = callback)
+    }
+
     override fun loginWithFacebook(email: String, id: String, callback: FacebookAuthCallback) {
         /**
          * TODO: add login via facebook implementation such as server communication and result handling
@@ -92,7 +133,7 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
 
     override fun loadEntitlements(callback: EntitlementsLoadCallback) {
         /**
-         * TODO: load your purchasable items data, wrap each item in
+         * TODO: load purchasable items data, wrap each item in
          *  [com.applicaster.cam.params.billing.BillingOffer] and pass in callback as list
          */
         simulateMockEventForSuccessScenario(entitlementsCallback = callback)
@@ -124,6 +165,49 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
     }
 
     /**
+     * [activateAccount] & [sendAuthActivationCode] is optional flow for user auth.
+     * This flow can be triggered based on plugin configurations and [isUserActivated] status after
+     * performing login or sign-up
+     *
+     * @param authFieldsInput contains pair of auth field key and value
+     * Sample of the map that will be passed with default auth fields config:
+     * {"email" = "user@test.test"}
+     * For more info see Authentication Fields Configuration documentation:
+     * https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration
+     * and default config sample:
+     * https://github.com/applicaster/applicaster-cam-framework/blob/master/authentication_fields_sample.json
+     * @param callback: CAM action callback. Callback MUST be executed to continue flow handling
+     */
+    override fun activateAccount(
+        authFieldsInput: HashMap<String, String>,
+        callback: AccountActivationCallback
+    ) {
+        simulateMockEventForSuccessScenario(actionCallback = callback)
+    }
+
+    /**
+     * [activateAccount] & [sendAuthActivationCode] is optional flow for user auth.
+     * This flow can be triggered based on plugin configurations and [isUserActivated] status after
+     * performing login or sign-up
+     *
+     * @param authFieldsInput contains pair of auth field key and value
+     * Sample of the map that will be passed with default auth fields config:
+     * {"email" = "user@test.test"}
+     * For more info see Authentication Fields Configuration documentation:
+     * https://github.com/applicaster/applicaster-cam-framework/wiki/Authentication-Fields-Configuration
+     * and default config sample:
+     * https://github.com/applicaster/applicaster-cam-framework/blob/master/authentication_fields_sample.json
+     * @param callback: CAM action callback. Callback MUST be executed to continue flow handling
+     */
+    override fun sendAuthActivationCode(
+        authFieldsInput: HashMap<String, String>,
+        callback: SendAuthActivationCodeCallback
+    ) {
+        simulateMockEventForSuccessScenario(activationCodeCallback = callback)
+    }
+
+
+    /**
      * Passing plugin configuration. For more info see [com.applicaster.cam.starterkit.cam.mocks.MockPluginConfigurator]
      * and [com.applicaster.cam.starterkit.SampleLoginPlugin.executeHook]
      */
@@ -138,6 +222,11 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
      * TODO :  Call should reflect actual item status
      */
     override fun isPurchaseRequired() = true
+
+    /**
+     * TODO :  Call should reflect actual user status (activated or not if activation is required)
+     */
+    override fun isUserActivated(): Boolean = true
 
     /**
      * TODO :  Call should reflect flow status
@@ -168,11 +257,13 @@ class MockCamContract(private val contentAccessService: ContentAccessService) : 
      */
     private fun simulateMockEventForSuccessScenario(actionCallback: ActionCallback? = null,
                                                     fbCallback: FacebookAuthCallback? = null,
-                                                    entitlementsCallback: EntitlementsLoadCallback? = null) {
+                                                    entitlementsCallback: EntitlementsLoadCallback? = null,
+                                                    activationCodeCallback: ActivationCodeCallback? = null) {
         Handler().postDelayed({
             actionCallback?.onActionSuccess()
             fbCallback?.onFacebookAuthSuccess()
             entitlementsCallback?.onSuccess(arrayListOf())
+            activationCodeCallback?.onCodeSendingSuccess()
         }, 1250)
     }
 }

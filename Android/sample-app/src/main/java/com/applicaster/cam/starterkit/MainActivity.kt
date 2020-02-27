@@ -1,7 +1,7 @@
 package com.applicaster.cam.starterkit
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.applicaster.hook_screen.HookScreenListener
 import kotlinx.android.synthetic.main.activity_main.*
 
